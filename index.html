@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Rapid Reach Training Hub</title>
+<meta name="description" content="Every Rapid Reach training in one place. Start here, learn the craft, learn the products." />
+<meta name="theme-color" content="#0f1629" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Rapid Reach Advertising" />
+<meta property="og:url" content="https://grantenyeart.github.io/rapid-reach-hub/" />
+<meta property="og:title" content="Rapid Reach Training Hub" />
+<meta property="og:description" content="Every Rapid Reach training in one place. Start here, learn the craft, learn the products." />
+<meta property="og:image" content="https://grantenyeart.github.io/rapid-reach-hub/og.png" />
+<meta property="og:image:width" content="2400" />
+<meta property="og:image:height" content="1260" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Rapid Reach Training Hub" />
+<meta name="twitter:description" content="Every Rapid Reach training in one place. Start here, learn the craft, learn the products." />
+<meta name="twitter:image" content="https://grantenyeart.github.io/rapid-reach-hub/og.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0f1629; --bg2:#080e1c; --card:#141d33; --card2:#1a2440;
+    --border:#243049; --border2:#33405c;
+    --text:#f8fafc; --muted:#9aa6bb; --muted2:#6b7890;
+    --plat:#e8edf5; --plat2:#8a8f9c;
+    --grad:linear-gradient(135deg,#ffffff,#8a8f9c);
+    --green:#34d399;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);
+    -webkit-font-smoothing:antialiased;line-height:1.55;}
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:radial-gradient(900px 520px at 85% -12%,rgba(232,237,245,.07),transparent 62%),
+               linear-gradient(180deg,var(--bg),var(--bg2));}
+  .wrap{position:relative;z-index:1;max-width:1040px;margin:0 auto;padding:40px 22px 120px;}
+
+  header{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+    padding-bottom:30px;border-bottom:1px solid var(--border);}
+  header img{height:38px;width:auto;display:block;}
+  .tag{font-size:11.5px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:var(--muted2);}
+
+  .hero{padding:46px 0 10px;}
+  h1{font-size:clamp(32px,6.2vw,54px);font-weight:900;letter-spacing:-.025em;line-height:1.04;}
+  h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .lead{color:var(--muted);font-size:17px;margin-top:16px;max-width:60ch;}
+
+  nav{display:flex;gap:9px;flex-wrap:wrap;margin:30px 0 4px;position:sticky;top:0;z-index:5;
+    background:linear-gradient(180deg,var(--bg) 70%,transparent);padding:12px 0;}
+  nav a{font-size:13.5px;font-weight:700;color:var(--muted);text-decoration:none;
+    border:1px solid var(--border2);border-radius:999px;padding:8px 16px;transition:.15s;}
+  nav a:hover{color:var(--text);border-color:var(--plat2);background:rgba(232,237,245,.05);}
+
+  section{margin-top:44px;}
+  .sh{display:flex;align-items:baseline;gap:13px;margin-bottom:5px;}
+  .sh h2{font-size:23px;font-weight:800;letter-spacing:-.01em;}
+  .sh span{font-size:12px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--muted2);}
+  .sd{color:var(--muted);font-size:15px;margin-bottom:19px;max-width:62ch;}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(296px,1fr));gap:15px;}
+  .card{display:flex;flex-direction:column;background:linear-gradient(180deg,var(--card),var(--card2));
+    border:1px solid var(--border);border-radius:15px;padding:21px 22px;text-decoration:none;color:inherit;
+    transition:border-color .15s ease,transform .15s ease;}
+  a.card:hover{border-color:var(--plat2);transform:translateY(-2px);}
+  .card h3{font-size:17.5px;font-weight:800;letter-spacing:-.01em;}
+  .card p{color:var(--muted);font-size:14.5px;margin-top:7px;flex:1;}
+  .chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:15px;}
+  .chip{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+    border:1px solid var(--border2);border-radius:999px;padding:4px 9px;color:var(--muted);}
+  .chip.q{border-color:rgba(52,211,153,.4);color:var(--green);}
+  .go{margin-top:15px;font-size:13.5px;font-weight:800;color:var(--plat);}
+  .card.soon{opacity:.62;border-style:dashed;}
+  .card.soon .go{color:var(--muted2);}
+
+  .note{margin-top:50px;border:1px solid var(--border);border-radius:14px;padding:19px 21px;
+    background:rgba(232,237,245,.03);}
+  .note b{color:var(--text);}
+  .note p{color:var(--muted);font-size:14.5px;}
+  footer{margin-top:40px;padding-top:22px;border-top:1px solid var(--border);
+    display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+    color:var(--muted2);font-size:13px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <img src="logo.png" alt="Rapid Reach Advertising" />
+    <div class="tag">Training Hub</div>
+  </header>
+
+  <div class="hero">
+    <h1>Everything you need to <span class="g">sell here</span>.</h1>
+    <p class="lead">Start at the top and work down. The first section gets you oriented, the second teaches you the job, the third teaches you what we actually sell. Nothing here takes longer than an afternoon.</p>
+  </div>
+
+  <nav>
+    <a href="#start">Start here</a>
+    <a href="#craft">Sales training</a>
+    <a href="#products">Products</a>
+    <a href="#tools">On the call</a>
+  </nav>
+
+  <section id="start">
+    <div class="sh"><h2>Start here</h2><span>Day one</span></div>
+    <p class="sd">Before you touch a phone. What this company does, what the job actually is, and how you get paid.</p>
+    <div class="grid">
+      <a class="card" href="start.html">
+        <h3>What this job is</h3>
+        <p>Who we sell to, the two roles, what a day looks like, and what good looks like in your first week.</p>
+        <div class="chips"><span class="chip">Read</span><span class="chip">10 min</span></div>
+        <div class="go">Start here &rarr;</div>
+      </a>
+      <a class="card" href="https://grantenyeart.github.io/setter-onboarding/">
+        <h3>Setter Day 1</h3>
+        <p>The call map, the pitches, objections, the money, and how to be ready to pick up the phone.</p>
+        <div class="chips"><span class="chip">Slides</span></div>
+        <div class="go">Open &rarr;</div>
+      </a>
+    </div>
+  </section>
+
+  <section id="craft">
+    <div class="sh"><h2>Sales training</h2><span>The craft</span></div>
+    <p class="sd">How to run the call. Setters learn the phone, closers learn the Zoom. Everybody does no-shows.</p>
+    <div class="grid">
+      <a class="card" href="https://grantenyeart.github.io/setter-playbook/">
+        <h3>The Setter Playbook</h3>
+        <p>The cold call start to finish: opener, pain discovery, pain to product, the pitches, objections, booking the Zoom.</p>
+        <div class="chips"><span class="chip">Slides</span><span class="chip">Scripts</span></div>
+        <div class="go">Open &rarr;</div>
+      </a>
+      <a class="card" href="https://grantenyeart.github.io/closer-playbook/">
+        <h3>The Closer's Playbook</h3>
+        <p>Frame, discovery, objection handling and the close, with the phase library and real call clips.</p>
+        <div class="chips"><span class="chip">Slides</span><span class="chip">Call clips</span></div>
+        <div class="go">Open &rarr;</div>
+      </a>
+      <a class="card" href="https://grantenyeart.github.io/closer-playbook/calls.html">
+        <h3>The Film Room</h3>
+        <p>Real closing calls broken down line by line against the 14 point scorecard. Watch what actually worked.</p>
+        <div class="chips"><span class="chip">Teardowns</span></div>
+        <div class="go">Open &rarr;</div>
+      </a>
+      <a class="card" href="https://grantenyeart.github.io/no-shows/">
+        <h3>Killing No-Shows</h3>
+        <p>Two tracks. Setters earn the show and lock it in. Closers get them back on the call. Video, slides and a test each.</p>
+        <div class="chips"><span class="chip">Video</span><span class="chip">Slides</span><span class="chip q">Quiz</span></div>
+        <div class="go">Open &rarr;</div>
+      </a>
+      <div class="card soon">
+        <h3>Objection Handling</h3>
+        <p>A module of its own. For now the objection work lives inside the setter and closer playbooks.</p>
+        <div class="chips"><span class="chip">Not built yet</span></div>
+        <div class="go">Coming</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="products">
+    <div class="sh"><h2>Products</h2><span>What we sell</span></div>
+    <p class="sd">You cannot sell what you cannot explain. One module per product, plus the full service list and what each one pays you.</p>
+    <div class="grid">
+      <a class="card" href="https://grantenyeart.github.io/search-campaign/">
+        <h3>Google Search Campaigns</h3>
+        <p>The main product. What it is, why the highest bid does not win, why they cannot run it alone, the price ladder and the objections.</p>
+        <div class="chips"><span class="chip">Slides</span><span class="chip">Video coming</span></div>
+        <div class="go">Open &rarr;</div>
+      </a>
+      <a class="card" href="https://grantenyeart.github.io/services-playbook/">
+        <h3>The Services Playbook</h3>
+        <p>Every service we offer, what to tell the client, current pricing, and the real dollar payout on each one.</p>
+        <div class="chips"><span class="chip">Slides</span><span class="chip">Commissions</span></div>
+        <div class="go">Open &rarr;</div>
+      </a>
+      <a class="card" href="https://grantenyeart.github.io/website-playbook/">
+        <h3>The Website Pitch</h3>
+        <p>How to sell websites that book jobs. Frame, the teardown, objections and the close.</p>
+        <div class="chips"><span class="chip">Slides</span></div>
+        <div class="go">Open &rarr;</div>
+      </a>
+    </div>
+  </section>
+
+  <section id="tools">
+    <div class="sh"><h2>On the call</h2><span>Client facing</span></div>
+    <p class="sd">This one is not training. It is what you screen share with a prospect while you are closing them.</p>
+    <div class="grid">
+      <a class="card" href="https://grantenyeart.github.io/closing-deck/">
+        <h3>The Closing Deck</h3>
+        <p>The branching product deck you present on the Zoom. Learn it cold before you ever share your screen on a live call.</p>
+        <div class="chips"><span class="chip">Client facing</span></div>
+        <div class="go">Open &rarr;</div>
+      </a>
+    </div>
+  </section>
+
+  <div class="note">
+    <p><b>Your scores are tracked.</b> Any module with a quiz reports your name, your score and which questions you missed straight to Grant when you hit submit. Retakes are fine and they are expected. Failing and coming back is not a problem, skipping it is.</p>
+  </div>
+
+  <footer>
+    <div>Rapid Reach Advertising &middot; Internal training</div>
+    <div>rapidreachads.com</div>
+  </footer>
+
+</div>
+</body>
+</html>
