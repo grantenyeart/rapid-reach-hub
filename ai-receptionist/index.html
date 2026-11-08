@@ -35,8 +35,9 @@
   .sh .n{font-family:'Playfair Display',serif;font-size:26px;font-weight:900;color:var(--gold);line-height:1;}
   .sh h2{font-size:22px;font-weight:800;letter-spacing:-.01em;}
   .sd{color:var(--muted);font-size:15px;margin-top:8px;max-width:64ch;}
-  .vid{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;
-    border:1px solid var(--border2);margin-top:16px;background:#060d1c;}
+  .vid{position:relative;width:100%;margin-top:16px;border-radius:12px;overflow:hidden;
+    border:1px solid var(--border2);background:#000;box-shadow:0 18px 50px rgba(0,0,0,.45);}
+  .vid video{display:block;width:100%;height:auto;}
   .vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
   .go{display:inline-block;margin-top:16px;background:var(--grad);color:#0f172a;font-weight:800;
     font-size:15px;border-radius:999px;padding:12px 25px;text-decoration:none;}
@@ -70,7 +71,13 @@
   <div class="step">
     <div class="sh"><span class="n">1</span><h2>Watch the training</h2></div>
     <p class="sd">What the product actually is, the three levels, and how to talk about it without sounding like you are selling software.</p>
-    <div class="pending"><b>Video coming.</b> Grant is adding the YouTube link.</div>
+    <div class="vid">
+      <video controls playsinline preload="metadata" poster="poster.jpg">
+        <source src="training.mp4" type="video/mp4">
+        Your browser cannot play this video. <a href="training.mp4">Download it instead.</a>
+      </video>
+    </div>
+    <p class="sd" style="margin-top:10px;font-size:14px;">Six and a half minutes. Watch it before the quiz, the questions come from this.</p>
   </div>
 
   <div class="step">
