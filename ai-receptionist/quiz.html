@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Training Test &middot; Rapid Reach</title>
+<meta name="theme-color" content="#020817" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#020817;--bg2:#01030a;--card:#0b1322;--card2:#101c33;--border:#1e293b;--border2:#27364b;
+    --text:#f8fafc;--muted:#94a3b8;--muted2:#64748b;--gold:#f59e0b;--green:#34d399;--red:#f87171;
+    --grad:linear-gradient(135deg,#f59e0b,#eab308);}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);
+    -webkit-font-smoothing:antialiased;line-height:1.55;}
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:radial-gradient(900px 500px at 85% -10%,rgba(245,158,11,.10),transparent 60%),
+               linear-gradient(180deg,var(--bg),var(--bg2));}
+  .wrap{position:relative;z-index:1;max-width:800px;margin:0 auto;padding:44px 20px 120px;}
+  .kicker{font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+  h1{font-size:clamp(30px,6vw,48px);font-weight:900;letter-spacing:-.02em;line-height:1.05;}
+  .gold{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .lead{color:var(--muted);font-size:16px;margin-top:14px;}
+  .back{display:inline-block;margin-bottom:24px;font-size:13.5px;font-weight:700;color:var(--muted);
+    text-decoration:none;border:1px solid var(--border);border-radius:999px;padding:7px 15px;}
+  .back:hover{color:var(--gold);border-color:var(--gold);}
+
+  .who{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--border2);
+    border-radius:14px;padding:18px 20px;margin:26px 0 8px;}
+  .who label{display:block;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+  .who input{width:100%;background:#060d1c;border:1px solid var(--border2);color:var(--text);
+    border-radius:10px;padding:12px 14px;font:inherit;font-size:16px;}
+
+  .q{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--border);
+    border-left:3px solid var(--border2);border-radius:14px;padding:19px 21px;margin:14px 0;}
+  .q.right{border-left-color:var(--green);}
+  .q.wrong{border-left-color:var(--red);}
+  .qn{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2);}
+  .qt{font-size:17px;font-weight:700;color:#fff;margin:7px 0 13px;line-height:1.4;}
+  .opt{display:flex;gap:11px;align-items:flex-start;padding:10px 12px;border:1px solid var(--border);
+    border-radius:10px;margin-bottom:8px;cursor:pointer;transition:border-color .12s ease,background .12s ease;}
+  .opt:hover{border-color:var(--border2);background:rgba(255,255,255,.02);}
+  .opt input{margin-top:4px;flex:0 0 auto;accent-color:#f59e0b;}
+  .opt span{font-size:15px;color:#cbd5e1;}
+  .opt.correct{border-color:rgba(52,211,153,.55);background:rgba(52,211,153,.08);}
+  .opt.correct span{color:#d1fae5;}
+  .opt.picked-wrong{border-color:rgba(248,113,113,.55);background:rgba(248,113,113,.08);}
+  .opt.picked-wrong span{color:#fecaca;}
+  .exp{margin-top:11px;background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.22);
+    border-radius:10px;padding:12px 14px;font-size:14.5px;color:#e2e8f0;display:none;}
+  .exp b{color:#fff;}
+  .q.graded .exp{display:block;}
+
+  .bar{height:5px;background:#0b1322;border-radius:999px;overflow:hidden;margin:22px 0 6px;}
+  .bar i{display:block;height:100%;width:0;background:var(--grad);transition:width .3s ease;}
+  .step{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2);}
+  .stage{display:none;} .stage.on{display:block;}
+  .btn{display:inline-flex;align-items:center;gap:9px;background:var(--grad);color:#0f172a;
+    font-weight:800;font-size:16px;border:0;border-radius:999px;padding:15px 32px;cursor:pointer;font-family:inherit;}
+  .btn:hover{filter:brightness(1.08);}
+  .btn[disabled]{opacity:.45;cursor:not-allowed;filter:none;}
+  .btn.ghost{background:transparent;border:1px solid var(--border2);color:var(--muted);}
+  .actions{margin-top:28px;display:flex;gap:11px;flex-wrap:wrap;align-items:center;}
+  .note{color:var(--muted2);font-size:13.5px;}
+
+  .result{display:none;background:linear-gradient(180deg,var(--card),var(--card2));
+    border:1px solid var(--border2);border-radius:16px;padding:26px;margin:26px 0;text-align:center;}
+  .result.on{display:block;}
+  .score{font-family:'Playfair Display',serif;font-size:clamp(46px,10vw,76px);font-weight:900;line-height:1;
+    background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .result.pass .score{background:linear-gradient(135deg,#34d399,#10b981);-webkit-background-clip:text;background-clip:text;}
+  .result.fail .score{background:linear-gradient(135deg,#f87171,#ef4444);-webkit-background-clip:text;background-clip:text;}
+  .verdict{font-size:19px;font-weight:800;margin-top:10px;}
+  .rsub{color:var(--muted);font-size:15px;margin-top:9px;}
+  .sent{margin-top:16px;font-size:14px;color:var(--green);display:none;}
+  .sent.on{display:block;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" id="backlink" href="./">&larr; Back to the training</a>
+  <div class="kicker">Rapid Reach &middot; Sales Training</div>
+  <h1 id="h1"></h1>
+
+  <div class="stage on" id="st-start">
+    <p class="lead" id="intro"></p>
+    <div class="who">
+      <label>Your name</label>
+      <input type="text" id="name" placeholder="First and last name" autocomplete="name" />
+    </div>
+    <div class="actions"><button class="btn" id="begin">Start the test</button></div>
+  </div>
+
+  <div class="stage" id="st-quiz">
+    <div class="bar"><i id="barfill"></i></div>
+    <div class="step" id="step"></div>
+    <div id="holder"></div>
+    <div class="actions">
+      <button class="btn" id="check">Check answer</button>
+      <button class="btn" id="next" style="display:none;">Next question</button>
+      <span class="note" id="running"></span>
+    </div>
+  </div>
+
+  <div class="stage" id="st-done">
+    <div class="result on" id="result">
+      <div class="score" id="score"></div>
+      <div class="verdict" id="verdict"></div>
+      <p class="rsub" id="rsub"></p>
+      <div class="sent" id="sent">Your score has been sent to Grant.</div>
+    </div>
+    <div id="review"></div>
+    <div class="actions"><button class="btn ghost" id="retake">Take it again</button></div>
+  </div>
+</div>
+
+<!-- The shared tracker. Do not paste a URL in here, it lives in score.js. -->
+<script src="https://grantenyeart.github.io/training-scores/score.js"></script>
+
+<script>
+/* ============================================================
+   EDIT THESE TWO BLOCKS ONLY. Everything else runs itself.
+   ============================================================ */
+
+const CONFIG = {
+  title: "AI Receptionist",
+  track: "Everyone",
+  pass:  12,
+  back:  "./"
+};
+
+const Q = [
+ {q:"How many AI Receptionist packages do we sell, and what are they?",
+  a:["Two: full and backup","Three: Full Receptionist, AI Front Desk, and Backup","Four, one per channel","One package, priced per call"],
+  c:1, e:"Three. <b>Full Receptionist $1,500</b>, <b>AI Front Desk $1,000</b>, <b>Backup $500</b>. The client picks the rung, and $500 is the floor on the whole ladder."},
+
+ {q:"What does the Full Receptionist at $1,500 a month cover?",
+  a:["Only phone calls","Only missed calls after hours","Every call and every message, including Instagram and Facebook DMs","Phone calls and email only"],
+  c:2, e:"Everything. Calls, texts, Instagram DMs, Meta and Facebook. It is not limited to the phone, and that is the part most owners do not expect."},
+
+ {q:"What is the AI Front Desk at $1,000 a month built to do?",
+  a:["Only answer after hours","Answer first, cut the spam calls, act as gatekeeper, and push high-intent callers through","Send a booking link by text","Record calls for later review"],
+  c:1, e:"It answers first and <b>gatekeeps</b>. It kills the people calling to sell them something, books the simple details itself, and pushes a real buyer through to the owner."},
+
+ {q:"What does the Backup package at $500 a month do?",
+  a:["Answers every call before the owner","Only picks up the calls they miss, including after hours","Replies to DMs only","Calls their old customers back"],
+  c:1, e:"Missed calls only. It is for the owner who wants to answer his own phone but is losing the ones he cannot get to, especially after close."},
+
+ {q:"Whose voice does the receptionist speak in?",
+  a:["A standard robot voice","Whichever voice the client picks, including their own","It types, it does not speak","A voice actor we hire"],
+  c:1, e:"It can be catered to any voice they want, including <b>their own</b>. That is a demo moment, not a feature bullet."},
+
+ {q:"What is the single biggest thing people get wrong when they build this themselves?",
+  a:["They pay too much for it","It sends a redirect link instead of booking straight into the calendar, so the customer gets lost","They use the wrong phone carrier","They only run it at night"],
+  c:1, e:"Most of them <b>cannot book into the calendar</b>. They fire out a redirect link, the customer never follows it, and the job is gone. Ours books directly."},
+
+ {q:"Why is a badly built AI receptionist worse than having none at all?",
+  a:["It costs more to run","It gives that caller a permanently bad impression of the company and that customer is gone for good","It slows their website down","Google penalises it"],
+  c:1, e:"It is <b>substantially damaging</b>. A bad experience on the phone does not just lose the booking, it loses the customer forever and they tell people."},
+
+ {q:"In the video, what is the first question used to find the pain?",
+  a:["What is your budget?","How many phone calls a day do you think you are getting?","Who is your current provider?","Do you want more customers?"],
+  c:1, e:"Start with volume. <b>How many calls a day?</b> You need their number before anything else, the same rule as the cold call script: no number, no diagnosis."},
+
+ {q:"After they tell you their call volume, what do you ask next?",
+  a:["Whether they are the one answering the phone while also doing the details","What their website costs","How long they have been in business","Whether they use Instagram"],
+  c:0, e:"Ask if <b>they</b> are the one answering. One hand on the phone, one hand on the vacuum. That picture is the pain, and they have to say it out loud."},
+
+ {q:"What is the closing-time question for, and what is the follow-up?",
+  a:["Politeness. There is no follow up","You ask what time they close, then what happens if you call an hour after that","To find out their busiest day","To schedule your callback"],
+  c:1, e:"\"What time do you close?\" then <b>\"what happens if I call at 8pm?\"</b> Straight to voicemail is the whole pitch. It is the strongest diagnostic on the call."},
+
+ {q:"A shop misses 2 calls a day at a $300 average ticket. How do you say that back to them?",
+  a:["\"You are missing some business\"","\"That is $600 in opportunity walking out every single day\"","\"You should answer your phone more\"","\"That is about 10% of your revenue\""],
+  c:1, e:"Do the maths out loud in <b>their</b> numbers. 2 x $300 is $600 a day. A vague \"you are losing business\" closes nobody."},
+
+ {q:"What happens to booking rates when a lead is answered in 5 minutes instead of 30?",
+  a:["No real difference","About a 100% increase in them engaging and booking through","Roughly 10% better","It only matters after hours"],
+  c:1, e:"A <b>100% increase</b>. Speed is the product. That stat is why the receptionist pays for itself before anything else does."},
+
+ {q:"If a business does not answer, what share of customers leave a voicemail?",
+  a:["About 43%","About 80%","About 20%","Almost all of them"],
+  c:0, e:"Only <b>43%</b> leave a voicemail, and <b>62% will not call back at all</b> if nobody picks up the first time. A missed call is usually a lost customer, not a callback."},
+
+ {q:"\"I don't think AI can sell to my customers.\" What is the answer?",
+  a:["Quote the accuracy rate","Ask if they have ever called a dentist or orthodontist, because that was AI and they did not notice, then get them on a call to hear it","Offer a discount","Tell them to try it for a month"],
+  c:1, e:"The <b>dentist office</b> line. They have already spoken to one of these without knowing. Then stop arguing and get them on a call to hear it. You never win this one by debating."},
+
+ {q:"On a setting call, what do you say when they push hard on price?",
+  a:["Quote $1,500 and hold firm","Anchor at $4,000 a month first","\"Our pricing and packages vary based on what you are looking for, that is exactly what the call is for\"","Tell them the cheapest package is $500"],
+  c:2, e:"<b>You do not quote a price on a setting call.</b> Not this product, not any of them. Give that line, then book the Zoom. A number on the phone just gives them something to say no to."}
+];
+
+/* ============================================================
+   ENGINE. Leave it alone.
+   ============================================================ */
+
+document.title = CONFIG.title + " \u00b7 Rapid Reach";
+document.getElementById('h1').innerHTML =
+  CONFIG.title.replace(/\s+(\S+)$/, ' <span class="gold">$1</span>');
+document.getElementById('backlink').href = CONFIG.back;
+document.getElementById('intro').innerHTML =
+  Q.length + ' questions, one at a time. You need <b style="color:#fde68a">' +
+  CONFIG.pass + ' out of ' + Q.length + '</b> to pass. Watch the training first. ' +
+  'You get the answer and the reason after each one, so read them as you go.';
+
+let i = 0, score = 0, picked = null, log = [];
+
+function show(){
+  const item = Q[i];
+  document.getElementById('step').textContent = 'Question ' + (i+1) + ' of ' + Q.length;
+  document.getElementById('barfill').style.width = (i / Q.length * 100) + '%';
+  document.getElementById('running').textContent = score + ' right so far';
+  const holder = document.getElementById('holder');
+  holder.innerHTML =
+    '<div class="q" id="cur"><div class="qn">Question ' + (i+1) + '</div>' +
+    '<div class="qt">' + item.q + '</div>' +
+    item.a.map(function(t,n){
+      return '<label class="opt" id="o' + n + '"><input type="radio" name="a" value="' + n + '" />' +
+             '<span>' + t + '</span></label>';
+    }).join('') +
+    '<div class="exp">' + item.e + '</div></div>';
+  picked = null;
+  document.getElementById('check').disabled = true;
+  document.getElementById('check').style.display = 'inline-flex';
+  document.getElementById('next').style.display = 'none';
+  holder.querySelectorAll('input').forEach(function(r){
+    r.onchange = function(){ picked = parseInt(r.value,10); document.getElementById('check').disabled = false; };
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+document.getElementById('begin').onclick = function(){
+  const n = document.getElementById('name').value.trim();
+  if(!n){ alert('Put your name in first.'); document.getElementById('name').focus(); return; }
+  document.getElementById('st-start').classList.remove('on');
+  document.getElementById('st-quiz').classList.add('on');
+  show();
+};
+
+document.getElementById('check').onclick = function(){
+  if(picked === null) return;
+  const item = Q[i], box = document.getElementById('cur');
+  box.classList.add('graded');
+  document.getElementById('o' + item.c).classList.add('correct');
+  if(picked === item.c){ score++; box.classList.add('right'); }
+  else { box.classList.add('wrong'); document.getElementById('o' + picked).classList.add('picked-wrong'); }
+  log.push({n:i+1, ok:picked === item.c});
+  box.querySelectorAll('input').forEach(function(x){ x.disabled = true; });
+  this.style.display = 'none';
+  const nx = document.getElementById('next');
+  nx.style.display = 'inline-flex';
+  nx.textContent = (i === Q.length-1) ? 'See my score' : 'Next question';
+};
+
+document.getElementById('next').onclick = function(){
+  i++;
+  if(i < Q.length){ show(); return; }
+  document.getElementById('barfill').style.width = '100%';
+  document.getElementById('st-quiz').classList.remove('on');
+  document.getElementById('st-done').classList.add('on');
+  finish();
+};
+
+function finish(){
+  const name = document.getElementById('name').value.trim();
+  const missed = log.filter(function(x){ return !x.ok; }).map(function(x){ return x.n; });
+  const pass = score >= CONFIG.pass;
+  const r = document.getElementById('result');
+  r.classList.add(pass ? 'pass' : 'fail');
+  document.getElementById('score').textContent = score + ' / ' + Q.length;
+  document.getElementById('verdict').textContent = pass ? 'Passed' : 'Not a pass yet';
+  document.getElementById('rsub').textContent = pass
+    ? (missed.length ? 'Read the ones you missed again below: ' + missed.join(', ') + '.' : 'Perfect score. Go to work.')
+    : 'You need ' + CONFIG.pass + ' to pass. Read the missed ones below, watch the training again, then retake it.';
+
+  document.getElementById('review').innerHTML = missed.length
+    ? '<h3 style="font-size:18px;font-weight:800;margin:26px 0 12px;">What you missed</h3>' +
+      missed.map(function(n){
+        return '<div class="q graded wrong"><div class="qn">Question ' + n + '</div>' +
+               '<div class="qt">' + Q[n-1].q + '</div>' +
+               '<div class="opt correct"><span>' + Q[n-1].a[Q[n-1].c] + '</span></div>' +
+               '<div class="exp">' + Q[n-1].e + '</div></div>';
+      }).join('')
+    : '';
+
+  const done = function(){ document.getElementById('sent').classList.add('on'); };
+  RRScore.submit(
+    { quiz:CONFIG.title, track:CONFIG.track, name:name, score:score,
+      total:Q.length, passed:pass, missed:missed.join(' ') },
+    done, done
+  );
+
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+document.getElementById('retake').onclick = function(){ location.reload(); };
+</script>
+</body>
+</html>

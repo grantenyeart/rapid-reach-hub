@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Killing No-Shows &middot; Rapid Reach</title>
+<meta name="theme-color" content="#020817" />
+<meta name="description" content="Every move from the training, laid out so you can jump to the part you need." />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Rapid Reach Sales Training" />
+<meta property="og:url" content="slides.html" />
+<meta property="og:title" content="Killing No-Shows: the slides" />
+<meta property="og:description" content="Every move from the training, laid out so you can jump to the part you need." />
+<meta property="og:image" content="og.png" />
+<meta property="og:image:width" content="2400" />
+<meta property="og:image:height" content="1260" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Killing No-Shows: the slides" />
+<meta name="twitter:description" content="Every move from the training, laid out so you can jump to the part you need." />
+<meta name="twitter:image" content="og.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#020817; --bg2:#01030a; --card:#0b1322; --card2:#101c33;
+    --border:#1e293b; --border2:#27364b; --text:#f8fafc; --muted:#94a3b8; --muted2:#64748b;
+    --gold:#f59e0b; --gold2:#eab308; --green:#34d399; --red:#f87171;
+    --grad:linear-gradient(135deg,#f59e0b,#eab308);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{height:100%;}
+  body{font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);
+    -webkit-font-smoothing:antialiased;line-height:1.5;overflow:hidden;}
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:radial-gradient(1000px 600px at 85% -10%,rgba(245,158,11,.11),transparent 60%),
+               radial-gradient(800px 600px at 0% 110%,rgba(234,179,8,.07),transparent 60%),
+               linear-gradient(180deg,var(--bg),var(--bg2));}
+
+  .scroller{position:relative;z-index:1;height:100%;overflow-y:auto;scroll-snap-type:y mandatory;scroll-behavior:smooth;}
+  .slide{min-height:100%;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:center;
+    max-width:1000px;margin:0 auto;padding:68px 30px 92px;}
+
+  .kicker{font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:13px;}
+  h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(38px,7.5vw,82px);font-weight:900;letter-spacing:-.02em;line-height:1;}
+  h2{font-size:clamp(26px,4.4vw,46px);font-weight:900;letter-spacing:-.02em;line-height:1.08;}
+  .gold{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .lead{color:var(--muted);font-size:clamp(15px,2.1vw,19px);margin-top:16px;max-width:780px;}
+  p{color:#cbd5e1;font-size:16px;}
+  .note{color:var(--muted2);font-size:13.5px;margin-top:16px;}
+
+  .rows{display:flex;flex-direction:column;gap:11px;margin-top:26px;}
+  .row{display:flex;gap:15px;align-items:flex-start;background:linear-gradient(180deg,var(--card),var(--card2));
+    border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:13px;padding:16px 19px;}
+  .num{flex:0 0 auto;width:29px;height:29px;border-radius:9px;background:var(--grad);color:#0f172a;
+    font-weight:900;font-size:14px;display:flex;align-items:center;justify-content:center;}
+  .qt{font-size:17px;font-weight:800;color:#fff;line-height:1.35;}
+  .qs{color:var(--muted);font-size:14.5px;margin-top:5px;}
+
+  .say{background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.26);border-radius:13px;padding:18px 21px;margin-top:22px;}
+  .say .lbl{font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+  .say q{display:block;color:#fff;font-size:clamp(17px,2.5vw,23px);font-style:italic;font-weight:600;line-height:1.45;}
+  .say q:before,.say q:after{content:'"';}
+
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:13px;margin-top:24px;}
+  .stat{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--border);border-radius:13px;padding:18px 19px;}
+  .stat b{display:block;font-family:'Playfair Display',serif;font-size:clamp(28px,4.4vw,44px);font-weight:900;line-height:1;
+    background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .stat span{display:block;color:var(--muted);font-size:13.5px;margin-top:8px;}
+  .stat.bad b{background:linear-gradient(135deg,#f87171,#ef4444);-webkit-background-clip:text;background-clip:text;}
+  .stat.good b{background:linear-gradient(135deg,#34d399,#10b981);-webkit-background-clip:text;background-clip:text;}
+
+  table{width:100%;border-collapse:collapse;margin-top:24px;font-size:16px;}
+  th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--border);}
+  th{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);}
+  td.n{text-align:right;font-variant-numeric:tabular-nums;font-weight:800;}
+  .dn{color:var(--red);} .up{color:var(--green);}
+
+  .why{background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.22);border-radius:13px;padding:17px 20px;margin-top:22px;}
+  .why .lbl{font-size:10.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:7px;}
+  .why p{color:#e2e8f0;font-size:15.5px;}
+
+  .seq{display:flex;flex-direction:column;gap:10px;margin-top:24px;}
+  .step{display:flex;gap:14px;align-items:center;background:linear-gradient(180deg,var(--card),var(--card2));
+    border:1px solid var(--border);border-radius:12px;padding:14px 18px;}
+  .when{flex:0 0 auto;min-width:118px;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);}
+  .what{font-size:15.5px;color:#e2e8f0;}
+  .what b{color:#fff;}
+
+  .check{list-style:none;margin-top:22px;}
+  .check li{font-size:16px;color:#e2e8f0;padding:9px 0 9px 32px;position:relative;border-bottom:1px solid var(--border);}
+  .check li:before{content:"\2713";position:absolute;left:4px;top:9px;color:var(--gold);font-weight:900;}
+  .check li b{color:#fff;}
+
+  .big{font-family:'Playfair Display',serif;font-size:clamp(28px,5.2vw,56px);font-weight:900;line-height:1.08;margin-top:8px;}
+
+  .bar{position:fixed;left:0;right:0;bottom:0;z-index:30;backdrop-filter:blur(14px);
+    background:rgba(2,8,23,.9);border-top:1px solid var(--border);}
+  .bar-in{max-width:1000px;margin:0 auto;padding:11px 30px;display:flex;align-items:center;gap:10px;}
+  .nb{background:transparent;border:1px solid var(--border2);color:var(--muted);border-radius:10px;width:38px;height:36px;font-size:15px;cursor:pointer;}
+  .nb:hover{border-color:var(--gold);color:var(--gold);}
+  .count{margin-left:auto;font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--muted2);font-variant-numeric:tabular-nums;}
+  .prog{position:fixed;top:0;left:0;height:3px;background:var(--grad);z-index:40;width:0;transition:width .25s ease;}
+  .brand{position:fixed;top:19px;left:30px;z-index:30;font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--muted2);}
+  @media(max-width:620px){ .slide{padding:62px 18px 92px;} .bar-in{padding:10px 18px;} .brand{left:18px;} .when{min-width:92px;font-size:11px;} }
+</style>
+</head>
+<body>
+
+<div class="prog" id="prog"></div>
+<div class="brand"><a href="./" style="color:inherit;text-decoration:none;">&larr; Rapid Reach &middot; Sales Training</a></div>
+
+<div class="scroller" id="scroller">
+
+  <section class="slide">
+    <div class="kicker">Rapid Reach &middot; Sales Training</div>
+    <h1>Killing<br><span class="gold">No-Shows</span></h1>
+    <p class="lead">The booked call is not the win. The call they actually turn up to is the win. Everything in here is about closing the gap between those two.</p>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Start here</div>
+    <h2>Nobody forgets a call<br>they <span class="gold">actually want</span> to be on</h2>
+    <p class="lead">A no-show is almost never a calendar problem. They did not lose the invite and they did not get confused about the time. Somewhere between your call and that morning, they decided half an hour with us was not worth it.</p>
+    <div class="why"><div class="lbl">Which changes where the work is</div><p>The show is not won in the reminder. <b>It is won on the setting call.</b> Reminders only collect a decision that has already been made. Everything that follows is either building that decision or protecting it.</p></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">The process</div>
+    <h2>Six things, every single time</h2>
+    <div class="rows">
+      <div class="row"><div class="num">1</div><div><div class="qt">Earn the show before you book it</div><div class="qs">Pain, need, decision maker. All three, or it is not a call.</div></div></div>
+      <div class="row"><div class="num">2</div><div><div class="qt">Book a consultation, not a sales call</div><div class="qs">They are turning up for a free audit of their business.</div></div></div>
+      <div class="row"><div class="num">3</div><div><div class="qt">Ask the zombie apocalypse question</div><div class="qs">Make them say out loud that they will be there.</div></div></div>
+      <div class="row"><div class="num">4</div><div><div class="qt">Get the reply YES before you hang up</div><div class="qs">Watch them send it while you still have them.</div></div></div>
+      <div class="row"><div class="num">5</div><div><div class="qt">Run the confirmation sequence</div><div class="qs">Morning text, morning call, fifteen minutes before, voicemail every time.</div></div></div>
+      <div class="row"><div class="num">6</div><div><div class="qt">Be unreasonable about the follow up</div><div class="qs">Chase it until they show or until they tell you no.</div></div></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Step 1 &middot; On the setting call</div>
+    <h2>Earn the show before you book it</h2>
+    <p class="lead">Three things have to be true before a call is worth putting on a closer's calendar. If you cannot answer all three, you have not booked a call. You have booked a no-show.</p>
+    <div class="rows">
+      <div class="row"><div class="num">1</div><div><div class="qt">Did they tell you the pain, in their own words?</div><div class="qs">Not "yeah, I could use more work." The actual problem. Slow weeks, an empty calendar, an agency that burned them, a van sitting idle. <b>If you cannot repeat their pain back to the closer, they have not told you any.</b></div></div></div>
+      <div class="row"><div class="num">2</div><div><div class="qt">Do they actually need what we sell?</div><div class="qs">Booked out six weeks and happy is not a buyer. Someone who wants more work and is not getting it is.</div></div></div>
+      <div class="row"><div class="num">3</div><div><div class="qt">Are you talking to the decision maker?</div><div class="qs">If they have to run it past a partner or an owner, that call will not close, and most of the time it will not even happen. Get the decision maker on, or get them both on.</div></div></div>
+    </div>
+    <div class="why"><div class="lbl">The point</div><p>A prospect who has just described their own problem out loud has a reason to show up. One who agreed to a call to get you off the phone does not.</p></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Step 2 &middot; On the setting call</div>
+    <h2>Book a consultation,<br>not a <span class="gold">sales call</span></h2>
+    <p class="lead">Nobody blocks out half an hour to be sold to. They will block out half an hour to find out what is wrong with their business.</p>
+    <p style="margin-top:18px;">Every call you set is a free consultation and a free audit. On it we go through:</p>
+    <div class="rows">
+      <div class="row"><div class="num">&#9679;</div><div><div class="qt">Their Google Business Profile</div><div class="qs">What is set up wrong on it, and what that is costing them.</div></div></div>
+      <div class="row"><div class="num">&#9679;</div><div><div class="qt">Their SEO and where they actually rank</div><div class="qs">Who is sitting above them in their own town, and why.</div></div></div>
+      <div class="row"><div class="num">&#9679;</div><div><div class="qt">How much work is slipping past them right now</div><div class="qs">The searches happening in their area that are going to somebody else.</div></div></div>
+    </div>
+    <div class="why"><div class="lbl">Say it out loud before you hang up</div><p>They keep the audit whether they buy or not. <b>Tell them that.</b> A free teardown of their own business is worth showing up for. A pitch is not.</p></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Step 3 &middot; Before you hang up</div>
+    <h2>Ask the question that makes them commit</h2>
+    <div class="say"><div class="lbl">Word for word</div><q>Other than a zombie apocalypse, is there any other reason you would not be able to make this call?</q></div>
+    <div class="why"><div class="lbl">Why it works</div><p>It is light enough that they laugh, and specific enough that they have to answer.<br><br>Either you get a clean <b>"no, I will be there"</b>, which is now a promise they would have to break to your face. Or they surface the real conflict and you move the call to a time they can actually make.<br><br><b>Both of those beat finding out at 2pm tomorrow.</b></p></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Step 4 &middot; Before you hang up</div>
+    <h2>Get the <span class="gold">reply YES</span> while they are still on the phone</h2>
+    <p class="lead">The moment they book, they get a text: two testimonial videos, where the call is, and a line asking them to reply YES to confirm.</p>
+    <div class="say"><div class="lbl">Walk them to it</div><q>I just sent you a text. Can you open it and reply YES so I know the system has you locked in?</q></div>
+    <div class="why"><div class="lbl">Do not hang up and hope</div><p>Wait for it. A confirmation you watched them send beats ten reminders you sent into silence, and a text they will not open while you are on the phone with them is telling you right now that this call is in trouble.</p></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Step 5 &middot; Between booking and call</div>
+    <h2>The confirmation sequence</h2>
+    <p class="lead">Run every one of these. Not the ones that feel comfortable. All of them.</p>
+    <div class="seq">
+      <div class="step"><div class="when">On the call</div><div class="what">Confirmation text sent, and <b>replied YES</b>, watched, before you hang up.</div></div>
+      <div class="step"><div class="when">That morning</div><div class="what">Text them. Short, warm, no pressure. <b>"Looking forward to this afternoon."</b></div></div>
+      <div class="step"><div class="when">That morning</div><div class="what">Call them. Not instead of the text. As well as the text.</div></div>
+      <div class="step"><div class="when">15 min before</div><div class="what"><b>Always.</b> "Hey, looking forward to our call, just want to confirm you are still good to jump on."</div></div>
+      <div class="step"><div class="when">No answer</div><div class="what"><b>Always leave a voicemail.</b> A missed ring is nothing. A voice they recognise is a reason to pick up next time.</div></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Step 6 &middot; The standard</div>
+    <h2>Be <span class="gold">unreasonable</span> about it</h2>
+    <p class="lead">You dialed for days to get this person on the phone. You got them talking about the thing that keeps them up at night. You put it on a closer's calendar. Then you let it die because you did not want to seem pushy on the fourth attempt.</p>
+    <div class="say"><div class="lbl">The standard</div><q>Fifteen calls in three days if that is what it takes.</q></div>
+    <div class="why"><div class="lbl">How hard would you chase it</div><p>If somebody had a gun to your head, you would not be reasonable about following up. You would not stop at three.<br><br><b>This is the most valuable half hour anybody on this team produces all week.</b> Chase it like it is.</p></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">The whole thing</div>
+    <h2>Before any call counts as booked</h2>
+    <ul class="check">
+      <li>They told me <b>their pain, in their own words</b>, and I can repeat it back</li>
+      <li>They <b>actually need this</b>, they are not booked out and happy</li>
+      <li>I am talking to the <b>decision maker</b></li>
+      <li>I booked a <b>free consultation and audit</b>, not a sales call, and I said so</li>
+      <li>I asked the <b>zombie apocalypse question</b> and got a clean yes</li>
+      <li>I watched them <b>reply YES</b> before I hung up</li>
+      <li>Morning text, morning call, <b>fifteen minutes before</b>, voicemail every time</li>
+      <li>I will chase it <b>until they show or until they tell me no</b></li>
+    </ul>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">The one line</div>
+    <h1 style="font-size:clamp(30px,6vw,62px);">Booking the call is<br>the <span class="gold">easy half.</span></h1>
+    <p class="lead" style="margin-top:22px;">Anyone on this team can get a yes on the phone. The job is getting them to still want it tomorrow afternoon, and that is decided by what you did before you hung up.</p>
+    <div class="big gold" style="margin-top:28px;">Own the show.</div>
+  </section>
+
+</div>
+
+<div class="bar"><div class="bar-in">
+  <button class="nb" onclick="go(idx-1)" title="Back">&uarr;</button>
+  <button class="nb" onclick="go(idx+1)" title="Next">&darr;</button>
+  <div class="count" id="count"></div>
+</div></div>
+
+<script>
+  const scroller=document.getElementById('scroller');
+  const slides=[...document.querySelectorAll('.slide')];
+  const tot=slides.length; let idx=0;
+  const count=document.getElementById('count'), prog=document.getElementById('prog');
+  const io=new IntersectionObserver(es=>{
+    es.forEach(e=>{ if(e.isIntersecting){ idx=slides.indexOf(e.target);
+      count.textContent=String(idx+1).padStart(2,'0')+' / '+String(tot).padStart(2,'0');
+      prog.style.width=((idx+1)/tot*100)+'%'; }});
+  },{root:scroller,threshold:.55});
+  slides.forEach(s=>io.observe(s));
+  function go(n){ n=Math.max(0,Math.min(tot-1,n)); slides[n].scrollIntoView({behavior:'smooth'}); }
+  addEventListener('keydown',e=>{
+    if(['ArrowDown','PageDown',' ','ArrowRight'].includes(e.key)){e.preventDefault();go(idx+1);}
+    if(['ArrowUp','PageUp','ArrowLeft'].includes(e.key)){e.preventDefault();go(idx-1);}
+    if(e.key==='Home')go(0); if(e.key==='End')go(tot-1);
+  });
+</script>
+<style>
+  .hubback{position:fixed;right:14px;top:14px;z-index:9999;display:inline-flex;align-items:center;gap:7px;
+    font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:12.5px;font-weight:800;
+    letter-spacing:.04em;text-decoration:none;color:#cbd5e1;background:rgba(15,22,41,.92);
+    border:1px solid rgba(148,163,184,.38);border-radius:999px;padding:9px 15px;
+    white-space:nowrap;max-width:calc(100vw - 28px);
+    backdrop-filter:blur(6px);box-shadow:0 4px 18px rgba(0,0,0,.35);}
+  @media(max-width:620px){ .hubback{font-size:11px;padding:7px 12px;right:10px;top:10px;} }
+  .hubback:hover{color:#fff;border-color:#8a8f9c;}
+  @media print{.hubback{display:none;}}
+</style>
+<a class="hubback" href="../">&larr; Back to the training hub</a>
+</body>
+</html>

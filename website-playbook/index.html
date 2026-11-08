@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>The Website Pitch · Rapid Reach</title>
+<meta name="description" content="Setter + closer training: how to sell websites that book jobs. Frame, teardown, objections, the close." />
+<meta name="theme-color" content="#020817" />
+<meta property="og:type" content="website">
+<meta property="og:url" content="">
+<meta property="og:title" content="The Website Pitch">
+<meta property="og:description" content="The teardown, the proof, the objections, and the close.">
+<meta property="og:image" content="og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Website Pitch">
+<meta name="twitter:description" content="The teardown, the proof, the objections, and the close.">
+<meta name="twitter:image" content="og.png">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#020817; --bg2:#01030a;
+    --card:#0b1322; --card2:#101c33; --border:#1e293b; --border2:#27364b;
+    --text:#f8fafc; --muted:#94a3b8; --muted2:#64748b;
+    --gold:#f59e0b; --gold2:#eab308; --green:#34d399; --red:#f87171;
+    --grad:linear-gradient(135deg,#f59e0b,#eab308);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
+    background:var(--bg); color:var(--text);
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
+    background:
+      radial-gradient(900px 500px at 80% -10%, rgba(245,158,11,.10), transparent 60%),
+      radial-gradient(700px 500px at 0% 110%, rgba(234,179,8,.06), transparent 60%),
+      linear-gradient(180deg, var(--bg), var(--bg2));
+  }
+  .scroller{ position:relative; z-index:1; height:100svh; overflow-y:auto; scroll-snap-type:y proximity; }
+  .slide{
+    min-height:100svh; scroll-snap-align:start;
+    display:flex; flex-direction:column; justify-content:center;
+    padding:64px 22px 110px; max-width:1000px; margin:0 auto;
+  }
+  .kicker{ font-size:13px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; }
+  h1.title{ font-size:clamp(30px,6.4vw,52px); font-weight:900; line-height:1.05; letter-spacing:-.02em; }
+  h2.title{ font-size:clamp(26px,5.2vw,40px); font-weight:800; line-height:1.08; letter-spacing:-.02em; margin-bottom:18px;}
+  .gold{ background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .lead{ color:var(--muted); font-size:clamp(15px,2.4vw,19px); line-height:1.55; max-width:760px; margin-bottom:8px;}
+  .mark{display:flex; gap:8px; margin-bottom:26px;}
+  .mark span{width:16px;height:16px;border-radius:4px;background:var(--grad);}
+  .mark span:nth-child(2){opacity:.66} .mark span:nth-child(3){opacity:.4}
+  .monogram-wrap{flex:1 1 auto;display:flex;align-items:center;justify-content:center;width:100vw;margin-left:calc(50% - 50vw);min-height:0;}
+  .monogram{
+    font-family:'Playfair Display',Georgia,'Times New Roman',serif;
+    font-weight:900; font-size:clamp(96px,17vw,200px); line-height:1; letter-spacing:.03em;
+    background:linear-gradient(165deg,#f7de8b 0%,#e6b23e 42%,#c9962a 72%,#9c7a22 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    filter:drop-shadow(0 10px 34px rgba(230,178,62,.22));
+  }
+  .grid{display:grid; gap:16px; margin-top:8px;}
+  .g3{grid-template-columns:repeat(3,1fr);}
+  .g2{grid-template-columns:repeat(2,1fr);}
+  @media(max-width:760px){ .g3,.g2{grid-template-columns:1fr;} }
+  .card{ background:linear-gradient(180deg,var(--card),var(--card2)); border:1px solid var(--border); border-radius:16px; padding:22px; box-shadow:0 10px 30px rgba(0,0,0,.35); }
+  .num{ width:42px;height:42px;border-radius:11px; flex:0 0 auto; display:flex;align-items:center;justify-content:center; font-weight:900; font-size:18px; color:#0f172a; background:var(--grad); box-shadow:0 6px 16px rgba(245,158,11,.35); }
+  .ch{font-weight:800; font-size:19px; margin:14px 0 6px;}
+  .cd{color:var(--muted); font-size:15px; line-height:1.5;}
+  .rows{display:flex;flex-direction:column;gap:14px;margin-top:6px;}
+  .row{display:flex;gap:16px;align-items:flex-start;}
+  .row .num{width:38px;height:38px;font-size:16px;border-radius:10px;}
+  .qtext{font-size:clamp(16px,2.5vw,19px);font-weight:600;line-height:1.4;}
+  .tag{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-top:4px;display:inline-block;}
+  .quote{ border-left:4px solid var(--gold); background:rgba(245,158,11,.06); border-radius:0 14px 14px 0; padding:18px 20px; font-style:italic; font-size:clamp(16px,2.6vw,20px); line-height:1.45; }
+  .saythis{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;font-style:normal;}
+  .stepflow{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:stretch;}
+  @media(max-width:760px){.stepflow{grid-template-columns:1fr;}}
+  .step{text-align:center;}
+  .step .lbl{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);}
+  .step .big{font-size:clamp(24px,5vw,34px);font-weight:900;margin:8px 0;}
+  .step .sub{color:var(--muted);font-size:14px;}
+  .pill{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:12px 16px;font-weight:600;}
+  .pill .dot{width:26px;height:26px;border-radius:8px;background:var(--grad);color:#0f172a;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;flex:0 0 auto;}
+  .obj{display:flex;flex-direction:column;gap:12px;margin-top:4px;}
+  .objrow{display:grid;grid-template-columns:1fr 1.6fr;gap:14px;align-items:center;background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--border);border-radius:13px;padding:14px 16px;}
+  @media(max-width:760px){.objrow{grid-template-columns:1fr;gap:6px;}}
+  .objrow .o{font-weight:700;color:#fff;}
+  .objrow .m{color:var(--muted);font-size:15px;line-height:1.4;}
+  .objrow .m::before{content:"\2192  ";color:var(--gold);font-weight:800;}
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media(max-width:760px){.twocol{grid-template-columns:1fr;}}
+  .do{border-color:rgba(52,211,153,.35);} .do h3{color:var(--green);}
+  .dont{border-color:rgba(248,113,113,.35);} .dont h3{color:var(--red);}
+  .do h3,.dont h3{font-size:16px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;}
+  .lst{list-style:none;display:flex;flex-direction:column;gap:10px;}
+  .lst li{padding-left:24px;position:relative;color:var(--text);font-size:15px;line-height:1.4;}
+  .do .lst li::before{content:"\2713";position:absolute;left:0;color:var(--green);font-weight:800;}
+  .dont .lst li::before{content:"\2715";position:absolute;left:0;color:var(--red);font-weight:800;}
+  .bullets{list-style:none;display:flex;flex-direction:column;gap:11px;}
+  .bullets li{padding-left:22px;position:relative;font-size:15.5px;line-height:1.45;color:var(--text);}
+  .bullets li::before{content:"";position:absolute;left:0;top:9px;width:8px;height:8px;border-radius:50%;background:var(--grad);}
+  .talk{ margin-top:26px; background:rgba(245,158,11,.07); border:1px solid rgba(245,158,11,.22); border-radius:14px; padding:16px 18px; }
+  .talk .lh{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+  .talk p{color:#e2e8f0;font-size:14.5px;line-height:1.5;}
+  .big-takeaway{font-size:clamp(22px,4.6vw,34px);font-weight:900;line-height:1.15;margin-top:8px;}
+  .progress{position:fixed;top:0;left:0;height:3px;background:var(--grad);width:0;z-index:30;transition:width .15s ease;}
+  .counter{position:fixed;bottom:18px;right:18px;z-index:30;font-size:13px;font-weight:700;color:var(--muted);background:rgba(2,8,23,.8);border:1px solid var(--border);border-radius:999px;padding:7px 13px;backdrop-filter:blur(6px);}
+  .counter b{color:var(--gold);}
+  .nav{position:fixed;bottom:16px;left:18px;z-index:30;display:flex;gap:8px;}
+  .nav button{width:42px;height:42px;border-radius:11px;border:1px solid var(--border);background:rgba(2,8,23,.8);color:var(--text);font-size:18px;cursor:pointer;backdrop-filter:blur(6px);transition:.15s;}
+  .nav button:hover{border-color:var(--gold);color:var(--gold);}
+  .foot{margin-top:auto;}
+  .hint{position:fixed;bottom:64px;left:0;right:0;text-align:center;color:var(--muted2);font-size:12px;z-index:20;animation:fade 2.6s ease forwards;}
+  @keyframes fade{0%,70%{opacity:.8}100%{opacity:0}}
+</style>
+</head>
+<body>
+<div class="progress" id="prog"></div>
+<div class="counter"><b id="cur">01</b> / <span id="tot">15</span></div>
+<div class="nav"><button id="up" aria-label="Previous">&uarr;</button><button id="down" aria-label="Next">&darr;</button></div>
+<div class="hint">swipe / scroll &middot; or use &uarr; &darr;</div>
+
+<div class="scroller" id="scroller">
+
+  <!-- 1 TITLE -->
+  <section class="slide">
+    <div class="mark"><span></span><span></span><span></span></div>
+    <div class="kicker">Rapid Reach &middot; Sales Training</div>
+    <h1 class="title">The Website <span class="gold">Pitch</span></h1>
+    <p class="lead" style="margin-top:18px;font-size:clamp(17px,2.8vw,22px);color:#cbd5e1;">Selling websites that book jobs, not ones that just look pretty.</p>
+    <div class="monogram-wrap"><div class="monogram">GE</div></div>
+    <div class="foot"><p class="kicker" style="margin:0;">Frame &middot; Teardown &middot; Objections &middot; The Close</p></div>
+  </section>
+
+  <!-- 2 CORE FRAME -->
+  <section class="slide">
+    <div class="kicker">The Core Frame</div>
+    <h2 class="title">"Looks good" vs. "performs good"</h2>
+    <p class="lead">You are not selling a website. You are selling a revenue-generating machine that books jobs month after month.</p>
+    <div class="twocol">
+      <div class="card dont"><h3>Looks good</h3><div class="cd">Pretty pictures. That is it. It sits there and books nothing. Pure vanity.</div></div>
+      <div class="card do"><h3>Performs good</h3><div class="cd">Converts visitors into booked jobs, AND gets found on Google and on AI. That is money.</div></div>
+    </div>
+  </section>
+
+  <!-- 3 TWO TYPES -->
+  <section class="slide">
+    <div class="kicker">Know Your Prospect</div>
+    <h2 class="title">Two types of prospects</h2>
+    <div class="twocol">
+      <div class="card"><div class="ch" style="margin-top:0">No website yet</div><div class="cd">The easy land. Sell a clean, good-looking site first. Upsell the AI visibility later. Land and expand.</div></div>
+      <div class="card"><div class="ch" style="margin-top:0">Already has a website</div><div class="cd">The teardown play. They care that it looks good. Your job is to show them it does not perform.</div></div>
+    </div>
+    <p class="lead" style="margin-top:16px;">Talk to their level. If they could not build a simple site, "AEO" and "LLMs.txt" sail right over their head. Say it plain: "It needs to rank on Google AND show up when someone asks ChatGPT."</p>
+  </section>
+
+  <!-- 4 TEARDOWN PLAY -->
+  <section class="slide">
+    <div class="kicker">The Teardown Play</div>
+    <h2 class="title">How to run a website they already have</h2>
+    <div class="rows">
+      <div class="row"><div class="num">1</div><div class="qtext">Share their site on your screen</div></div>
+      <div class="row"><div class="num">2</div><div class="qtext">Run the checklist, call out the red flags</div></div>
+      <div class="row"><div class="num">3</div><div class="qtext">The phone test: switch to mobile view</div></div>
+      <div class="row"><div class="num">4</div><div class="qtext">Show one of ours (the demo)</div></div>
+      <div class="row"><div class="num">5</div><div class="qtext">Drop the line, then go quiet</div></div>
+    </div>
+    <p class="lead" style="margin-top:16px;color:#fde68a;">The phone test wins deals. 85% of their customers are on a phone, and that is exactly where their site looks broken.</p>
+  </section>
+
+  <!-- 5 DISCOVERY -->
+  <section class="slide">
+    <div class="kicker">Discovery &middot; The Questions</div>
+    <h2 class="title">5 questions that expose the leak</h2>
+    <div class="rows">
+      <div class="row"><div class="num">1</div><div><div class="qtext">"How many automatic bookings does your site get a month?"</div><span class="tag">Usually zero</span></div></div>
+      <div class="row"><div class="num">2</div><div><div class="qtext">"Do you even have a booking form? A contact form?"</div><span class="tag">The gap</span></div></div>
+      <div class="row"><div class="num">3</div><div><div class="qtext">"How fast do you respond when a lead fills it out? What fires automatically?"</div><span class="tag">Speed to lead</span></div></div>
+      <div class="row"><div class="num">4</div><div><div class="qtext">"Who built this, and how much did they charge you?"</div><span class="tag">Anchor the value</span></div></div>
+      <div class="row"><div class="num">5</div><div><div class="qtext">"What are you converting right now?"</div><span class="tag">"That's probably because it looks like this"</span></div></div>
+    </div>
+  </section>
+
+  <!-- 6 WHAT PERFORMS MEANS -->
+  <section class="slide">
+    <div class="kicker">What "Performs" Means</div>
+    <h2 class="title">It converts AND it gets found</h2>
+    <div class="twocol">
+      <div class="card"><div class="ch" style="margin-top:0">Converts</div><div class="cd">High-converting layout, booking buttons, contact forms, instant lead response, mobile-first, fast load.</div></div>
+      <div class="card"><div class="ch" style="margin-top:0">Gets found</div><div class="cd">SEO gets you found on Google. AEO gets you found on AI: ChatGPT, Claude, Gemini, Perplexity.</div></div>
+    </div>
+    <p class="lead" style="margin-top:16px;">By default, every website is invisible to AI. We build yours to do both.</p>
+  </section>
+
+  <!-- 7 AI VISIBILITY AMMO -->
+  <section class="slide">
+    <div class="kicker">Your Proof On Screen</div>
+    <h2 class="title">The 3 AI-visibility checks</h2>
+    <div class="rows">
+      <div class="row"><div class="num">1</div><div><div class="ch" style="margin:0 0 2px">/llms.txt</div><div class="cd">Theirs: blank or 100 words. Ours: a full file with Q&amp;A, key pages, and every city. That is what ChatGPT reads.</div></div></div>
+      <div class="row"><div class="num">2</div><div><div class="ch" style="margin:0 0 2px">/robots.txt</div><div class="cd">Which AI crawlers are allowed in. Theirs: usually WordPress only. Ours: Claude, GPT, Perplexity, Gemini, all enabled.</div></div></div>
+      <div class="row"><div class="num">3</div><div><div class="ch" style="margin:0 0 2px">/sitemap.xml</div><div class="cd">The map of the whole site. Most are missing or unoptimized. Ours is built right.</div></div></div>
+    </div>
+  </section>
+
+  <!-- 8 WHAT'S INCLUDED -->
+  <section class="slide">
+    <div class="kicker">The Product</div>
+    <h2 class="title">What's included</h2>
+    <div class="grid g3">
+      <div class="card"><div class="ch" style="margin-top:0">SEO + AEO</div><div class="cd">Found on Google and on every AI.</div></div>
+      <div class="card"><div class="ch" style="margin-top:0">24/7 AI chatbot</div><div class="cd">Answers and books while they sleep.</div></div>
+      <div class="card"><div class="ch" style="margin-top:0">Booking + payments</div><div class="cd">Booking links, payments, calendar synced.</div></div>
+      <div class="card"><div class="ch" style="margin-top:0">Mobile-first, fast</div><div class="cd">Live in 7 days. No formatting issues.</div></div>
+      <div class="card"><div class="ch" style="margin-top:0">Service + city pages</div><div class="cd">The SEO and AEO power play.</div></div>
+      <div class="card"><div class="ch" style="margin-top:0">Live reviews widget</div><div class="cd">Google reviews, updates every day.</div></div>
+    </div>
+  </section>
+
+  <!-- 9 PRICING -->
+  <section class="slide">
+    <div class="kicker">Pricing &amp; How To Sell It</div>
+    <h2 class="title">Two ways to sell a website</h2>
+    <div class="twocol">
+      <div class="card"><div class="ch" style="margin-top:0">Standalone</div><div class="cd">Basic (looks good): $500 + $50/mo. Optimized: $1,000 to $1,500 + $50/mo. Anchor it: "our sites are $2,000." Monthly financing available.</div></div>
+      <div class="card do"><h3>Bundle (the goal)</h3><div class="cd">Include the website "free" with DGS ($500 to $1,000/mo). Bump the price a little, frame it as $2,000 of value for free. Every client should end up here.</div></div>
+    </div>
+  </section>
+
+  <!-- 10 MATH CLOSE -->
+  <section class="slide">
+    <div class="kicker">The Math Close</div>
+    <h2 class="title">One job pays for the whole thing</h2>
+    <p class="lead">First, get the number on the table: "What's your average ticket?"</p>
+    <div class="big-takeaway gold">One extra booked job a month covers the entire build. Book one, and it's free. Every job after that is pure profit.</div>
+    <p class="lead" style="margin-top:18px;">"So how could you lose with a deal like that?"</p>
+  </section>
+
+  <!-- 11 PROOF -->
+  <section class="slide">
+    <div class="kicker">Proof &middot; Real Results</div>
+    <h2 class="title">Have the number ready</h2>
+    <div class="stepflow">
+      <div class="card step"><div class="lbl">Typical range</div><div class="big gold">5 to 20</div><div class="sub">website bookings / month</div></div>
+      <div class="card step"><div class="lbl">Matrix, last month</div><div class="big gold">20+</div><div class="sub">website bookings</div></div>
+      <div class="card step"><div class="lbl">On a strong build</div><div class="big gold">Web &gt; AI</div><div class="sub">more web bookings than AI</div></div>
+    </div>
+  </section>
+
+  <!-- 12 OBJECTIONS -->
+  <section class="slide">
+    <div class="kicker">Objection Playbook</div>
+    <h2 class="title">The 6 you'll hear</h2>
+    <div class="obj">
+      <div class="objrow"><div class="o">"I already have a website"</div><div class="m">"Perfect, let's look at it together right now." Then tear it down.</div></div>
+      <div class="objrow"><div class="o">"It's too expensive"</div><div class="m">"Compared to what? It costs more NOT to have one. You lose every lead that doesn't convert."</div></div>
+      <div class="objrow"><div class="o">"I don't have time for this"</div><div class="m">"That's the best part. We do all of it for you. Live in 7 days."</div></div>
+      <div class="objrow"><div class="o">"My nephew built it"</div><div class="m">"He did you a solid. Now let's actually make it book jobs."</div></div>
+      <div class="objrow"><div class="o">"Will it really get me customers?"</div><div class="m">"The detailers we work with see 5 to 20 bookings a month. What's your ticket? One job covers it."</div></div>
+      <div class="objrow"><div class="o">"Let me think about it"</div><div class="m">"What's the real hesitation: money, trust, or timing?"</div></div>
+    </div>
+  </section>
+
+  <!-- 13 WORKFLOW -->
+  <section class="slide">
+    <div class="kicker">The Workflow</div>
+    <h2 class="title">When and how to sell it</h2>
+    <div class="rows">
+      <div class="row"><div class="num">1</div><div class="qtext">Always have a live demo website loaded on every call</div></div>
+      <div class="row"><div class="num">2</div><div class="qtext">Sell it on monthly reports (current clients) AND closing calls (new)</div></div>
+      <div class="row"><div class="num">3</div><div class="qtext">The sequence: tear down theirs, show ours, do the math, ask</div></div>
+    </div>
+  </section>
+
+  <!-- 14 DO / DON'T -->
+  <section class="slide">
+    <div class="kicker">Pro vs. Amateur</div>
+    <h2 class="title">What closes vs. what stalls</h2>
+    <div class="twocol">
+      <div class="card do"><h3>Do</h3>
+        <ul class="lst">
+          <li>Tear down their current site live</li>
+          <li>Run the phone test every time</li>
+          <li>Get the average ticket first</li>
+          <li>Show real proof (Matrix)</li>
+          <li>Anchor high, then include it</li>
+          <li>Always have a demo ready</li>
+        </ul>
+      </div>
+      <div class="card dont"><h3>Don't</h3>
+        <ul class="lst">
+          <li>Dump features and jargon</li>
+          <li>Sell "a website" instead of jobs</li>
+          <li>Quote price before the ticket</li>
+          <li>Argue that you're worth it</li>
+          <li>Talk above their head</li>
+          <li>Leave without showing a demo</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 15 CLOSE -->
+  <section class="slide">
+    <div class="mark"><span></span><span></span><span></span></div>
+    <div class="kicker">The One-Line Lesson</div>
+    <h1 class="title" style="font-size:clamp(26px,5.4vw,44px);">Don't sell a website.<br><span class="gold">Sell more booked jobs.</span></h1>
+    <p class="lead" style="margin-top:20px;">Tear down what they have. Show them what performs. Do the math on one extra job. Then go quiet and let them say yes.</p>
+    <div class="foot"><div class="big-takeaway gold" style="font-size:clamp(20px,4vw,28px);">Now go sell.</div></div>
+  </section>
+
+</div>
+
+<script>
+  const scroller=document.getElementById('scroller');
+  const slides=[...document.querySelectorAll('.slide')];
+  const tot=slides.length;
+  document.getElementById('tot').textContent=String(tot).padStart(2,'0');
+  const curEl=document.getElementById('cur'), prog=document.getElementById('prog');
+  let idx=0;
+  const io=new IntersectionObserver((es)=>{
+    es.forEach(e=>{ if(e.isIntersecting){ idx=slides.indexOf(e.target);
+      curEl.textContent=String(idx+1).padStart(2,'0');
+      prog.style.width=((idx+1)/tot*100)+'%'; }});
+  },{root:scroller,threshold:.55});
+  slides.forEach(s=>io.observe(s));
+  function go(n){ n=Math.max(0,Math.min(tot-1,n)); slides[n].scrollIntoView({behavior:'smooth'});}
+  document.getElementById('down').onclick=()=>go(idx+1);
+  document.getElementById('up').onclick=()=>go(idx-1);
+  addEventListener('keydown',(e)=>{
+    if(['ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();go(idx+1);}
+    if(['ArrowUp','PageUp'].includes(e.key)){e.preventDefault();go(idx-1);}
+    if(e.key==='Home'){go(0);} if(e.key==='End'){go(tot-1);}
+  });
+</script>
+</body>
+</html>

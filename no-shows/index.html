@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Killing No-Shows &middot; Rapid Reach Sales Training</title>
+<meta name="description" content="The full no-show training: the video, the slides and the quiz, in order." />
+<meta name="theme-color" content="#020817" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Rapid Reach Sales Training" />
+<meta property="og:url" content="" />
+<meta property="og:title" content="Killing No-Shows" />
+<meta property="og:description" content="The full no-show training: the video, the slides and the quiz, in order." />
+<meta property="og:image" content="og.png" />
+<meta property="og:image:width" content="2400" />
+<meta property="og:image:height" content="1260" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Killing No-Shows" />
+<meta name="twitter:description" content="The full no-show training: the video, the slides and the quiz, in order." />
+<meta name="twitter:image" content="og.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#020817;--bg2:#01030a;--card:#0b1322;--card2:#101c33;--border:#1e293b;--border2:#27364b;
+    --text:#f8fafc;--muted:#94a3b8;--muted2:#64748b;--gold:#f59e0b;--green:#34d399;
+    --grad:linear-gradient(135deg,#f59e0b,#eab308);}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);
+    -webkit-font-smoothing:antialiased;line-height:1.55;}
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:radial-gradient(900px 520px at 85% -10%,rgba(245,158,11,.11),transparent 60%),
+               radial-gradient(700px 500px at 0% 110%,rgba(234,179,8,.06),transparent 60%),
+               linear-gradient(180deg,var(--bg),var(--bg2));}
+  .wrap{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:46px 20px 110px;}
+
+  .kicker{font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:11px;}
+  h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(36px,7.4vw,70px);font-weight:900;letter-spacing:-.02em;line-height:1.02;}
+  .gold{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .lead{color:var(--muted);font-size:clamp(15px,2.1vw,18px);margin-top:15px;max-width:680px;}
+
+  .vid{position:relative;width:100%;padding-top:56.25%;margin:30px 0 8px;border-radius:16px;overflow:hidden;
+    border:1px solid var(--border2);background:#000;box-shadow:0 22px 70px rgba(0,0,0,.5);}
+  .vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .vcap{color:var(--muted2);font-size:13px;}
+
+  .secn{display:flex;align-items:center;gap:13px;margin:44px 0 16px;padding-top:24px;border-top:1px solid var(--border);}
+  .secn b{font-family:'Playfair Display',serif;font-size:30px;font-weight:900;line-height:1;
+    background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .secn h2{font-size:clamp(20px,3.2vw,27px);font-weight:800;letter-spacing:-.01em;}
+
+  .card{display:block;text-decoration:none;color:inherit;background:linear-gradient(180deg,var(--card),var(--card2));
+    border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:15px;padding:20px 22px;margin-bottom:13px;
+    transition:border-color .15s ease,transform .15s ease,background .15s ease;}
+  .card:hover{border-color:var(--border2);border-left-color:#eab308;transform:translateY(-2px);
+    background:linear-gradient(180deg,#0e1830,#13203a);}
+  .card h3{font-size:18px;font-weight:800;}
+  .card p{color:var(--muted);font-size:14.5px;margin-top:6px;}
+  .card .go{display:inline-block;margin-top:11px;font-size:13px;font-weight:800;color:var(--gold);}
+  .card.req{border-left-color:var(--green);}
+  .card.req .go{color:var(--green);}
+  .tagp{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+    color:#0f172a;background:var(--grad);border-radius:999px;padding:3px 10px;margin-left:9px;vertical-align:3px;}
+  .tagp.req{background:linear-gradient(135deg,#34d399,#10b981);}
+
+  .covers{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--border);
+    border-radius:15px;padding:21px 23px;margin-top:16px;}
+  .covers .lbl{font-size:10.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+  .covers ol{list-style:none;counter-reset:s;}
+  .covers li{counter-increment:s;position:relative;padding:7px 0 7px 34px;font-size:15.5px;color:#cbd5e1;}
+  .covers li:before{content:counter(s);position:absolute;left:0;top:7px;width:22px;height:22px;border-radius:7px;
+    background:var(--grad);color:#0f172a;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;}
+  .covers li b{color:#fff;}
+
+  .why{background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.22);border-radius:13px;padding:17px 20px;margin-top:22px;}
+  .why p{color:#e2e8f0;font-size:15.5px;}
+  .why b{color:#fff;}
+  .track{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--border2);
+    border-radius:18px;padding:24px 26px;margin-top:18px;}
+  .track .th{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;}
+  .track .th h2{font-size:clamp(21px,3.4vw,29px);font-weight:900;letter-spacing:-.01em;}
+  .track .who{font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#0f172a;
+    background:var(--grad);border-radius:999px;padding:4px 11px;}
+  .track > p{color:var(--muted);font-size:15px;margin-top:9px;}
+  .soon{display:block;border:1px dashed rgba(245,158,11,.45);background:rgba(245,158,11,.05);
+    border-radius:15px;padding:20px 22px;margin-bottom:13px;}
+  .soon h3{font-size:18px;font-weight:800;color:var(--gold);}
+  .soon p{color:var(--muted);font-size:14.5px;margin-top:6px;}
+  .foot{margin-top:46px;padding-top:22px;border-top:1px solid var(--border);color:var(--muted2);font-size:13px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="kicker">Rapid Reach &middot; Sales Training</div>
+  <h1>Killing <span class="gold">No-Shows</span></h1>
+  <p class="lead">The booked call is not the win. The call they actually turn up to is the win. There are two tracks here because setters and closers have completely different jobs in this. Do yours.</p>
+
+  <div class="track">
+    <div class="th"><h2>If you set the call</h2><span class="who">Setters</span></div>
+    <p>Your job is earning the show and locking it in before you hang up. About twenty minutes.</p>
+
+    <div class="vid">
+      <iframe src="https://www.youtube.com/embed/kwCNUb2wcHg?rel=0" title="Eliminate No Shows" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <p class="vcap" style="margin-bottom:16px;">Will not play here? Open it on <a href="https://youtu.be/kwCNUb2wcHg" target="_blank" rel="noopener" style="color:var(--gold);">YouTube</a>.</p>
+
+    <a class="card" href="slides.html">
+      <h3>The slides</h3>
+      <p>Everything from the video, laid out so you can jump to the part you need. Screenshot the checklist near the end.</p>
+      <span class="go">Open the slides &rarr;</span>
+    </a>
+    <a class="card req" href="quiz.html">
+      <h3>The quiz<span class="tagp req">Required</span></h3>
+      <p>Fifteen questions, one at a time. 12 of 15 to pass. Your score is logged.</p>
+      <span class="go">Start the quiz &rarr;</span>
+    </a>
+
+    <div class="covers">
+      <div class="lbl">The six steps</div>
+      <ol>
+        <li><b>Earn the show before you book it.</b> Pain, need, decision maker.</li>
+        <li><b>Book a consultation, not a sales call.</b> They turn up for a free audit.</li>
+        <li><b>Ask the zombie apocalypse question.</b> Make them say it out loud.</li>
+        <li><b>Get the reply YES before you hang up.</b> Watch them send it.</li>
+        <li><b>Run the confirmation sequence.</b> All of it, not the comfortable parts.</li>
+        <li><b>Be unreasonable about the follow up.</b> Until they show or they tell you no.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="track">
+    <div class="th"><h2>If you run the call</h2><span class="who">Closers</span></div>
+    <p>The setter earned it. From the second it hits your calendar it is yours, and it stays yours after they do not turn up. About twenty minutes.</p>
+
+    <div class="vid">
+      <iframe src="https://www.youtube.com/embed/lA5LyzJed8c?rel=0" title="Reduce No Shows For Closers" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <p class="vcap" style="margin-bottom:16px;">Will not play here? Open it on <a href="https://youtu.be/lA5LyzJed8c" target="_blank" rel="noopener" style="color:var(--gold);">YouTube</a>.</p>
+
+    <a class="card" href="closer-slides.html">
+      <h3>The slides</h3>
+      <p>Five moves, with every text and every line word for word. One before the call, four inside about four minutes of it being missed.</p>
+      <span class="go">Open the slides &rarr;</span>
+    </a>
+    <a class="card req" href="closer-quiz.html">
+      <h3>The quiz<span class="tagp req">Required</span></h3>
+      <p>Fourteen questions, one at a time. 11 of 14 to pass. Your score is logged.</p>
+      <span class="go">Start the quiz &rarr;</span>
+    </a>
+
+    <div class="covers">
+      <div class="lbl">The five moves</div>
+      <ol>
+        <li><b>The second it books, selfie and text.</b> Not on the day.</li>
+        <li><b>Five minutes past, call them.</b> Do not sit on the Zoom.</li>
+        <li><b>No answer, call again.</b> Always twice.</li>
+        <li><b>Still nothing, leave a voicemail.</b> Every time.</li>
+        <li><b>Then the text that re-books it.</b> The audit is already built.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="why"><p><b>Why this one matters more than the rest of your training.</b> Every other skill you have only pays off if the prospect is actually on the call. A booked call that no-shows is not half a win, it is zero, and it cost everything it took to get it.</p></div>
+
+  <div class="foot">Rapid Reach Advertising &middot; Sales Training. Questions on any of this, ask Grant.</div>
+</div>
+<style>
+  .hubback{position:fixed;right:14px;top:14px;z-index:9999;display:inline-flex;align-items:center;gap:7px;
+    font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:12.5px;font-weight:800;
+    letter-spacing:.04em;text-decoration:none;color:#cbd5e1;background:rgba(15,22,41,.92);
+    border:1px solid rgba(148,163,184,.38);border-radius:999px;padding:9px 15px;
+    white-space:nowrap;max-width:calc(100vw - 28px);
+    backdrop-filter:blur(6px);box-shadow:0 4px 18px rgba(0,0,0,.35);}
+  @media(max-width:620px){ .hubback{font-size:11px;padding:7px 12px;right:10px;top:10px;} }
+  .hubback:hover{color:#fff;border-color:#8a8f9c;}
+  @media print{.hubback{display:none;}}
+</style>
+<a class="hubback" href="../">&larr; Back to the training hub</a>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Voice AI Cold Call Script &middot; Rapid Reach</title>
+<meta name="description" content="The power dialer script for selling the AI receptionist: the pivot, the opener, the diagnostic, the pitch and the objections." />
+<meta name="theme-color" content="#020817" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#020817;--bg2:#01030a;--card:#0b1322;--card2:#101c33;--border:#1e293b;--border2:#27364b;
+    --text:#f8fafc;--muted:#94a3b8;--muted2:#64748b;--gold:#f59e0b;--green:#34d399;--red:#f87171;
+    --grad:linear-gradient(135deg,#f59e0b,#eab308);}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);
+    -webkit-font-smoothing:antialiased;line-height:1.6;}
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:radial-gradient(900px 520px at 85% -12%,rgba(245,158,11,.10),transparent 62%),
+               linear-gradient(180deg,var(--bg),var(--bg2));}
+  .wrap{position:relative;z-index:1;max-width:800px;margin:0 auto;padding:40px 20px 110px;}
+  .back{display:inline-block;margin-bottom:24px;font-size:13px;font-weight:700;color:var(--muted);
+    text-decoration:none;border:1px solid var(--border2);border-radius:999px;padding:7px 15px;}
+  .back:hover{color:var(--gold);border-color:var(--gold);}
+  .kicker{font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);}
+  h1{font-size:clamp(28px,5.5vw,44px);font-weight:900;letter-spacing:-.025em;line-height:1.05;margin-top:10px;}
+  .gold{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .lead{color:var(--muted);font-size:16.5px;margin-top:14px;}
+  h2{font-size:21px;font-weight:800;margin:40px 0 4px;letter-spacing:-.01em;}
+  h2 .n{color:var(--gold);font-family:'Playfair Display',serif;margin-right:10px;}
+  p.b{color:var(--muted);font-size:15.5px;margin-top:10px;}
+  p.b b{color:var(--text);}
+  .say{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--border2);
+    border-left:3px solid var(--gold);border-radius:12px;padding:16px 18px;margin:14px 0;}
+  .say .lb{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+  .say p{font-size:16px;color:#f1f5f9;line-height:1.6;}
+  .stage{color:var(--muted2);font-style:italic;font-size:14.5px;margin:8px 0 0 2px;}
+  .why{background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.2);border-radius:12px;
+    padding:15px 17px;margin:14px 0;}
+  .why .lb{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:7px;}
+  .why p{font-size:15px;color:#e2e8f0;}
+  .warn{background:rgba(248,113,113,.07);border:1px solid rgba(248,113,113,.26);border-radius:12px;
+    padding:15px 17px;margin:14px 0;}
+  .warn .lb{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:7px;}
+  .warn p{font-size:15px;color:#fecaca;}
+  .warn p b{color:#fff;}
+  .obj{border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-top:14px;}
+  .objrow{display:grid;grid-template-columns:1fr 1.5fr;border-top:1px solid var(--border);}
+  .objrow:first-child{border-top:0;}
+  .objrow>div{padding:13px 16px;font-size:15px;}
+  .objrow .o{color:#fff;font-weight:700;background:rgba(148,163,184,.05);}
+  .objrow .m{color:var(--muted);}
+  ol{margin:12px 0 0 20px;color:var(--muted);font-size:15.5px;}
+  ol li{margin-bottom:9px;}
+  ol li b{color:var(--text);}
+  .hubback{position:fixed;right:14px;top:14px;z-index:9999;display:inline-flex;align-items:center;gap:7px;
+    font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:12.5px;font-weight:800;
+    letter-spacing:.04em;text-decoration:none;color:#cbd5e1;background:rgba(15,22,41,.92);
+    border:1px solid rgba(148,163,184,.38);border-radius:999px;padding:9px 15px;
+    white-space:nowrap;max-width:calc(100vw - 28px);
+    backdrop-filter:blur(6px);box-shadow:0 4px 18px rgba(0,0,0,.35);}
+  @media(max-width:620px){ .hubback{font-size:11px;padding:7px 12px;right:10px;top:10px;}
+    .objrow{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="./">&larr; Voice AI module</a>
+  <div class="kicker">Rapid Reach &middot; Power dialer</div>
+  <h1>The Voice AI <span class="gold">cold call script</span></h1>
+  <p class="lead">Sell the freedom, not the tech. The goal of this call is one thing: book the Zoom.</p>
+
+  <h2><span class="n">1</span>The pivot in</h2>
+  <p class="b">"We're booked" or "it's just me" is <b>not a no</b>. It is your cue to switch to this pitch. A booked solo detailer cannot answer the phone with his hands in a car, so he is losing jobs he already gets calls for. Do not sell more leads. Sell capture.</p>
+  <div class="say"><div class="lb">Say this</div><p>"Honestly, that's exactly why I call the good ones. Real quick, when you're out there mid-detail and the phone rings, are you catching those or do they go to voicemail?</p>
+  <p style="margin-top:10px;">Yeah, that's where the money leaks for solo guys. You don't need more leads, you're already getting calls you can't physically answer. We set up something that answers every one in your voice and books it right into your calendar, so you stop handing those jobs to the next guy."</p></div>
+  <div class="why"><div class="lb">If they mention a slow season</div><p>"And a lot of the guys we work with use the slow months to pull past customers back in automatically, so it's not so slow."</p></div>
+
+  <h2><span class="n">2</span>The opener</h2>
+  <p class="b">Same on every call, every product.</p>
+  <div class="say"><div class="lb">Say this</div>
+    <p>"Hey, is this [Company]?"</p>
+    <p class="stage">let them say yes</p>
+    <p style="margin-top:10px;">"Perfect. I was wondering, do you guys do ceramic coatings, or just detailing?"</p>
+    <p class="stage">let them answer. this one question decides the rest of the call</p>
+    <p style="margin-top:10px;">"Okay, perfect. Well, I was actually calling because I'm looking to partner up with someone in the area to bring in more work. And honestly, it's really hard to find good detailers in your area, and you guys stood out to me."</p>
+    <p class="stage">now ask for the number, in their words</p>
+    <p style="margin-top:10px;">They do ceramics: <b>"How many more ceramic coatings could you take on per week?"</b><br>Detailing only: <b>"How many more details could you take on per week?"</b></p>
+  </div>
+
+  <h2><span class="n">3</span>Why this opener works</h2>
+  <p class="b"><b>The ceramic question is not small talk.</b> It is the cheapest qualifying question on the call. Their answer tells you which product to sell, which price to quote, and which word to use for the rest of the conversation. Ask it before anything else.</p>
+  <p class="b"><b>"Partner up," not "sell you."</b> You are not pitching, you are looking for someone to work with. Nobody hangs up on a partnership.</p>
+  <p class="b"><b>"Hard to find good detailers, and you guys stood out."</b> They were chosen, not dialed. That one line is the difference between a cold call and a compliment, and it buys you the next ninety seconds.</p>
+  <p class="b"><b>Ask in their word.</b> If they said ceramics, ask about ceramics. If they said detailing, ask about details. Using their word proves you listened and makes the number easy to give.</p>
+
+  <h2><span class="n">4</span>No number, no diagnosis</h2>
+  <div class="warn"><div class="lb">The rule</div><p>You need a <b>number</b> before you diagnose anything.<br><br>They give you a number: they have room, keep going.<br>Booked out for weeks: they have money and a capacity problem, and this is your AI receptionist call.<br><br><b>No number, no diagnosis.</b></p></div>
+
+  <h2><span class="n">5</span>The first diagnostic</h2>
+  <p class="b">Once you have the number, this is the question that opens up this product. It used to be the opener. It is a better diagnostic.</p>
+  <div class="say"><div class="lb">Say this</div>
+    <p>"Quick question, what time do you guys close?"</p>
+    <p class="stage">let them answer</p>
+    <p style="margin-top:10px;">"Okay, got it. And if I gave you guys a call past [that time], would that go straight to voicemail, or do you have something in place that answers that for you?"</p>
+  </div>
+  <div class="why"><div class="lb">Reading the answer</div><p><b>Straight to voicemail</b> is your call. Every call that hits voicemail after they close is usually a booking that walked to the next guy.<br><br><b>They have something:</b> "oh nice, what are you using for that?" If it does not book the job into the calendar, run the same pitch.</p></div>
+
+  <h2><span class="n">6</span>The pitch</h2>
+  <p class="b">After they confirm they handle calls themselves, or that they miss them.</p>
+  <div class="say"><div class="lb">Say this</div><p>"If I told you I could automate that fully out, so every call gets booked directly into your calendar and you never have to take a phone call again, would that be something you'd be interested in?"</p></div>
+  <div class="say"><div class="lb">If they hesitate, give two options</div><p>"We can either set it up full, so the AI answers every call and books them in, or we can set it up so it only catches your missed calls. You'd never have a missed call again either way."</p></div>
+  <div class="why"><div class="lb">Why two options</div><p>Lead with freedom, "never take a phone call again," not tech. The full version is the upsell, the missed-calls option is the easy yes. Let them pick, then go straight to the Zoom.</p></div>
+
+  <h2><span class="n">7</span>Objections</h2>
+  <p class="b">Handle it, then steer to the Zoom. Every time.</p>
+  <div class="obj">
+    <div class="objrow"><div class="o">"How do I know this works?"</div><div class="m">"We're already doing this for detailers across the U.S. Higher rankings, consistent bookings, repeat customers."</div></div>
+    <div class="objrow"><div class="o">"How much is it?"</div><div class="m">"Our pricing and packages vary based on what you're looking for, and that's exactly what the call is for. They'll show you what makes sense for your shop."</div></div>
+    <div class="objrow"><div class="o">"I need to think about it."</div><div class="m">"Totally. Is it the money, the timing, or just wanting to see how it works first?"</div></div>
+    <div class="objrow"><div class="o">"Just send me info."</div><div class="m">"Easiest way is a quick Zoom with one of our specialists, they'll walk it visually. Mornings or afternoons?"</div></div>
+  </div>
+
+  <h2><span class="n">8</span>When they will not let the price go</h2>
+  <div class="warn"><div class="lb">The rule</div><p><b>You do not quote a price on a setting call.</b> Pricing lives on the Zoom. Your job is to get them there, not to win the price conversation on the phone.</p></div>
+  <ol>
+    <li><b>First ask.</b> "Pricing depends which direction we go, so honestly that's exactly what the call is for. We'll build a plan around your business and break the numbers down there."</li>
+    <li><b>They push again.</b> "It really depends on your competition and what you're trying to hit. There's a range, and there are options with no money up front. Let's hop on the call, break it down, and find a plan that makes sense for both of us."</li>
+    <li><b>Hail Mary, only when they are about to hang up.</b> "Alright, look. We can get you set up with no money up front. Worst case you see what we do and it costs you nothing."</li>
+  </ol>
+
+  <h2><span class="n">9</span>Book the Zoom</h2>
+  <div class="say"><div class="lb">Say this</div><p>"I'll get a quick Zoom set up with one of our specialists who'll show you exactly what it looks like and go over everything in a bit more depth. Do you have any availability today?"</p></div>
+  <ol>
+    <li><b>Push same day first.</b> If no, go to tomorrow.</li>
+    <li><b>Pin a specific time.</b> "Morning or evening?" then "What about 1pm / 8pm?"</li>
+    <li><b>Get their email, send the Zoom link now, give your number.</b> "Text me if anything comes up."</li>
+  </ol>
+
+  <h2><span class="n">10</span>Ending</h2>
+  <div class="say"><div class="lb">Say this</div><p>"Perfect, you're all set. One of our specialists will walk through everything and show you exactly how we set this up for detailing companies. At the end of the call they'll also send you a free full Google optimization video. Great talking to you, speak soon!"</p></div>
+  <div class="warn"><div class="lb">Then</div><p>Put the booking in the <b>bookings tab in Discord</b> straight after the call.</p></div>
+</div>
+<a class="hubback" href="../">&larr; Back to the training hub</a>
+</body>
+</html>

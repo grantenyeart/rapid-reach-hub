@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Closer No-Show Quiz &middot; Rapid Reach</title>
+<meta name="theme-color" content="#020817" />
+<meta name="description" content="Fourteen questions. You need 11 to pass. Watch the training first." />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Rapid Reach Sales Training" />
+<meta property="og:url" content="closer-quiz.html" />
+<meta property="og:title" content="No-Show Training Quiz: Closers" />
+<meta property="og:description" content="Fourteen questions. You need 11 to pass. Watch the training first." />
+<meta property="og:image" content="og.png" />
+<meta property="og:image:width" content="2400" />
+<meta property="og:image:height" content="1260" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="No-Show Training Quiz: Closers" />
+<meta name="twitter:description" content="Fourteen questions. You need 11 to pass. Watch the training first." />
+<meta name="twitter:image" content="og.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#020817;--bg2:#01030a;--card:#0b1322;--card2:#101c33;--border:#1e293b;--border2:#27364b;
+    --text:#f8fafc;--muted:#94a3b8;--muted2:#64748b;--gold:#f59e0b;--green:#34d399;--red:#f87171;
+    --grad:linear-gradient(135deg,#f59e0b,#eab308);}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);
+    -webkit-font-smoothing:antialiased;line-height:1.55;}
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:radial-gradient(900px 500px at 85% -10%,rgba(245,158,11,.10),transparent 60%),
+               linear-gradient(180deg,var(--bg),var(--bg2));}
+  .wrap{position:relative;z-index:1;max-width:800px;margin:0 auto;padding:44px 20px 120px;}
+  .kicker{font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+  h1{font-size:clamp(30px,6vw,48px);font-weight:900;letter-spacing:-.02em;line-height:1.05;}
+  .gold{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .lead{color:var(--muted);font-size:16px;margin-top:14px;}
+  .back{display:inline-block;margin-bottom:24px;font-size:13.5px;font-weight:700;color:var(--muted);
+    text-decoration:none;border:1px solid var(--border);border-radius:999px;padding:7px 15px;}
+  .back:hover{color:var(--gold);border-color:var(--gold);}
+
+  .who{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--border2);
+    border-radius:14px;padding:18px 20px;margin:26px 0 8px;}
+  .who label{display:block;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+  .who input{width:100%;background:#060d1c;border:1px solid var(--border2);color:var(--text);
+    border-radius:10px;padding:12px 14px;font:inherit;font-size:16px;}
+
+  .q{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--border);
+    border-left:3px solid var(--border2);border-radius:14px;padding:19px 21px;margin:14px 0;}
+  .q.right{border-left-color:var(--green);}
+  .q.wrong{border-left-color:var(--red);}
+  .qn{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2);}
+  .qt{font-size:17px;font-weight:700;color:#fff;margin:7px 0 13px;line-height:1.4;}
+  .opt{display:flex;gap:11px;align-items:flex-start;padding:10px 12px;border:1px solid var(--border);
+    border-radius:10px;margin-bottom:8px;cursor:pointer;transition:border-color .12s ease,background .12s ease;}
+  .opt:hover{border-color:var(--border2);background:rgba(255,255,255,.02);}
+  .opt input{margin-top:4px;flex:0 0 auto;accent-color:#f59e0b;}
+  .opt span{font-size:15px;color:#cbd5e1;}
+  .opt.correct{border-color:rgba(52,211,153,.55);background:rgba(52,211,153,.08);}
+  .opt.correct span{color:#d1fae5;}
+  .opt.picked-wrong{border-color:rgba(248,113,113,.55);background:rgba(248,113,113,.08);}
+  .opt.picked-wrong span{color:#fecaca;}
+  .exp{margin-top:11px;background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.22);
+    border-radius:10px;padding:12px 14px;font-size:14.5px;color:#e2e8f0;display:none;}
+  .exp b{color:#fff;}
+  .q.graded .exp{display:block;}
+
+  .bar{height:5px;background:#0b1322;border-radius:999px;overflow:hidden;margin:22px 0 6px;}
+  .bar i{display:block;height:100%;width:0;background:var(--grad);transition:width .3s ease;}
+  .step{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2);}
+  .stage{display:none;} .stage.on{display:block;}
+  .btn{display:inline-flex;align-items:center;gap:9px;background:var(--grad);color:#0f172a;
+    font-weight:800;font-size:16px;border:0;border-radius:999px;padding:15px 32px;cursor:pointer;font-family:inherit;}
+  .btn:hover{filter:brightness(1.08);}
+  .btn[disabled]{opacity:.45;cursor:not-allowed;filter:none;}
+  .btn.ghost{background:transparent;border:1px solid var(--border2);color:var(--muted);}
+  .actions{margin-top:28px;display:flex;gap:11px;flex-wrap:wrap;align-items:center;}
+  .note{color:var(--muted2);font-size:13.5px;}
+
+  .result{display:none;background:linear-gradient(180deg,var(--card),var(--card2));
+    border:1px solid var(--border2);border-radius:16px;padding:26px;margin:26px 0;text-align:center;}
+  .result.on{display:block;}
+  .score{font-family:'Playfair Display',serif;font-size:clamp(46px,10vw,76px);font-weight:900;line-height:1;
+    background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .result.pass .score{background:linear-gradient(135deg,#34d399,#10b981);-webkit-background-clip:text;background-clip:text;}
+  .result.fail .score{background:linear-gradient(135deg,#f87171,#ef4444);-webkit-background-clip:text;background-clip:text;}
+  .verdict{font-size:19px;font-weight:800;margin-top:10px;}
+  .rsub{color:var(--muted);font-size:15px;margin-top:9px;}
+  .sent{margin-top:16px;font-size:14px;color:var(--green);display:none;}
+  .sent.on{display:block;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="./">&larr; Back to the training</a>
+  <div class="kicker">Rapid Reach &middot; Sales Training</div>
+  <h1>Closer No-Show <span class="gold">Quiz</span></h1>
+
+  <!-- START -->
+  <div class="stage on" id="st-start">
+    <p class="lead">Fourteen questions, one at a time. You need <b style="color:#fde68a">11 out of 14</b> to pass. Watch the training first. You get the answer and the reason after each one, so read them as you go.</p>
+    <div class="who">
+      <label>Your name</label>
+      <input type="text" id="name" placeholder="First and last name" autocomplete="name" />
+    </div>
+    <div class="actions"><button class="btn" id="begin">Start the quiz</button></div>
+  </div>
+
+  <!-- QUESTIONS -->
+  <div class="stage" id="st-quiz">
+    <div class="bar"><i id="barfill"></i></div>
+    <div class="step" id="step"></div>
+    <div id="holder"></div>
+    <div class="actions">
+      <button class="btn" id="check">Check answer</button>
+      <button class="btn" id="next" style="display:none;">Next question</button>
+      <span class="note" id="running"></span>
+    </div>
+  </div>
+
+  <!-- RESULT -->
+  <div class="stage" id="st-done">
+    <div class="result on" id="result">
+      <div class="score" id="score">0 / 15</div>
+      <div class="verdict" id="verdict"></div>
+      <p class="rsub" id="rsub"></p>
+      <div class="sent" id="sent">Your score has been sent to Grant.</div>
+    </div>
+    <div id="review"></div>
+    <div class="actions"><button class="btn ghost" id="retake">Take it again</button></div>
+  </div>
+</div>
+
+<!-- Shared tracker. The endpoint lives in score.js, never in here. -->
+<script src="https://grantenyeart.github.io/training-scores/score.js"></script>
+
+<script>
+
+const Q = [
+ {q:"The setter books you a call. When do you send the selfie and the text?",
+  a:["The morning of the call","The moment it lands on your calendar","An hour before","Only if they have not confirmed"],
+  c:1, e:"<b>The second it books, not on the day.</b> The whole point is that they are thinking about you well before the call, not getting a reminder they can ignore."},
+
+ {q:"Why a selfie instead of just a text?",
+  a:["It looks more professional","They booked a call with a company, now they have a face, and it is harder to blow off a person","It is what everyone does now","It makes the text longer"],
+  c:1, e:"A photo gets opened when a block of text gets skipped. <b>And it is a lot harder to blow off a person than a calendar invite.</b>"},
+
+ {q:"What does the first text say you are doing?",
+  a:["Confirming the appointment","Research on their company and their competition","Putting together a proposal","Checking they still want the call"],
+  c:1, e:"<b>\"Doing some research on your company and your competition now.\"</b> That tells them work has already started on their behalf. Not showing up now costs somebody effort, and people do not like that."},
+
+ {q:"It is the start time and they are not on. What do you do?",
+  a:["Wait ten minutes on the Zoom, then mark it a no-show","Wait five minutes, then call them","Send a text and wait","Email them to reschedule"],
+  c:1, e:"<b>Five minutes past, pick up the phone.</b> Do not sit on the Zoom waiting. Sitting there feels like you are doing something, and it is the one thing that cannot possibly get them on the call."},
+
+ {q:"What do you say when they pick up?",
+  a:["\"Hey John, did you forget about our call?\"","\"Hey John, I'm hopping on our call now to go over your free audit. Is now still a good time for you?\"","\"Hey John, want to reschedule?\"","\"Hey John, I have been waiting on the Zoom\""],
+  c:1, e:"It assumes the call is happening and only checks the timing. <b>And \"your free audit\" is in there on purpose:</b> it is already built, it is theirs, and it is sitting there waiting."},
+
+ {q:"Why never \"did you forget about our call?\"",
+  a:["It is too long","It makes them feel caught out, and nobody books a second meeting with someone who made them feel bad about the first","It sounds unprofessional","It is fine to say"],
+  c:1, e:"Never make them feel caught out. You want the call back, and guilt does not get it back."},
+
+ {q:"They do not answer the first call. What now?",
+  a:["Leave it, they will call back","Call a second time","Text instead","Wait an hour and try again"],
+  c:1, e:"<b>Always call twice, never once.</b> One missed call is a stranger. Two in a row is somebody who actually needs to reach you, and that is when people pick up."},
+
+ {q:"Why does calling twice work?",
+  a:["It shows you are persistent","You ignore one unknown number without thinking. When the same number rings straight back, you look at it","It doubles your chances statistically","It gets you past their spam filter"],
+  c:1, e:"Nothing else about you changed. <b>Only that you called twice.</b> Most closers call once, get nothing, and decide the person is dodging them, when they were in a driveway with wet hands."},
+
+ {q:"No answer on the second call either. What do you do?",
+  a:["Always leave a voicemail","Hang up, they will see two missed calls","Go straight to the text","Mark it a no-show and move on"],
+  c:0, e:"Every time, no exceptions. <b>If you will not leave a message, you are telling them the call was not worth one.</b> A missed ring is nothing. A voice they recognise is a reason to pick up next time."},
+
+ {q:"What should the voicemail be about?",
+  a:["That they missed the meeting","The audit you have built and getting through it with them","How busy your calendar is","Asking them to call back to reschedule"],
+  c:1, e:"Short, warm, and about the audit, not about them missing it. Same rule as the call: <b>never make them feel caught out.</b>"},
+
+ {q:"Then you text them. Which line is right?",
+  a:["\"You missed our call, let me know if you want to reschedule.\"","\"Hey John, was looking forward to our call. I have your free audit built out. When are you available for 15 minutes to go over this?\"","\"Just checking if you still want to move forward.\"","\"Following up on our missed appointment.\""],
+  c:1, e:"Disappointed, not annoyed. The work exists and is going to waste. And it asks for <b>15 minutes, not 30</b>, because fifteen is easy to say yes to and the call runs as long as it runs once you are on it."},
+
+ {q:"Why ask for 15 minutes and not 30?",
+  a:["The call really only takes 15 minutes","Fifteen is easy to say yes to, and the call runs as long as it runs once you are on it","It fits better in their calendar","So you can book more of them in a day"],
+  c:1, e:"You are lowering the cost of saying yes, not promising a shorter call."},
+
+ {q:"You have sent the re-book text and heard nothing. Is that the end of it?",
+  a:["Yes, you have done the sequence","No, you chase it until they show or until they tell you no","Give it a week then try once more","Hand it back to the setter"],
+  c:1, e:"Move five is the first attempt at getting it back, not the last. <b>A booked call that no-showed is still the warmest lead you have all week.</b> They raised their hand, gave a setter their problem, and agreed to a time. None of that stopped being true because they were busy at two."},
+
+ {q:"What is a no-show, to a closer?",
+  a:["A dead lead","A lead you have not reached yet","A setter problem","A sign they were never serious"],
+  c:1, e:"<b>Two o'clock is not the deadline, it is just the time you agreed on.</b> The lead is still warm at 2:05, at 2:30 and tomorrow morning. The only closers who lose those calls are the ones who decided they were lost."}
+];
+
+let i=0, score=0, picked=null, log=[];
+const holder=document.getElementById('holder');
+
+function show(){
+  const item=Q[i];
+  document.getElementById('step').textContent='Question '+(i+1)+' of '+Q.length;
+  document.getElementById('barfill').style.width=(i/Q.length*100)+'%';
+  document.getElementById('running').textContent = i ? score+' right so far' : '';
+  holder.innerHTML='<div class="q" id="cur"><div class="qt">'+item.q+'</div>'+
+    item.a.map((o,j)=>'<label class="opt" id="o'+j+'"><input type="radio" name="cur" value="'+j+'"><span>'+o+'</span></label>').join('')+
+    '<div class="exp">'+item.e+'</div></div>';
+  picked=null;
+  document.getElementById('check').style.display='inline-flex';
+  document.getElementById('check').disabled=true;
+  document.getElementById('next').style.display='none';
+  holder.querySelectorAll('input').forEach(r=>r.onchange=()=>{
+    picked=parseInt(r.value,10); document.getElementById('check').disabled=false;
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+document.getElementById('begin').onclick=function(){
+  const n=document.getElementById('name').value.trim();
+  if(!n){ alert('Put your name in first.'); document.getElementById('name').focus(); return; }
+  document.getElementById('st-start').classList.remove('on');
+  document.getElementById('st-quiz').classList.add('on');
+  show();
+};
+
+document.getElementById('check').onclick=function(){
+  if(picked===null) return;
+  const item=Q[i], box=document.getElementById('cur');
+  box.classList.add('graded');
+  document.getElementById('o'+item.c).classList.add('correct');
+  if(picked===item.c){ score++; box.classList.add('right'); }
+  else { box.classList.add('wrong'); document.getElementById('o'+picked).classList.add('picked-wrong'); }
+  log.push({n:i+1, ok:picked===item.c});
+  box.querySelectorAll('input').forEach(x=>x.disabled=true);
+  this.style.display='none';
+  const nx=document.getElementById('next');
+  nx.style.display='inline-flex';
+  nx.textContent = (i===Q.length-1) ? 'See my score' : 'Next question';
+};
+
+document.getElementById('next').onclick=function(){
+  i++;
+  if(i<Q.length){ show(); return; }
+  document.getElementById('barfill').style.width='100%';
+  document.getElementById('st-quiz').classList.remove('on');
+  document.getElementById('st-done').classList.add('on');
+  finish();
+};
+
+function finish(){
+  const name=document.getElementById('name').value.trim();
+  const missed=log.filter(x=>!x.ok).map(x=>x.n);
+  const pass=score>=11;
+  const r=document.getElementById('result');
+  r.classList.add(pass?'pass':'fail');
+  document.getElementById('score').textContent=score+' / '+Q.length;
+  document.getElementById('verdict').textContent = pass ? 'Passed' : 'Not a pass yet';
+  document.getElementById('rsub').textContent = pass
+    ? (missed.length ? 'Read the ones you missed again below: '+missed.join(', ')+'.' : 'Perfect score. Go book some calls.')
+    : 'You need 11 to pass. Read the missed ones below, watch the training again, then retake it.';
+
+  document.getElementById('review').innerHTML = missed.length
+    ? '<h3 style="font-size:18px;font-weight:800;margin:26px 0 12px;">What you missed</h3>' +
+      missed.map(n=>'<div class="q graded wrong"><div class="qn">Question '+n+'</div><div class="qt">'+Q[n-1].q+'</div>'+
+        '<div class="opt correct"><span>'+Q[n-1].a[Q[n-1].c]+'</span></div><div class="exp">'+Q[n-1].e+'</div></div>').join('')
+    : '';
+
+  const done=()=>document.getElementById('sent').classList.add('on');
+  RRScore.submit(
+    { quiz:'Closer No-Show Quiz', track:'Closers', name:name, score:score,
+      total:Q.length, passed:pass, missed:missed.join(' ') },
+    done, done
+  );
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+document.getElementById('retake').onclick=function(){ location.reload(); };
+</script>
+<style>
+  .hubback{position:fixed;right:14px;top:14px;z-index:9999;display:inline-flex;align-items:center;gap:7px;
+    font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:12.5px;font-weight:800;
+    letter-spacing:.04em;text-decoration:none;color:#cbd5e1;background:rgba(15,22,41,.92);
+    border:1px solid rgba(148,163,184,.38);border-radius:999px;padding:9px 15px;
+    white-space:nowrap;max-width:calc(100vw - 28px);
+    backdrop-filter:blur(6px);box-shadow:0 4px 18px rgba(0,0,0,.35);}
+  @media(max-width:620px){ .hubback{font-size:11px;padding:7px 12px;right:10px;top:10px;} }
+  .hubback:hover{color:#fff;border-color:#8a8f9c;}
+  @media print{.hubback{display:none;}}
+</style>
+<a class="hubback" href="../">&larr; Back to the training hub</a>
+</body>
+</html>

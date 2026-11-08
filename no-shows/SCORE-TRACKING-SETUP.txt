@@ -1,0 +1,122 @@
+================================================================
+QUIZ SCORES: SHEET + EMAIL
+Four minutes of setup, then it runs itself.
+================================================================
+
+WHAT YOU GET
+Every time anyone submits either quiz, two things happen:
+
+  1. A row lands in a Google Sheet.
+  2. You get an email with their score.
+
+The email subject tells you everything at a glance, so you can
+triage from your phone without opening it:
+
+  PASS  Steven  14/15  Setter No-Show Quiz
+  FAIL  Brentley  9/14  Closer No-Show Quiz
+
+Both quizzes feed the same sheet and the same inbox. The Quiz
+column and the subject line tell you which test it was.
+
+
+----------------------------------------------------------------
+STEP 1  Make the sheet
+----------------------------------------------------------------
+New Google Sheet. Name it "No-Show Quiz Scores".
+Put these in row 1, A through G:
+
+   Timestamp | Quiz | Name | Score | Out Of | Passed | Missed
+
+
+----------------------------------------------------------------
+STEP 2  Add the script
+----------------------------------------------------------------
+In that sheet: Extensions -> Apps Script.
+Delete whatever is in there, paste all of this, and save.
+
+var EMAIL_TO = 'grantenyeart@gmail.com';
+
+function doPost(e) {
+  var d = JSON.parse(e.postData.contents);
+  var pass = d.passed ? 'PASS' : 'FAIL';
+  var quiz = d.quiz || 'Quiz';
+  var who  = d.name || 'Someone';
+
+  SpreadsheetApp.getActiveSpreadsheet().getSheets()[0].appendRow([
+    d.when || new Date(), quiz, who, d.score, d.total, pass, d.missed || ''
+  ]);
+
+  try {
+    var color  = d.passed ? '#1a7f37' : '#b42318';
+    var missed = d.missed ? d.missed.split(' ').join(', ') : 'nothing, perfect score';
+    var html =
+      '<div style="font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;max-width:460px;">' +
+      '<p style="font-size:12px;letter-spacing:.09em;text-transform:uppercase;' +
+        'color:#667085;margin:0 0 6px;">' + quiz + '</p>' +
+      '<h2 style="margin:0 0 2px;font-size:24px;color:#101828;">' + who + '</h2>' +
+      '<p style="margin:0 0 20px;font-size:34px;font-weight:700;color:' + color + ';">' +
+        d.score + ' / ' + d.total +
+        ' <span style="font-size:17px;letter-spacing:.06em;">' + pass + '</span></p>' +
+      '<table style="font-size:14px;color:#101828;border-collapse:collapse;">' +
+      '<tr><td style="padding:5px 16px 5px 0;color:#667085;">Missed</td>' +
+        '<td style="padding:5px 0;">' + missed + '</td></tr>' +
+      '<tr><td style="padding:5px 16px 5px 0;color:#667085;">Submitted</td>' +
+        '<td style="padding:5px 0;">' + (d.when || '') + '</td></tr>' +
+      '</table></div>';
+
+    MailApp.sendEmail({
+      to: EMAIL_TO,
+      subject: pass + '  ' + who + '  ' + d.score + '/' + d.total + '  ' + quiz,
+      htmlBody: html
+    });
+  } catch (err) {
+    // Score is already saved. Never lose a row because mail failed.
+  }
+
+  return ContentService.createTextOutput('ok');
+}
+
+To send to more than just you, make EMAIL_TO a comma separated
+list in quotes:
+   var EMAIL_TO = 'grantenyeart@gmail.com, ryan@example.com';
+
+
+----------------------------------------------------------------
+STEP 3  Deploy it
+----------------------------------------------------------------
+Deploy -> New deployment.
+Type: Web app.
+Execute as: Me.
+Who has access: ANYONE.          <- this one matters
+
+Deploy, approve the permissions, and copy the Web app URL.
+It looks like:
+   https://script.google.com/macros/s/AKfy....../exec
+
+The permission screen will warn you about sending mail as you.
+That is the email step. Approve it.
+
+
+----------------------------------------------------------------
+STEP 4  Send me the URL
+----------------------------------------------------------------
+Paste it in the chat. I drop it into both quizzes and push.
+Nothing is being recorded until that URL is in, so do this before
+you send the quiz to anybody.
+
+
+----------------------------------------------------------------
+GOOD TO KNOW
+----------------------------------------------------------------
+Gmail caps outbound script mail at 100 a day. Not a concern at
+your headcount, and a retake only costs one more.
+
+Retakes do not overwrite. Every attempt is its own row and its
+own email, so you can see who failed and came back.
+
+The name is typed by the person taking it, so it is only as
+clean as they type it. The sheet is the source of truth if two
+people type the same first name.
+
+If you ever want a single end of day summary instead of one
+email per submission, say so and I will switch it to a digest.

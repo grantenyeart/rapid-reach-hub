@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>The Film Room &middot; Rapid Reach Closer Training</title>
+<meta name="theme-color" content="#020817" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#020817; --bg2:#01030a; --card:#0b1322; --card2:#101c33;
+    --border:#1e293b; --border2:#27364b; --text:#f8fafc; --muted:#94a3b8; --muted2:#64748b;
+    --gold:#f59e0b; --gold2:#eab308; --green:#34d399; --red:#f87171;
+    --grad:linear-gradient(135deg,#f59e0b,#eab308);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.55;}
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:radial-gradient(900px 500px at 85% -10%,rgba(245,158,11,.10),transparent 60%),
+               radial-gradient(700px 500px at 0% 110%,rgba(234,179,8,.06),transparent 60%),
+               linear-gradient(180deg,var(--bg),var(--bg2));}
+  .wrap{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:44px 20px 120px;}
+  .kicker{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+  h1{font-size:clamp(30px,6vw,50px);font-weight:900;letter-spacing:-.02em;line-height:1.05;}
+  .gold{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .lead{color:var(--muted);font-size:clamp(15px,2.2vw,18px);margin-top:14px;max-width:760px;}
+  .back{display:inline-block;margin-bottom:26px;font-size:13.5px;font-weight:700;color:var(--muted);text-decoration:none;border:1px solid var(--border);border-radius:999px;padding:7px 15px;}
+  .back:hover{color:var(--gold);border-color:var(--gold);}
+  .sec-h{display:flex;align-items:center;gap:14px;margin:64px 0 20px;padding-top:22px;border-top:1px solid var(--border);}
+  .sec-n{font-family:'Playfair Display',Georgia,serif;font-size:34px;font-weight:900;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1;}
+  .sec-h h2{font-size:clamp(21px,3.6vw,30px);font-weight:800;letter-spacing:-.01em;}
+  h3{font-size:19px;font-weight:800;margin:34px 0 12px;color:#fff;}
+  p{color:#cbd5e1;font-size:15.5px;margin:10px 0;}
+  .note{color:var(--muted);font-size:14.5px;}
+  .card{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--border);border-radius:14px;padding:17px 19px;margin:14px 0;}
+  .lbl{font-size:10.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:7px;}
+  .why{background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.20);border-radius:11px;padding:13px 16px;margin:14px 0;}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px;}
+  .tag{font-size:12px;font-weight:700;letter-spacing:.04em;border-radius:999px;padding:5px 12px;border:1px solid var(--border2);color:var(--muted);}
+  .tag.lost{color:#fca5a5;border-color:rgba(248,113,113,.4);background:rgba(248,113,113,.08);}
+  .tag.won{color:#6ee7b7;border-color:rgba(52,211,153,.4);background:rgba(52,211,153,.08);}
+  .tag.link a{color:var(--gold);text-decoration:none;font-weight:800;}
+  .td-cols{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px;}
+  @media(max-width:820px){.td-cols{grid-template-columns:1fr;}}
+  .td-col{border-radius:13px;padding:16px 18px;}
+  .td-col.good{background:rgba(52,211,153,.05);border:1px solid rgba(52,211,153,.25);}
+  .td-col.bad{background:rgba(248,113,113,.05);border:1px solid rgba(248,113,113,.25);}
+  .td-lbl{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px;}
+  .td-lbl.good{color:var(--green);} .td-lbl.bad{color:var(--red);}
+  .td-col ul{list-style:none;}
+  .td-col li{font-size:14.5px;line-height:1.5;color:#e2e8f0;margin-bottom:13px;padding-left:2px;}
+  .td-col li b{color:#fff;}
+  .ts{display:inline-block;font-variant-numeric:tabular-nums;font-weight:800;font-size:12px;letter-spacing:.03em;color:#0f172a;background:var(--grad);border-radius:5px;padding:2px 7px;margin-right:7px;}
+  .dlg{margin:16px 0;}
+  .turn{margin:9px 0;font-size:15px;line-height:1.5;display:grid;grid-template-columns:86px 1fr;gap:10px;}
+  .turn .who{font-weight:800;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;padding-top:3px;}
+  .turn.c .who{color:var(--gold);} .turn.p .who{color:var(--muted2);}
+  .turn .txt{color:#e2e8f0;font-style:italic;}
+  .vs{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0;}
+  @media(max-width:820px){.vs{grid-template-columns:1fr;}}
+  .vsbox{border-radius:13px;padding:16px 18px;}
+  .vsbox.no{background:rgba(248,113,113,.06);border:1px solid rgba(248,113,113,.28);}
+  .vsbox.yes{background:rgba(52,211,153,.06);border:1px solid rgba(52,211,153,.28);}
+  .vh{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px;}
+  .vsbox.no .vh{color:var(--red);} .vsbox.yes .vh{color:var(--green);}
+  .vsbox p{font-size:15px;color:#e2e8f0;margin:6px 0;}
+  .big{font-size:clamp(19px,3.6vw,28px);font-weight:900;line-height:1.2;margin:22px 0;}
+  .score{width:100%;border-collapse:collapse;margin-top:14px;font-size:14.5px;border:1px solid var(--border2);border-radius:12px;overflow:hidden;}
+  .score th{background:#0b1322;text-align:left;padding:11px 13px;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted2);font-weight:800;}
+  .score td{padding:11px 13px;border-top:1px solid var(--border);color:#e2e8f0;vertical-align:top;}
+  .score td.ph{font-weight:800;color:#fff;white-space:nowrap;}
+  .score td.bx{text-align:center;color:var(--muted2);font-weight:800;white-space:nowrap;}
+  .toc{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;}
+  .toc a{font-size:13.5px;font-weight:700;color:var(--muted);text-decoration:none;border:1px solid var(--border);border-radius:999px;padding:7px 14px;}
+  .toc a:hover{color:var(--gold);border-color:var(--gold);}
+  .pend{border:1px dashed var(--border2);border-radius:13px;padding:18px 20px;margin:14px 0;color:var(--muted);font-size:14.5px;}
+  .card[id^="p"]{scroll-margin-top:26px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back" href="./">&larr; Back to the Closer Playbook</a>
+  <div class="kicker">Rapid Reach &middot; Closer Training</div>
+  <h1>The <span class="gold">Film Room</span></h1>
+  <p class="lead">Real closing calls, broken down minute by minute. The playbook tells you the seven phases. This page shows you what they sound like when they work, and what it costs when they don't.</p>
+  <p class="lead"><b style="color:#fde68a">How to use this:</b> do not watch a whole call front to back. Read the breakdown first, then jump to the timestamps that matter. You will learn more from six targeted minutes than from a full recording.</p>
+
+  <div class="toc">
+    <a href="#scorecard">The Scorecard</a>
+    <a href="#divine">Teardown 1 &middot; Divine Detailing</a>
+    <a href="#summit">Teardown 2 &middot; Summit Auto</a>
+    <a href="#ninelions">Teardown 3 &middot; Nine Lions</a>
+    <a href="#ninelives">Teardown 4 &middot; Nine Lives</a>
+    <a href="#beastly">Teardown 5 &middot; Beastly PPC</a>
+    <a href="#headtohead">Side By Side</a>
+    <a href="#library">Phase Library</a>
+  </div>
+
+  <!-- SCORECARD -->
+  <div class="sec-h" id="scorecard"><span class="sec-n">01</span><h2>Grade every call on this</h2></div>
+  <p>Seven rows, one per phase. Score each out of 2: <b>0</b> did not happen, <b>1</b> attempted, <b>2</b> executed. Fourteen is a perfect call. Anything under 9 and the deal was probably lost before the pitch.</p>
+  <table class="score">
+    <tr><th>Phase</th><th>What you're looking for</th><th>Score</th></tr>
+    <tr><td class="ph">1. Control</td><td>Owned the first 60 seconds. Set the agenda. Got them talking about why they showed up.</td><td class="bx">/ 2</td></tr>
+    <tr><td class="ph">2. Discovery</td><td>Made them say the numbers out loud. Current, goal, and the gap between them.</td><td class="bx">/ 2</td></tr>
+    <tr><td class="ph">3. Budget</td><td>Got their number before quoting yours. Knows what they already spend and on what.</td><td class="bx">/ 2</td></tr>
+    <tr><td class="ph">4. Pitch</td><td>Sold the outcome, not the feature list. <b>One</b> product matched to the pain they named.</td><td class="bx">/ 2</td></tr>
+    <tr><td class="ph">5. The Ask</td><td>Asked for the deal. Asked again. Stopped talking after asking.</td><td class="bx">/ 2</td></tr>
+    <tr><td class="ph">6. Objections</td><td>Isolated before answering. "Is it the money, the timing, or something else?"</td><td class="bx">/ 2</td></tr>
+    <tr><td class="ph">7. Commitment</td><td>Left with a date and a time on the calendar. Never "I'll reach out."</td><td class="bx">/ 2</td></tr>
+  </table>
+  <div class="why"><div class="lbl">The talk-time rule</div><p>Before you score anything, ask one question: <b>who talked more?</b> On a good discovery call the prospect does 60 to 70 percent of the talking. If the closer did most of it, phases 2 and 3 did not really happen no matter what the scorecard says.</p></div>
+
+  <!-- TEARDOWN 1 -->
+  <div class="sec-h" id="divine"><span class="sec-n">02</span><h2>Teardown 1 &middot; The deal that closed in spite of the call</h2></div>
+  <div class="meta">
+    <span class="tag">Divine Detailing Work</span>
+    <span class="tag">Logan Lamb &middot; Greensboro, NC</span>
+    <span class="tag">June 11 &middot; 27 min</span>
+    <span class="tag">Closer: Grant</span>
+    <span class="tag won">Result: Closed lead gen</span>
+    <span class="tag link"><a href="https://fathom.video/share/d5oEYu9rzr6w6j5m37jLpK7a3yNZFp7_" target="_blank" rel="noopener">▶ Recording</a></span>
+  </div>
+  <p class="note">Scorecard: Control 2, Discovery 2, Budget 2, Pitch 0, Ask 1, Objections 0, Commitment 0. <b style="color:#fca5a5">7 of 14.</b> The front half is close to perfect. The back half nearly threw it away, and Logan signed anyway. <b>That is the uncomfortable part.</b></p>
+
+  <h3>Why this call is worth 20 minutes of your time</h3>
+  <p>The prospect said the offer was a no-brainer <b>in the first thirty seconds</b>. He said yes to buying <b>at 14:48</b>. He confirmed again <b>at 17:32</b>. The call then ran eleven more minutes, pitched him three different products, never isolated his objection, and ended with "I'll reach out." <b>He signed afterward anyway.</b></p>
+  <p>That is exactly why this one is worth studying. <b>A call can be run badly and still land, which is how these habits survive.</b> Nothing below cost the deal. It cost eleven minutes, a confused buyer, a follow-up that should not have been needed, and a $950 a month anchor that was sitting right there and never got picked up.</p>
+
+  <div class="td-cols">
+    <div class="td-col good">
+      <div class="td-lbl good">What went right</div>
+      <ul>
+        <li><span class="ts">0:14</span><b>Opened by making the prospect sell himself.</b> "What made you want to hop on this call? What about our offer stood out to you?" Logan answered "the percentage I'd be losing per job isn't terrible, and the amount of jobs I'd be getting, it's kind of a no-brainer." Never pitch to a man who just told you he's already sold.</li>
+        <li><span class="ts">2:50</span><b>Got current, goal, and gap out loud.</b> "What revenue are you sitting at per month, and what's the goal?" $4K now, $6K target. Then he said the gap back: "So about $2,000?" That is phase 2 executed exactly as written.</li>
+        <li><span class="ts">3:12</span><b>Ran a business audit before the call.</b> Knew the Instagram had 5,000 followers and complimented the video quality specifically. Preparation reads as respect.</li>
+        <li><span class="ts">4:06</span><b>Chained the CRM diagnostic.</b> Do you track leads, what software, can you mass text. Three questions, each narrowing. Found a real hole instead of assuming one.</li>
+        <li><span class="ts">8:13</span><b>Screen shared instead of describing.</b> Pulled up Matrix Mobile Detailing live, showed the promo, the ceramic page, the memberships. Demo, don't debate.</li>
+        <li><span class="ts">20:58</span><b>The best moment in the call.</b> "How many leads did he bring you last month?" Two bookings. Then "Do you pay him up front?" $950 a month. He surfaced that this man is burning $950 a month for two jobs.</li>
+      </ul>
+    </div>
+    <div class="td-col bad">
+      <div class="td-lbl bad">What it cost</div>
+      <ul>
+        <li><span class="ts">4:33</span><b>He talked roughly three quarters of a 27 minute call.</b> The stretch from 8:13 to 13:57 is nearly six unbroken minutes of The closer. A doctor asks and listens. This became a lecture.</li>
+        <li><span class="ts">4:33</span><b>He talked the buyer out of the thing the buyer already wanted.</b> Logan came in pre-sold on lead gen. He said the competition was too heavy and pivoted to website and software instead. <b>This is the fatal move.</b> He replaced a yes with a harder sell.</li>
+        <li><span class="ts">6:00</span><b>He pitched three products.</b> Website, then software, then Google ads later. By 13:57 Logan could not have told you what he was being asked to buy.</li>
+        <li><span class="ts">21:36</span><b>He never used the $950 anchor.</b> Logan is paying $950 a month for two bookings. Our lead gen costs nothing up front. That comparison was sitting right there and never got made.</li>
+        <li><span class="ts">14:48</span><b>He got a yes and kept talking.</b> "If it's going to help get me where I want to go, I don't see why not" is a yes. So is "I get what you're saying, a hundred percent" at 17:32. Both times he kept selling instead of collecting.</li>
+        <li><span class="ts">17:37</span><b>He put a monologue between the yes and the invoice.</b> Forty seconds about the owner being busy and needing payment first, right after a man told him he'd been burned by agencies.</li>
+        <li><span class="ts">18:16</span><b>He never isolated the objection.</b> "Time-wise right now that wouldn't work out best for me" went unexamined. Nobody asked whether it was the timing or the money.</li>
+        <li><span class="ts">24:39</span><b>He ended with "I'll reach out."</b> No date, no time, no next call. Phase 7 of our own playbook says never do this. The deal survived it, but <b>surviving a mistake is not the same as it being free</b>, and the next one may not.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>The exact 90 seconds that cost him eleven minutes</h3>
+  <div class="dlg">
+    <div class="turn c"><span class="who">Grant</span><span class="txt">"So the way that's kind of like, are you looking to get that software in place?"</span></div>
+    <div class="turn p"><span class="who">Logan</span><span class="txt">"I mean, if it's going to help and get me to where I want to go, then I don't see why not."</span></div>
+    <div class="turn c"><span class="who">Grant</span><span class="txt">"Yeah, 100%. I can set you up a call. The software, it's just $300 a month..."</span></div>
+  </div>
+  <div class="why"><div class="lbl">Stop right there</div><p>That was the sale. The correct next sentence is nine words long: <b>"Perfect, what's the best email for the invoice?"</b> Instead the call ran eleven more minutes, and in those eleven minutes Logan talked himself back out of it and had to be closed again afterward.</p></div>
+
+  <h3>The $950 he left on the table</h3>
+  <div class="vs">
+    <div class="vsbox no">
+      <div class="vh">What The closer pitched</div>
+      <p>$300/month software, <b>on top of</b> the $950/month Logan is already paying an agency that produced two bookings.</p>
+      <p class="note" style="margin-top:8px;">Total ask: $1,250 a month from a man doing $4,000 a month.</p>
+    </div>
+    <div class="vsbox yes">
+      <div class="vh">What was available</div>
+      <p>"You're paying $950 a month for two bookings. We don't charge anything up front, you pay per qualified lead. What would you rather have that $950 doing?"</p>
+      <p class="note" style="margin-top:8px;">Same product he came in pre-sold on. Funded by money he's already losing.</p>
+    </div>
+  </div>
+
+  <div class="big gold">Sell them the thing they already said yes to. Then stop talking and collect.</div>
+
+  <div class="why"><div class="lbl">One thing that has changed since this call</div><p>Grant pitches Meta ads for ceramics at 3:00 and again at 22:00. <b>We no longer sell Meta.</b> That partnership ended. The equivalent today is Google Pay Per Click. Ignore that thread when you watch.</p></div>
+
+
+  <!-- TEARDOWN 2 -->
+  <div class="sec-h" id="summit"><span class="sec-n">03</span><h2>Teardown 2 &middot; The one the playbook was built on</h2></div>
+  <div class="meta">
+    <span class="tag">Summit Auto Detail</span>
+    <span class="tag">Michael Strickland &middot; Asheville, NC</span>
+    <span class="tag">June 15 &middot; 57 min</span>
+    <span class="tag">Closer: Grant</span>
+    <span class="tag won">Result: Closed</span>
+    <span class="tag link"><a href="https://fathom.video/share/By3AsHiUvZJtQ41Ur1FkrsA5VXKFFaV2" target="_blank" rel="noopener">&#9654; Part 1</a></span>
+    <span class="tag link"><a href="https://fathom.video/share/L7EW8G-suX8bpLoGm4AD3TBJSF2BSU5e" target="_blank" rel="noopener">&#9654; Part 2</a></span>
+  </div>
+  <p class="note">Scorecard across both parts: Control 2, Discovery 2, Budget 2, Pitch 2, Ask 2, Objections 2, Commitment 2. <b style="color:#6ee7b7">14 of 14.</b> Closed all three offers: Google lead gen, Meta setup, and the AI receptionist. $1,500 up front, Meta setup split into four payments.</p>
+
+  <h3>The headline: he bought the thing he said he refused</h3>
+  <p>At <b>15:25</b> Michael says <i>"I don't want AI. I do not want AI. I refuse to do that. That's garbage."</i> At <b>52:08</b> he pays for the AI receptionist. Thirty seven minutes to completely reverse a stated belief, and it happened for one reason.</p>
+
+  <div class="td-cols">
+    <div class="td-col good">
+      <div class="td-lbl good">What won it</div>
+      <ul>
+        <li><span class="ts">0:32</span><b>Risk reversal in the first thirty seconds.</b> "We show companies what we do before we ask for a dime." Said to a man who opened the call complaining about getting ripped off. He led with the exact thing the prospect was afraid of. <b style="color:#fca5a5">Do not run this line today.</b> No money up front is now a Hail Mary you reach for only when the deal is about to die, never an opener. Study why it worked here, then set your frame with the agenda instead.</li>
+        <li><span class="ts">1:14</span><b>Got the competitor's price at minute one.</b> "How much were they charging you?" $1,000 a month plus ad spend for a promise of 10 coatings. Then: <i>"That's how they cook you, man. Our pricing, you'll probably like the sound of it compared to that."</i> He anchored against their number before ever saying his own.</li>
+        <li><span class="ts">2:24</span><b>Discovery until the prospect named the gap himself.</b> Needs 15 details a week. Two vans. $3,500 a week now. Wants $5,000. Then the confirming question: "the biggest bottleneck is not workers, it's jobs coming in?" Michael did most of the talking through this whole stretch.</li>
+        <li><span class="ts">6:43</span><b>Derived the price from their ticket, not a price sheet.</b> "What would you quote me for an interior exterior?" $250 to $350. "We'll meet in the middle at $300, so we ask $30 per valid lead." The fee came out of the prospect's own numbers.</li>
+        <li><span class="ts">8:41</span><b>Held steady through open disbelief.</b> "That doesn't make any sense, I can't fathom what you're saying. How is that worth it for you?" He explained the real economics, including that they used to charge 20% and lowered it. No defensiveness, no backpedaling.</li>
+        <li><span class="ts">15:30</span><b>Answered the AI objection with a question.</b> "Have you ever experimented with AI at all?" Not a rebuttal. He dug into the bad experience first, then reframed the product as a gatekeeper that only passes high intent calls through. Michael: "Yeah, I kind of like that."</li>
+        <li><span class="ts">40:00</span><b>Then he played the demo live.</b> Called the AI on speaker and let it handle a price objection and a vomit cleanup. Michael: <i>"I didn't realize that it could overcome objections and actually pin down a price and pin down a day."</i> <b>This is the moment the deal turned.</b></li>
+        <li><span class="ts">45:55</span><b>Discounted for the bundle, not for the pressure.</b> "The receptionist is normally a thousand. If you're getting the meta ads and the Google ads, I'll do 50% off to implement all three." The discount bought a bigger deal instead of shrinking one.</li>
+        <li><span class="ts">36:55</span><b>Allowed the downsell but priced the delay.</b> Michael asked to skip the $1,000 Meta setup. "We could set it up that way. The longer you wait, you're missing deals. How quickly do you want to get to that 5K a week?" Handed the choice back tied to the prospect's own goal. Michael took all three anyway.</li>
+        <li><span class="ts">52:35</span><b>Collected on the call.</b> "I can send it, you ready?" Square link and agreement forms out before hanging up.</li>
+      </ul>
+    </div>
+    <div class="td-col bad">
+      <div class="td-lbl bad">What still needs fixing</div>
+      <ul>
+        <li><span class="ts">35:52</span><b>The prospect asked his name 36 minutes in.</b> "What's your name?" Which means there was never a proper introduction. Phase 1 is control, and control starts with the prospect knowing who they're talking to.</li>
+        <li><span class="ts">28:42</span><b>"What's the name of your company?"</b> Nearly half an hour before Michael knew he was talking to Rapid Reach. Same gap as above.</li>
+        <li><span class="ts">13:06</span><b>Long tangents.</b> Weather, a stolen-car background check story at 29:04, the grape and watermelon analogy at 39:09. Rapport is good and this was a lot of it inside 57 minutes.</li>
+        <li><span class="ts">55:43</span><b>Ended without money actually collected.</b> "I do need to talk to you real quick, but I will get back to you ASAP." The forms went out but the call closed on "you'll hear from me shortly." It landed, but that is a gap, not a plan.</li>
+        <li><span class="ts">45:29</span><b>The partner objection got one attempt.</b> He offered a joint call with the wife, Michael declined, and it was dropped. Worth one more try: "what's the one number she'll want to see?"</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <h3>Part 2 &middot; the paperwork call, and how a commitment actually sounds</h3>
+  <p>Twenty six minutes, same day. This is the half nobody records and everybody needs, because the deal is won and it can still fall apart here.</p>
+
+  <div class="td-cols">
+    <div class="td-col good">
+      <div class="td-lbl good">What held the deal together</div>
+      <ul>
+        <li><span class="ts">2:00</span><b>He defended the discount by re-anchoring, not by caving.</b> Michael tried to renegotiate to 10% on any lead he closed himself. Grant: <i>"Our typical average is 20% on the meta side. I knew because you were getting the full setup, I was giving you the discount of 15."</i> Michael answered his own objection: <i>"I would give you the margin, but I don't have any. So we're just at the 15 then."</i> <b>Never defend a discounted price. Restate the undiscounted one.</b></li>
+        <li><span class="ts">5:30</span><b>He refused to promise something he couldn't back.</b> Michael pushed hard for a guarantee at $35 a day. Grant held: <i>"We don't do guarantees because it fluctuates from place to place. But based on our averages you'll be seeing three to four a week."</i> The guarantee exists only at $50 a day, and he did not blur that line to get a signature.</li>
+        <li><span class="ts">8:00</span><b>He removed the money objection with structure, not discount.</b> Four payments on the Meta setup, offered the moment it was asked for. Price never moved.</li>
+        <li><span class="ts">24:00</span><b>The commitment, stated as a sequence.</b> <i>"Look through those, get those signed. Once you get those signed and sent back, I'm going to send you the payment plan for the meta ads. And then I'll send you the upfront payment for the AI."</i> Michael: <i>"Sounds good. Let's go."</i> Everyone knows what happens, in what order, and who does it.</li>
+        <li><span class="ts">20:00</span><b>He survived a demo that broke live.</b> The AI had been switched to gatekeeper mode at the client's end and refused to quote. He named what happened, tied it back to the gatekeeper idea Michael already liked, and moved on. No panic.</li>
+      </ul>
+    </div>
+    <div class="td-col bad">
+      <div class="td-lbl bad">What nearly cost him the momentum</div>
+      <ul>
+        <li><span class="ts">10:00</span><b>The paperwork turned into a mess.</b> Agreements went to the wrong address (summitautodetail<b>ing</b> instead of summitautodetail<b>avl</b>), then got resent three separate times across several minutes of dead air. Michael eventually asked: <i>"Can you just bulk email all the agreements in one email? This is a little much."</i></li>
+        <li><span class="ts">10:00</span><b>The fix is thirty seconds of prevention.</b> Read the email address back out loud before you send anything, and send one email with every agreement in it. Admin friction at the signature is where momentum dies.</li>
+        <li><span class="ts">24:00</span><b>Still no time attached.</b> <i>"Give me a text whenever you send those agreement forms over."</i> The sequence is clear but the clock belongs to the prospect. <b>The upgrade:</b> "I'll watch for those tonight. If I haven't seen them by tomorrow afternoon I'll give you a ring, that alright?"</li>
+      </ul>
+    </div>
+  </div>
+  <div class="why"><div class="lbl">The lesson from the pair</div><p>Part 1 sold him. Part 2 is where he read every line of three agreements, tried to renegotiate the rate, pushed for a guarantee, and asked for a payment plan. <b>The close is not the end of the selling.</b> Every one of those was handled without moving the price.</p></div>
+
+  <div class="why"><div class="lbl">Note before you watch</div><p>A large part of this call pitches <b>Meta ceramic ads, which we no longer sell.</b> Everything about how the objection was handled still applies. Just substitute Google Pay Per Click wherever you hear Meta.</p></div>
+
+  <!-- HEAD TO HEAD -->
+  <!-- TEARDOWN 3 -->
+  <div class="sec-h" id="ninelions"><span class="sec-n">04</span><h2>Teardown 3 &middot; The upsell that was sitting there for months</h2></div>
+  <div class="meta">
+    <span class="tag">Nine Lions Mobile Car &amp; Truck Wash</span>
+    <span class="tag">Arthur Holt &middot; Memphis, TN</span>
+    <span class="tag">Aug 31 &middot; 60 min</span>
+    <span class="tag">Closer: Grant</span>
+    <span class="tag">Existing client &middot; monthly report + upsell</span>
+    <span class="tag lost">Result: Pending, no date set</span>
+    <span class="tag link"><a href="https://fathom.video/share/2ZeQoeqKH1MwtoQgajDy6pio1NG1xRVT" target="_blank" rel="noopener">&#9654; Recording</a></span>
+  </div>
+  <p class="note">Scorecard: Control 2, Discovery 1, Budget 1, Pitch 1, Ask 2, Objections 2, Commitment 0. <b style="color:#fbbf24">9 of 14.</b></p>
+
+  <h3>Why this one is different, and why you need it</h3>
+  <p>This is not a new-business close. It is a <b>monthly report on an existing client</b> with an upsell attached, and you will run far more of these than cold closes. The client is already paying, already happy, and the entire job is to widen the account.</p>
+
+  <div class="td-cols">
+    <div class="td-col good">
+      <div class="td-lbl good">What worked</div>
+      <ul>
+        <li><span class="ts">0:33</span><b>Opened on their wins, screen shared, numbers first.</b> 242 leads against 140 last month, a 72% jump, beating competitors 98.93% of the time. You earn the right to upsell by proving the current spend worked.</li>
+        <li><span class="ts">1:50</span><b>Congratulated the review growth and then asked how he did it.</b> "What did you notice that helped bring in that volume?" Making the client narrate his own win is worth more than praising him.</li>
+        <li><span class="ts">20:47</span><b>He pushed back on the math and Grant rebuilt it on the spot.</b> Arthur: "That's not a realistic number for me, my detail is not $300, I'm $200." Grant recalculated to $12,400 immediately instead of defending the original figure. <b>Never defend a number the client has already rejected. Rebuild it in their units.</b></li>
+        <li><span class="ts">41:26</span><b>The question that unlocked the whole call.</b> "Have you heard our AI receptionist before?" No. Then he played it live, and it handled a price objection on tape. Arthur: "That is insane." Then: "You are a hell of a damn salesman, that hit all the damn points that folks try to get over on."</li>
+        <li><span class="ts">56:37</span><b>He asked permission before challenging the stall.</b> "Do you mind if I challenge you on that for a second?" Arthur said "absolutely, go ahead." <b>Permission turns a confrontation into a conversation.</b></li>
+        <li><span class="ts">57:00</span><b>Then he shrank the risk to one number.</b> "Out of those 62 leads, you'd only need five to convert at $200." Big investment reframed as a small, obviously beatable threshold.</li>
+      </ul>
+    </div>
+    <div class="td-col bad">
+      <div class="td-lbl bad">What it cost</div>
+      <ul>
+        <li><span class="ts">41:26</span><b>The biggest miss on this page.</b> He had been pitching this AI for months and <b>had never once demoed it.</b> Arthur went and found a $40/month competitor, because with nothing to compare he was shopping on price alone. The demo took two minutes and flipped him completely. <b>Demo on the first pitch, not the fifth.</b></li>
+        <li><span class="ts">4:42</span><b>He argued the missed-call number instead of acknowledging it.</b> Arthur twice said he answers his phone. By 5:27 he was clipped: "anyway, that doesn't matter, you say 62, let's move on." That is irritation, not agreement. Say "fair enough, could be tracking oddly, either way here's what it's worth" and move.</li>
+        <li><span class="ts">11:18</span><b>He could not answer a direct pricing question about his own account.</b> Arthur asked what the retainer would be if he put his own card on file. "I don't know those numbers off the top of my head, I'll have to talk to Ryan." He asked twice. On a report call with a paying client, know your own numbers or say exactly when you will have them.</li>
+        <li><span class="ts">17:23</span><b>The client did the math and found 25%.</b> Arthur computed $1,600 on $6,305 and said "we're averaging 25%, not 10." The answer given was to raise his prices. That is a deflection and he noticed. Address the number he found, then talk pricing.</li>
+        <li><span class="ts">1:00:00</span><b>No date, again.</b> It ended on "send it to me in an email" and "five or six weeks." He said out loud what would convert him, and that is a buying signal, but nothing went on a calendar.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="why"><div class="lbl">The one lesson</div><p><b>If you have a demo, lead with it.</b> Months of describing the AI produced a man shopping $40 alternatives. Two minutes of hearing it produced "that is insane." You cannot argue someone into value, and you do not need to when you can just let them hear it.</p></div>
+
+  <div class="why"><div class="lbl">The close that was available and not taken</div><p>Arthur handed over the script at <b>53:55</b>: "the best way to convert me now, if you could write this down and send it to me in my email, you probably have a high success rate with me." A client telling you how to sell him is the strongest buying signal there is. The move was to send it <b>during the call</b> and book the follow-up before hanging up, not to promise an email and accept a six week delay.</p></div>
+
+  <!-- TEARDOWN 4 -->
+  <div class="sec-h" id="ninelives"><span class="sec-n">05</span><h2>Teardown 4 &middot; The cleanest objection work on this page</h2></div>
+  <div class="meta">
+    <span class="tag">Nine Lives Mobile Detailing</span>
+    <span class="tag">Jonatan Benavides &middot; Houston, TX</span>
+    <span class="tag">Sept 14 &middot; 57 min</span>
+    <span class="tag">Closer: Grant</span>
+    <span class="tag">Setter: Paul</span>
+    <span class="tag won">Result: Closed lead gen</span>
+    <span class="tag link"><a href="https://fathom.video/share/yMayMK3AtszidUrrpRpxZGzxkvMTy4SX" target="_blank" rel="noopener">&#9654; Recording</a></span>
+  </div>
+  <p class="note">Scorecard: Control 2, Discovery 2, Budget 2, Pitch 2, Ask 2, Objections 2, Commitment 2. <b style="color:#6ee7b7">14 of 14.</b> Closed the lead gen. The $500 software was declined and the deal survived it.</p>
+
+  <h3>Study this one for two things: the belief flip at 8:14 and the isolation sequence at 36:00</h3>
+
+  <div class="td-cols">
+    <div class="td-col good">
+      <div class="td-lbl good">What made this work</div>
+      <ul>
+        <li><span class="ts">0:18</span><b>He opened into a credibility attack and answered it flat.</b> "Be straight with me, am I your first client?" No defensiveness, just numbers: 40 companies across the US, testimonials already texted before the call, real faces you can look up. Then at 2:10 he corrected his own tenure <i>down</i>, "a year and a half, a year and four months." Precision reads as honesty.</li>
+        <li><span class="ts">8:14</span><b>The single best question on this page.</b> Jonatan spent six minutes explaining that his market will not pay more than $79 to $129. Instead of arguing, Grant asked: <i>"How many phone calls are you getting per day to pitch your service?"</i> Answer: <i>"Sometimes I don't get one in a week."</i> Then: <i>"That's why. That's how they get away with it. If you had 10 calls a day and converted half, that's five details a day."</i> <b>He did not fight the belief, he found the real cause underneath it.</b></li>
+        <li><span class="ts">8:45</span><b>Used the prospect's own asset as proof.</b> "You've got 217 reviews, you have the authority to charge more."</li>
+        <li><span class="ts">15:00</span><b>He made the prospect argue his side for him.</b> After the Meta-versus-Google intent explanation, Jonatan volunteered his own story unprompted: he needed his house cleaned, went to Google, called the first two who did not answer, booked the third. <b>A prospect who proves your point with his own behavior cannot un-prove it later.</b></li>
+        <li><span class="ts">28:02</span><b>He created the need before pitching the product.</b> "I do not want to sign you up, bring you 14 details a week, and have you not capturing them." Jonatan answered <i>"No, I agree. Do you have one?"</i> The prospect asked for the pitch.</li>
+        <li><span class="ts">43:21</span><b>He defined "qualified lead" before it could become a dispute.</b> Two hours away, no buying potential, not charged. Then at 53:07 Jonatan pushed three separate times on edge cases and Grant held the line honestly instead of softening it to protect the sale: <i>"That is on you to go convert. We'll cover the bad ones."</i></li>
+        <li><span class="ts">49:06</span><b>Free value on the way out.</b> Noticed the website was down, screenshotted it, texted it over so he could forward it to his web guy.</li>
+      </ul>
+    </div>
+    <div class="td-col bad">
+      <div class="td-lbl bad">What to fix</div>
+      <ul>
+        <li><span class="ts">1:42</span><b>He said "GoHighLevel experts" out loud.</b> Hard rule, broken. It is <b>our software</b>, never the vendor name, never white-label. Jonatan did not catch it. A sharper prospect would have searched it mid-call and found he could buy it direct.</li>
+        <li><span class="ts">13:01</span><b>Three long monologues back to back.</b> The Meta-versus-Google stretch runs roughly 13:01 to 16:28 with little interruption. It landed here because the content was strong, but that is a bet you will lose eventually. Break it with a question.</li>
+        <li><span class="ts">33:52</span><b>The DGS math got built on the wrong number.</b> He priced monthly memberships at $250 and Jonatan corrected him: <i>"No, that would be the $79 or the $129, that's the upkeep, not the detail."</i> Confirm which number you are multiplying before you multiply it.</li>
+        <li><span class="ts">42:15</span><b>Old pricing.</b> This call quotes <b>$25 per qualified lead</b>. It is now <b>$30</b>, and we no longer open with "we cover ad spend, no money up front." Listen to the structure here, not the numbers.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>The isolation sequence, word for word</h3>
+  <p>This is the cleanest run of Phase 6 in the library. Watch how many times he tests before accepting the answer.</p>
+  <div class="dlg">
+    <div class="turn c"><span class="who">Grant</span><span class="txt">"What are your concerns with getting our software?"</span></div>
+    <div class="turn p"><span class="who">Jonatan</span><span class="txt">"The concern with the $500, I don't have that right now."</span></div>
+    <div class="turn c"><span class="who">Grant</span><span class="txt">"What else kind of bothers you about it besides the money?"</span></div>
+    <div class="turn p"><span class="who">Jonatan</span><span class="txt">"No, just the money."</span></div>
+    <div class="turn c"><span class="who">Grant</span><span class="txt">"There got to be something else."</span></div>
+    <div class="turn p"><span class="who">Jonatan</span><span class="txt">"No. It's not like you can steal the clients... I'm not concerned about that."</span></div>
+    <div class="turn c"><span class="who">Grant</span><span class="txt">"So you wouldn't let the $500 stop you from getting the software, would you?"</span></div>
+    <div class="turn p"><span class="who">Jonatan</span><span class="txt">"Yeah, because I can't do it."</span></div>
+    <div class="turn c"><span class="who">Grant</span><span class="txt">"Is that because you don't see the value in the $500, the amount you'd make back?"</span></div>
+    <div class="turn p"><span class="who">Jonatan</span><span class="txt">"Right now, yeah."</span></div>
+  </div>
+  <div class="why"><div class="lbl">Why this matters more than winning it</div><p>Five probes, and the answer held every time. <b>That is a real no, not a smokescreen</b>, and knowing the difference is the entire point of isolating. Then at <b>38:51</b> he let it go without a fight: <i>"It doesn't have to be done. I'd a million percent recommend it, but if you want to start with just bringing in the details, I just sent the agreement form over."</i> He took the yes that existed instead of burning the call chasing the one that did not. The software is now a warm follow-up in two months rather than a dead conversation.</p></div>
+
+  <h3>The commitment, finally done right</h3>
+  <div class="vs">
+    <div class="vsbox no">
+      <div class="vh">Every other call on this page</div>
+      <p class="q">"I'll reach out." &nbsp;/&nbsp; "Text me whenever you send those over." &nbsp;/&nbsp; "Send it to me in an email."</p>
+      <p class="note" style="margin-top:8px;">Timing belongs to the prospect. Nothing on a calendar.</p>
+    </div>
+    <div class="vsbox yes">
+      <div class="vh">This call, 55:20</div>
+      <p class="q">"Let's circle back in two weeks, Jonatan, and have another call. Here's your ROI, here's how much you spent, here's how much you made. Let's break it down."</p>
+      <p class="note" style="margin-top:8px;">A date, a purpose, and a reason for him to want it.</p>
+    </div>
+  </div>
+  <p>He also sent the agreement form <b>during the call at 39:40</b> and made him confirm it arrived, then walked the intake form, the LLC check, and exactly who would contact him and when. <b>Copy this ending.</b></p>
+
+    <!-- TEARDOWN 5 -->
+  <div class="sec-h" id="beastly"><span class="sec-n">06</span><h2>Teardown 5 &middot; The first pay per click close, and what the setter nearly cost it</h2></div>
+  <div class="meta">
+    <span class="tag">Beastly Mobile Car Detailing</span>
+    <span class="tag">Davis &middot; Greenville, SC</span>
+    <span class="tag">Sept 24 &middot; 50 min</span>
+    <span class="tag">Closer: Grant</span>
+    <span class="tag">Setter: Steven</span>
+    <span class="tag won">Result: Closed $750 PPC, signed on the follow up</span>
+    <span class="tag link"><a href="https://fathom.video/share/uyph7tLrjeMu2DJHzsUysK377B11Z-Ws" target="_blank" rel="noopener">&#9654; Recording</a></span>
+  </div>
+  <p class="note">Scorecard: Control 2, Discovery 2, Budget 2, Pitch 2, Ask 1, Objections 1, Commitment 2. <b style="color:#fde68a">12 of 14.</b> The only pay per click close on this page at current pricing. Study the first twenty minutes. The last ten are a warning.</p>
+
+  <h3>The move that won it: he talked the prospect out of the bigger product</h3>
+
+  <div class="td-cols">
+    <div class="td-col good">
+      <div class="td-lbl good">What made this work</div>
+      <ul>
+        <li><span class="ts">0:00</span><b>The founder story, aimed directly at this prospect.</b> Started detailing in high school, door to door, doing $700 to $800 a month. Went full research mode on marketing, scaled to $10K a month strictly off Google ads, then two vans and four employees. Davis is a one man team still in school. <b>The credibility story contained the prospect's exact starting point,</b> which is why it landed instead of sounding like a brag.</li>
+        <li><span class="ts">1:04</span><b>He got the amount and the duration on the failed ads, not just the fact of them.</b> $150 on Google "until it ran out." $3,000 into Instagram over a year. Both facts get used later: Davis has already proven he will spend, and already proven he cannot make it convert alone. <b>"It didn't work" is not discovery. The number and the timeline are.</b></li>
+        <li><span class="ts">3:17</span><b>Capacity commitment before a price existed.</b> "On average they're seeing 8 to 15 additional details per week. Could you take on 8 by the end of next week?" Answer: <i>"A hundred percent. Let's go."</i> The yes on the outcome was locked in twelve minutes before the number showed up.</li>
+        <li><span class="ts">4:40</span><b>The clearest Meta versus Google explanation in the library.</b> Meta interrupts a scroll, so you get volume without intent. Google is somebody typing the need. Then the proof from his own life: moved to Florida, needed the house deep cleaned, searched house cleaners near me, the first company did not answer, booked the second. <b>Learn this one by heart.</b> It is the whole pay per click pitch in ninety seconds.</li>
+        <li><span class="ts">6:26</span><b>He removed a product from the table and got trust back for it.</b> Davis has 22 reviews against competitors sitting at 120 to 270. Grant's call: lead gen would be difficult here, so start with pay per click and add lead gen once the reviews come up. <b>This is the single most important moment on this page.</b> Full exchange below.</li>
+        <li><span class="ts">7:39</span><b>Exclusivity delivered as a constraint, not a sales line.</b> 45 detailers, one per city, nobody else inside a one hour radius. "We're particular on who we team up with. We're getting limited here." Said flatly, as a fact about our capacity rather than pressure about his.</li>
+        <li><span class="ts">8:03</span><b>His prices before our price.</b> $100 basic, $200 premium, $280 to $350 on a deep interior. Every ROI number for the rest of the call is built out of Davis's own menu: 12 details a week at $200 is $2,400 a week, $9,600 a month. <b>He never once quoted a result in our numbers.</b></li>
+        <li><span class="ts">13:10</span><b>The growth system bundled as a subtraction.</b> Davis pays $60 to $80 a month for Durable. Instead of adding our software as a line item, Grant includes it so that money moves into ad spend. Then the proof: Michael Bambo at Road Warrior Mobile Detailing went from 2 monthly members to 16 in one month off a single end of month text to the clients we brought him. <b>Named client, real number, one sentence.</b></li>
+        <li><span class="ts">14:38</span><b>"Three details covers your entire month."</b> Best line in the call. $750 converted into a unit the prospect already sells every week. Nobody can argue with a price quoted in their own product.</li>
+        <li><span class="ts">15:04</span><b>The grandfather frame.</b> "We have companies making $30,000, $40,000 a month strictly off our ads. We're keeping you at the same retainer, literally $750." The price stops being a cost and becomes something he is getting away with.</li>
+        <li><span class="ts">29:40</span><b>He answered "too good to be true" without flinching.</b> Davis said it twice and said he felt like he should be questioning it. Reply: <i>"I can make it more expensive if you want me to."</i> Took the suspicion, confirmed the value, and moved on. Timing is everything on that line.</li>
+        <li><span class="ts">30:32</span><b>Ownership stated plainly.</b> The campaign connects to the client's own Google account, he downloads the app, he sees his own cost per click and conversions. <b>Say this before they ask.</b> It is the answer to the ad budget objection before the objection exists.</li>
+      </ul>
+    </div>
+    <div class="td-col bad">
+      <div class="td-lbl bad">What it cost</div>
+      <ul>
+        <li><span class="ts">17:43</span><b>The setter sold two weeks free, and it nearly ended the call.</b> Davis, in his own words: <i>"The main reason I was okay with going this route and going with y'all is because y'all had the two weeks free, you don't pay anything until you get customers."</i> Grant had to walk it back live and the deal immediately stalled on money. <b>Everything that goes wrong in the back half of this recording starts here.</b></li>
+        <li><span class="ts">28:00</span><b>The setter also told him we take 10% of the profits.</b> Davis arrived with a written list of questions built on a model that does not exist. Once it was corrected his reaction was <i>"that makes a lot more sense"</i> and he threw the whole page out. Minutes of a closing call spent deleting information instead of adding it.</li>
+        <li><span class="ts">23:21</span><b>The money objection got financed instead of isolated.</b> Davis said $750 was out of range and Grant was on a payment plan within one turn. Look at <b>21:18</b>: he had already said part of it was trust, <i>"throwing more than half of what's in my account to someone I don't really know."</i> That is a different objection with a different answer. Financing solved the amount and left the trust completely untouched. <b>Teardown 4 at 36:00 is what should have run here.</b></li>
+        <li><span class="ts">35:39</span><b>Nine minutes of a fifty minute call went to a payment processor.</b> Spend limit too low, then identity verification, then a dead end. The call ended without money. <b>Never discover a financing rail live.</b> If the plan depends on a method the prospect has never used, confirm it works before the call or take the first payment on a card and set the rest up after.</li>
+        <li><span class="ts">44:02</span><b>The close moved to tomorrow.</b> This recording did not land the deal. It earned the deal and then handed it to a follow up. He protected it well, same time next day, personal cell number, intake form sent so the build could start before the money cleared, but the ask itself never got answered on the call.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>The qualification move, word for word</h3>
+  <p>Twenty two reviews against competitors with 120 to 270. This is the moment Grant took the bigger product off the table.</p>
+  <div class="dlg">
+    <div class="turn c"><span class="who">Grant</span><span class="txt">"Competition is not really a thing when you know how to do SEO correctly. Even at 22, 25 reviews you can still outplace these guys with 120, 270 reviews. We have a proven system, 45 detailers already doing it."</span></div>
+    <div class="turn c"><span class="who">Grant</span><span class="txt">"But the pay per lead would be a little difficult. I wouldn't want to get you set up with the pay per lead just because I don't want you to invest into that and not see the results. I want to show you the results right away. So let's start with the pay per click campaign, and we can always look at doing both of them for you."</span></div>
+    <div class="turn p"><span class="who">Davis</span><span class="txt">"I mean, yeah, if this works out and y'all can bring me even just two more leads a week, I'll stick with y'all."</span></div>
+    <div class="turn p"><span class="who">Davis</span><span class="txt">"I haven't had good experience. You seem pretty young and trustworthy. I'm just going to go out on a limb and just trust it, see what happens, and if it works out, I'd love to just keep working with y'all."</span></div>
+  </div>
+  <div class="why"><div class="lbl">Why this is worth more than the close</div><p>He had a prospect who would have signed for either product and he steered him to the one that would actually work, out loud, with the reason attached. <b>The trust arrived in the very next sentence.</b> Compare this to Teardown 1 at 4:33, where the same closer talked a buyer off the product he already wanted for no stated reason, and spent eleven more minutes plus a follow-up winning back a yes he already had. Same move, and the difference is entirely whether you gave them the why. <b>Disqualifying yourself from a product the prospect cannot win with buys more belief than any testimonial you can send.</b></p></div>
+
+  <h3>What the setter said, and what we actually sell</h3>
+  <div class="vs">
+    <div class="vsbox no">
+      <div class="vh">What he heard before the Zoom</div>
+      <p class="q">"The first two weeks, no upfront cost, you don't pay anything until you get customers."<br><br>"They also take 10% of the profits from the job."</p>
+      <p class="note" style="margin-top:8px;">Neither one is our offer. Both had to be undone on the call, one of them twice.</p>
+    </div>
+    <div class="vsbox yes">
+      <div class="vh">What the offer actually is</div>
+      <p class="q">"$750 a month retainer. $50 a day ad spend, on your card, in your own Google account. The growth system is included. That's it."</p>
+      <p class="note" style="margin-top:8px;">One sentence. No terms, no percentages, no free windows.</p>
+    </div>
+  </div>
+  <div class="why"><div class="lbl">The rule this call exists to prove</div><p><b>Setters do not quote price, do not promise terms, and do not describe the payment model.</b> You book the Zoom. Every number you invent on the phone becomes a promise the closer has to break in front of the prospect, and a prospect who feels something was taken away stops buying and starts negotiating. Davis walked into this call believing he owed nothing for two weeks. He spent the next twenty minutes defending that belief. <b>The deal survived. It cost nine minutes, a payment plan we did not want to give, and a second call.</b></p></div>
+
+<div class="sec-h" id="headtohead"><span class="sec-n">07</span><h2>The two calls, side by side</h2></div>
+  <p><b style="color:#fde68a">Same closer. Four days apart.</b> Same products, same offer, same script in his head. One scored 13, one scored 7. That is the whole point: this is not about talent, it is about which moves actually got run. This table is the entire closer training compressed into eleven rows.</p>
+  <table class="score">
+    <tr><th>The moment</th><th>Summit &middot; 13 of 14</th><th>Divine &middot; 7 of 14</th></tr>
+    <tr><td class="ph">Found what they already spend</td><td style="color:#6ee7b7">1:14, minute one</td><td style="color:#fca5a5">20:58, minute 21</td></tr>
+    <tr><td class="ph">Used it as an anchor</td><td style="color:#6ee7b7">Immediately, before quoting</td><td style="color:#fca5a5">Never</td></tr>
+    <tr><td class="ph">Where the price came from</td><td style="color:#6ee7b7">Their ticket, $300</td><td style="color:#fca5a5">Our sheet, $300/mo</td></tr>
+    <tr><td class="ph">Who talked more</td><td style="color:#6ee7b7">The prospect</td><td style="color:#fca5a5">The closer, roughly 3 to 1</td></tr>
+    <tr><td class="ph">Product matched to</td><td style="color:#6ee7b7">The bottleneck he named</td><td style="color:#fca5a5">What the closer preferred</td></tr>
+    <tr><td class="ph">Products pitched</td><td style="color:#6ee7b7">Three, bundled with a reason</td><td style="color:#fca5a5">Three, one after another</td></tr>
+    <tr><td class="ph">The big objection</td><td style="color:#6ee7b7">"I refuse AI" &rarr; live demo</td><td style="color:#fca5a5">"Pay after I get paid" &rarr; explained</td></tr>
+    <tr><td class="ph">After the yes</td><td style="color:#6ee7b7">Square link, same call</td><td style="color:#fca5a5">Eleven more minutes of talking</td></tr>
+    <tr><td class="ph">The ask</td><td style="color:#6ee7b7">"I can send it, you ready?"</td><td style="color:#fca5a5">Never sent</td></tr>
+    <tr><td class="ph">The ending</td><td style="color:#6ee7b7">Forms out, signed sequence agreed</td><td style="color:#fca5a5">"I'll reach out"</td></tr>
+    <tr><td class="ph">Result</td><td style="color:#6ee7b7">$1,500 up front, three offers</td><td style="color:#fca5a5">Nothing</td></tr>
+  </table>
+  <div class="big gold">Both prospects were burned by a previous agency. Both said yes out loud. Same closer both times. Only one of them was ever asked to pay.</div>
+
+  <!-- PHASE LIBRARY -->
+  <div class="sec-h" id="library"><span class="sec-n">08</span><h2>Phase Library</h2></div>
+  <p>The fastest way to learn one move is to watch it run several ways back to back. Jump straight to these timestamps.</p>
+
+  <div class="card" id="p1"><div class="lbl">Phase 1 &middot; Control</div>
+    <p><b>Set the frame first:</b> "Before we dive in, here's how I run these calls: I'll ask you a handful of questions so I actually understand your business, then I'll tell you straight whether we're a fit. Sound fair?"<br>
+    <b>Then hand them the floor:</b> "So tell me a little more about you guys. What made you want to hop on this call today?"<br>
+    <b>Ziebart 0:16</b> &nbsp;<b>The opener, run live on a deal that closed.</b> Sixteen seconds in and Rodney is explaining his own interest unprompted.<br>
+    <b>Divine 0:14</b> &nbsp;The same move aimed at the offer. "What about our offer stood out to you?" Use this when they booked off a specific pitch.<br>
+    <span class="note">Counter-example: Summit 35:52, the prospect asks his name 36 minutes in. Introduce yourself.</span></p></div>
+
+  <div class="card" id="p2"><div class="lbl">Phase 2 &middot; Discovery</div>
+    <p><b>Summit 2:24 to 4:47</b> &nbsp;The full arc. Volume, capacity, daily target, weekly revenue, then the goal. Prospect does the talking.<br>
+    <b>Divine 2:50</b> &nbsp;Current to goal to gap in three questions. $4K, $6K, "so about $2,000?"<br>
+    <b>Beastly 1:04</b> &nbsp;The amount <i>and</i> the duration on every failed ad. $150 on Google, $3,000 on Instagram over a year. "It didn't work" is not discovery.<br>
+    <b>Beastly 3:17</b> &nbsp;Capacity commitment taken twelve minutes before any price. "Could you take on 8 by the end of next week?"</p></div>
+
+  <div class="card" id="p3"><div class="lbl">Phase 3 &middot; Budget</div>
+    <p><b>Summit 1:14</b> &nbsp;The competitor's price inside the first two minutes, then used as the anchor.<br>
+    <b>Summit 6:43</b> &nbsp;Deriving our fee from their ticket. "What would you quote me?" then 10% of the middle.<br>
+    <b>Beastly 8:03</b> &nbsp;His menu before our price, then every ROI number built out of it. 12 details at his own $200.<br>
+    <b>Beastly 14:38</b> &nbsp;<b>Price quoted in their product.</b> "Three details covers your entire month."<br>
+    <span class="note">Counter-example: Divine 20:58, the $950 was found and never used.</span></p></div>
+
+  <div class="card" id="p4"><div class="lbl">Phase 4 &middot; The Pitch</div>
+    <p><b>Beastly 0:00</b> &nbsp;<b>S, the Story leg.</b> "A detailer just like you" told properly. High school, door to door, $700 a month, scaled to $10K off Google ads. The story contained the prospect's own starting point.<br>
+    <b>Summit 5:22</b> &nbsp;<b>V, the Vision leg.</b> Matched to the bottleneck the prospect named, with proof at his scale.<br>
+    <b>Summit 45:55</b> &nbsp;The bundle. Discount tied to taking all three, not to pressure.<br>
+    <b>Beastly 4:40</b> &nbsp;<b>The pay per click pitch, best version on the page.</b> Meta interrupts a scroll, Google is somebody typing the need, then proof from his own life.<br>
+    <b>Beastly 6:26</b> &nbsp;<b>The qualification downsell.</b> Lead gen taken off the table with the reason attached, at 22 reviews. Trust arrived in the next sentence.<br>
+    <b>Beastly 13:10</b> &nbsp;The growth system bundled as a subtraction, replacing software he already pays for.<br>
+    <span class="note">Counter-example: Divine 4:33, talking the buyer off the product he already wanted <i>without</i> a stated reason. Same move as Beastly 6:26, opposite outcome.</span></p></div>
+
+  <div class="card" id="p5"><div class="lbl">Phase 5 &middot; The Ask</div>
+    <p><b>Summit 52:35</b> &nbsp;"I can send it, you ready?" Then the Square link, on the call.<br>
+    <span class="note">Counter-example: Divine 14:48, a clear yes followed by eleven more minutes of selling.<br>Counter-example: Beastly 23:21, a money objection financed inside one turn instead of isolated, when the prospect had already named trust as part of it at 21:18.</span></p></div>
+
+  <div class="card" id="p6"><div class="lbl">Phase 6 &middot; Objections</div>
+    <p><b>Nine Lives 36:00 to 38:51</b> &nbsp;<b>The benchmark.</b> Five probes to confirm a money objection was real, then a clean release that kept the relationship and the lead gen close.<br>
+    <b>Nine Lives 8:14</b> &nbsp;A belief ("my market won't pay more") dissolved by finding the cause underneath it instead of arguing.<br>
+    <b>Summit 15:30</b> &nbsp;"I refuse AI" answered with a question, not a rebuttal.<br>
+    <b>Summit 20:58</b> &nbsp;The gatekeeper reframe that made the refused product acceptable.<br>
+    <b>Summit 40:00</b> &nbsp;<b>The live demo.</b> The single highest leverage 3 minutes in either recording.<br>
+    <b>Summit 36:55</b> &nbsp;Downsell request allowed, with the cost of waiting attached.<br>
+    <b>Summit Part 2, 2:00</b> &nbsp;<b>Holding a discount.</b> Rate renegotiation answered by restating the undiscounted 20%. The prospect talked himself back to 15%.<br>
+    <b>Summit Part 2, 5:30</b> &nbsp;Refusing a guarantee he could not back, and keeping the deal anyway.<br>
+    <b>Beastly 29:40</b> &nbsp;"Too good to be true" answered with "I can make it more expensive if you want me to."<br>
+    <b>Beastly 30:32</b> &nbsp;The ad budget objection answered before it was raised. Their Google account, their card, their app.<br>
+    <span class="note">Counter-example: Beastly 17:43 and 28:00, two objections the setter created out of nothing. A promise of two free weeks and a 10% profit share, neither of which we sell.</span></p></div>
+
+  <div class="card" id="p7"><div class="lbl">Phase 7 &middot; Commitment</div>
+    <p><b>Nine Lives 55:20</b> &nbsp;<b>The model to copy.</b> A booked two-week ROI review with a stated purpose. The only call here that ends with a real date.<br>
+    <b>Summit Part 2, 24:00</b> &nbsp; The commitment stated as a numbered chain: you sign, then I send the payment plan, then I send the AI invoice. The prospect knows exactly what happens next, in what order, and who owns each step.<br>
+    <b>Summit 53:36</b> &nbsp;Agreement forms sent while still on the call, not after it.<br>
+    <b>Beastly 44:02</b> &nbsp;A deal protected but not landed. Same time next day, personal cell, intake form sent so the build starts before the money clears. Do all of this, but close on the first call.<br>
+    <span class="note">The one upgrade left: attach a clock. "Give me a text whenever" hands the timing to the prospect. Say instead: "I'll watch for those tonight. If I haven't seen them by tomorrow afternoon I'll give you a ring, that alright?"<br>Counter-example: Divine 24:39, "I'll reach out." No sequence, no owner, no time.</span></p></div>
+
+</div>
+<style>
+  .hubback{position:fixed;right:14px;top:14px;z-index:9999;display:inline-flex;align-items:center;gap:7px;
+    font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:12.5px;font-weight:800;
+    letter-spacing:.04em;text-decoration:none;color:#cbd5e1;background:rgba(15,22,41,.92);
+    border:1px solid rgba(148,163,184,.38);border-radius:999px;padding:9px 15px;
+    white-space:nowrap;max-width:calc(100vw - 28px);
+    backdrop-filter:blur(6px);box-shadow:0 4px 18px rgba(0,0,0,.35);}
+  @media(max-width:620px){ .hubback{font-size:11px;padding:7px 12px;right:10px;top:10px;} }
+  .hubback:hover{color:#fff;border-color:#8a8f9c;}
+  @media print{.hubback{display:none;}}
+</style>
+<a class="hubback" href="../">&larr; Back to the training hub</a>
+</body>
+</html>

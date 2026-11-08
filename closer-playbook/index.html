@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>The Closer's Playbook · Rapid Reach</title>
+<meta name="description" content="Closer training: the frame, pain-point questioning, objection handling, and the close." />
+<meta name="theme-color" content="#020817" />
+<meta property="og:type" content="website">
+<meta property="og:url" content="">
+<meta property="og:title" content="The Closer's Playbook">
+<meta property="og:description" content="Frame, discovery, objection handling, and the close.">
+<meta property="og:image" content="og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Closer's Playbook">
+<meta name="twitter:description" content="Frame, discovery, objection handling, and the close.">
+<meta name="twitter:image" content="og.png">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#020817; --bg2:#01030a;
+    --card:#0b1322; --card2:#101c33; --border:#1e293b; --border2:#27364b;
+    --text:#f8fafc; --muted:#94a3b8; --muted2:#64748b;
+    --gold:#f59e0b; --gold2:#eab308; --green:#34d399; --red:#f87171;
+    --grad:linear-gradient(135deg,#f59e0b,#eab308);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
+    background:var(--bg); color:var(--text);
+    -webkit-font-smoothing:antialiased;
+  }
+  /* background glow */
+  body::before{
+    content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
+    background:
+      radial-gradient(900px 500px at 80% -10%, rgba(245,158,11,.10), transparent 60%),
+      radial-gradient(700px 500px at 0% 110%, rgba(234,179,8,.06), transparent 60%),
+      linear-gradient(180deg, var(--bg), var(--bg2));
+  }
+  .scroller{
+    position:relative; z-index:1; height:100svh; overflow-y:auto;
+    scroll-snap-type:y proximity;
+  }
+  .slide{
+    min-height:100svh; scroll-snap-align:start;
+    display:flex; flex-direction:column; justify-content:center;
+    padding:64px 22px 110px; max-width:1000px; margin:0 auto;
+  }
+  .kicker{
+    font-size:13px; font-weight:700; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:14px;
+  }
+  h1.title{ font-size:clamp(30px,6.4vw,52px); font-weight:900; line-height:1.05; letter-spacing:-.02em; }
+  h2.title{ font-size:clamp(26px,5.2vw,40px); font-weight:800; line-height:1.08; letter-spacing:-.02em; margin-bottom:18px;}
+  .gold{ background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .lead{ color:var(--muted); font-size:clamp(15px,2.4vw,19px); line-height:1.55; max-width:760px; margin-bottom:8px;}
+  .mark{display:flex; gap:8px; margin-bottom:26px;}
+  .mark span{width:16px;height:16px;border-radius:4px;background:var(--grad);}
+  .mark span:nth-child(2){opacity:.66} .mark span:nth-child(3){opacity:.4}
+  .monogram-wrap{flex:1 1 auto;display:flex;align-items:center;justify-content:center;width:100vw;margin-left:calc(50% - 50vw);min-height:0;}
+  .monogram{
+    font-family:'Playfair Display',Georgia,'Times New Roman',serif;
+    font-weight:900; font-size:clamp(96px,17vw,200px); line-height:1; letter-spacing:.03em;
+    background:linear-gradient(165deg,#f7de8b 0%,#e6b23e 42%,#c9962a 72%,#9c7a22 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    filter:drop-shadow(0 10px 34px rgba(230,178,62,.22));
+  }
+
+  .grid{display:grid; gap:16px; margin-top:8px;}
+  .g3{grid-template-columns:repeat(3,1fr);}
+  .g2{grid-template-columns:repeat(2,1fr);}
+  @media(max-width:760px){ .g3,.g2{grid-template-columns:1fr;} }
+
+  .card{
+    background:linear-gradient(180deg,var(--card),var(--card2));
+    border:1px solid var(--border); border-radius:16px; padding:22px;
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+  }
+  .num{
+    width:42px;height:42px;border-radius:11px; flex:0 0 auto;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:900; font-size:18px; color:#0f172a; background:var(--grad);
+    box-shadow:0 6px 16px rgba(245,158,11,.35);
+  }
+  .ch{font-weight:800; font-size:19px; margin:14px 0 6px;}
+  .cd{color:var(--muted); font-size:15px; line-height:1.5;}
+
+  .rows{display:flex;flex-direction:column;gap:14px;margin-top:6px;}
+  .row{display:flex;gap:16px;align-items:flex-start;}
+  .row .num{width:38px;height:38px;font-size:16px;border-radius:10px;}
+  .qtext{font-size:clamp(16px,2.5vw,19px);font-weight:600;line-height:1.4;}
+  .tag{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-top:4px;display:inline-block;}
+
+  .quote{
+    border-left:4px solid var(--gold); background:rgba(245,158,11,.06);
+    border-radius:0 14px 14px 0; padding:18px 20px; font-style:italic;
+    font-size:clamp(16px,2.6vw,20px); line-height:1.45;
+  }
+  .saythis{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;font-style:normal;}
+
+  .stepflow{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:stretch;}
+  @media(max-width:760px){.stepflow{grid-template-columns:1fr;}}
+  .step{text-align:center;}
+  .step .lbl{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);}
+  .step .big{font-size:clamp(24px,5vw,34px);font-weight:900;margin:8px 0;}
+  .step .sub{color:var(--muted);font-size:14px;}
+  .step.gap{border-color:rgba(248,113,113,.4);} .step.gap .lbl,.step.gap .big{color:var(--red);}
+
+  .pill{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:12px 16px;font-weight:600;}
+  .pill .dot{width:26px;height:26px;border-radius:8px;background:var(--grad);color:#0f172a;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;flex:0 0 auto;}
+
+  .obj{display:flex;flex-direction:column;gap:12px;margin-top:4px;}
+  .objrow{display:grid;grid-template-columns:1fr 1.6fr;gap:14px;align-items:center;background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--border);border-radius:13px;padding:14px 16px;}
+  @media(max-width:760px){.objrow{grid-template-columns:1fr;gap:6px;}}
+  .objrow .o{font-weight:700;color:#fff;}
+  .objrow .m{color:var(--muted);font-size:15px;line-height:1.4;}
+  .objrow .m::before{content:"→ ";color:var(--gold);font-weight:800;}
+
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media(max-width:760px){.twocol{grid-template-columns:1fr;}}
+  .do{border-color:rgba(52,211,153,.35);} .do h3{color:var(--green);}
+  .dont{border-color:rgba(248,113,113,.35);} .dont h3{color:var(--red);}
+  .do h3,.dont h3{font-size:16px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;}
+  .lst{list-style:none;display:flex;flex-direction:column;gap:10px;}
+  .lst li{padding-left:24px;position:relative;color:var(--text);font-size:15px;line-height:1.4;}
+  .do .lst li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:800;}
+  .dont .lst li::before{content:"✕";position:absolute;left:0;color:var(--red);font-weight:800;}
+  .bullets{list-style:none;display:flex;flex-direction:column;gap:11px;}
+  .bullets li{padding-left:22px;position:relative;font-size:15.5px;line-height:1.45;color:var(--text);}
+  .bullets li::before{content:"";position:absolute;left:0;top:9px;width:8px;height:8px;border-radius:50%;background:var(--grad);}
+
+  /* talk track */
+  .talk{
+    margin-top:26px; background:rgba(245,158,11,.07);
+    border:1px solid rgba(245,158,11,.22); border-radius:14px; padding:16px 18px;
+  }
+  .talk .lh{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+  .talk p{color:#e2e8f0;font-size:14.5px;line-height:1.5;}
+
+  .big-takeaway{font-size:clamp(22px,4.6vw,34px);font-weight:900;line-height:1.15;margin-top:8px;}
+  .proof{display:flex;align-items:center;gap:12px;margin-top:16px;padding:13px 16px;border:1px solid rgba(245,158,11,.42);border-radius:12px;background:rgba(245,158,11,.07);text-decoration:none;color:inherit;transition:border-color .15s ease,transform .15s ease,background .15s ease;}
+  .proof:hover{border-color:var(--gold);background:rgba(245,158,11,.13);transform:translateY(-2px);}
+  .proof .pmark{width:30px;height:30px;border-radius:50%;flex:0 0 auto;background:var(--grad);color:#0f172a;display:flex;align-items:center;justify-content:center;font-size:12px;padding-left:2px;}
+  .proof .ptxt{font-size:14px;line-height:1.45;}
+  .proof .ptxt b{display:block;font-weight:800;font-size:14.5px;letter-spacing:.01em;}
+  .proof .ptxt span{color:var(--muted);}
+  .vid{display:flex;align-items:center;gap:16px;text-decoration:none;color:inherit;transition:transform .15s ease,border-color .15s ease;}
+  .vid:hover{border-color:var(--gold);transform:translateY(-2px);}
+  .play{width:54px;height:54px;border-radius:50%;flex:0 0 auto;background:var(--grad);color:#0f172a;display:flex;align-items:center;justify-content:center;font-size:20px;padding-left:4px;box-shadow:0 8px 20px rgba(245,158,11,.40);}
+
+  /* chrome */
+  .progress{position:fixed;top:0;left:0;height:3px;background:var(--grad);width:0;z-index:30;transition:width .15s ease;}
+  .counter{position:fixed;bottom:18px;right:18px;z-index:30;font-size:13px;font-weight:700;color:var(--muted);background:rgba(2,8,23,.8);border:1px solid var(--border);border-radius:999px;padding:7px 13px;backdrop-filter:blur(6px);}
+  .counter b{color:var(--gold);}
+  .nav{position:fixed;bottom:16px;left:18px;z-index:30;display:flex;gap:8px;}
+  .nav button{width:42px;height:42px;border-radius:11px;border:1px solid var(--border);background:rgba(2,8,23,.8);color:var(--text);font-size:18px;cursor:pointer;backdrop-filter:blur(6px);transition:.15s;}
+  .nav button:hover{border-color:var(--gold);color:var(--gold);}
+  .foot{margin-top:auto;}
+  .hint{position:fixed;bottom:64px;left:0;right:0;text-align:center;color:var(--muted2);font-size:12px;z-index:20;animation:fade 2.6s ease forwards;}
+  @keyframes fade{0%,70%{opacity:.8}100%{opacity:0}}
+</style>
+</head>
+<body>
+<div class="progress" id="prog"></div>
+<div class="counter"><b id="cur">01</b> / <span id="tot">15</span></div>
+<div class="nav"><button id="up" aria-label="Previous">↑</button><button id="down" aria-label="Next">↓</button></div>
+<div class="hint">swipe / scroll · or use ↑ ↓</div>
+
+<div class="scroller" id="scroller">
+
+  <!-- 1 TITLE -->
+  <section class="slide">
+    <div class="mark"><span></span><span></span><span></span></div>
+    <div class="kicker">Rapid Reach · Closer Training</div>
+    <h1 class="title">The Closer's <span class="gold">Playbook</span></h1>
+    <p class="lead" style="margin-top:18px;font-size:clamp(17px,2.8vw,22px);color:#cbd5e1;">How we turn a skeptical lead into a signed deal.</p>
+    <div class="monogram-wrap"><div class="monogram">GE</div></div>
+    <div class="foot"><p class="kicker" style="margin:0;">Frame · Discovery · Objection Handling · The Close</p></div>
+  </section>
+
+  <!-- 2 MINDSET -->
+  <section class="slide">
+    <div class="kicker">The Mindset</div>
+    <h2 class="title">Doctor, not salesman.</h2>
+    <p class="lead">You don't pitch. You diagnose, then prescribe. The buyer should feel understood before they ever feel sold.</p>
+    <div class="grid g3">
+      <div class="card"><div class="num">1</div><div class="ch">Diagnose first</div><div class="cd">Ask before you tell. No prescription without a real diagnosis.</div></div>
+      <div class="card"><div class="num">2</div><div class="ch">Sell the outcome</div><div class="cd">Nobody buys ads or software. They buy more jobs, time back, a sellable business.</div></div>
+      <div class="card"><div class="num">3</div><div class="ch">Control the frame</div><div class="cd">You set the agenda. Calm authority closes. Eagerness repels.</div></div>
+    </div>
+  </section>
+
+  <!-- 3 FRAME -->
+  <section class="slide">
+    <div class="kicker">The Call Frame</div>
+    <h2 class="title">Every call runs the same 7 moves</h2>
+    <div class="grid g2">
+      <div class="pill"><span class="dot">1</span> Take Control: set the agenda in 60 sec</div>
+      <div class="pill"><span class="dot">2</span> Dig for Pain: questions before any pitch</div>
+      <div class="pill"><span class="dot">3</span> Get Their Number: budget before you quote</div>
+      <div class="pill"><span class="dot">4</span> Sell the Dream: outcomes, not features</div>
+      <div class="pill"><span class="dot">5</span> Ask for the Close: assume the yes</div>
+      <div class="pill"><span class="dot">6</span> Isolate Objections: find the real one</div>
+      <div class="pill"><span class="dot">7</span> Lock the Next Step: a date, not a "maybe"</div>
+    </div>
+  </section>
+
+  <!-- 4 PHASE 1 -->
+  <section class="slide">
+    <div class="kicker">Phase 1 · Control</div>
+    <h2 class="title">Own the first 60 seconds</h2>
+    <div class="twocol">
+      <div class="card">
+        <ul class="bullets">
+          <li>Positions you as the authority, not the salesman</li>
+          <li>Pre-frames your questions so they don't feel interrogated</li>
+          <li>Earns you permission to push back later</li>
+          <li>"If it's not a fit, I'll tell you" = power to walk away</li>
+        </ul>
+      </div>
+      <div class="card quote"><div class="saythis">Say this</div>"Hey [name], before we dive in, here's how I run these calls: I'll ask you a handful of questions so I actually understand your business, then I'll tell you straight whether we're a fit. Sound fair?<br><br>Perfect. So tell me a little more about you guys. What made you want to hop on this call today?"</div>
+    </div>
+    <a class="proof" href="clip.html?p=1"><div class="pmark">&#9654;</div><div class="ptxt"><b>Watch Phase 1 run in a real call</b><span>The frame, then the opener that makes them qualify themselves</span></div></a>
+  </section>
+
+  <!-- 5 PHASE 2 -->
+  <section class="slide">
+    <div class="kicker">Phase 2 · Discovery</div>
+    <h2 class="title">Make them say the number out loud</h2>
+    <div class="stepflow">
+      <div class="card step"><div class="lbl">Current</div><div class="big">$3,500/wk</div><div class="sub">Where are you now?</div></div>
+      <div class="card step"><div class="lbl">Goal</div><div class="big gold">$5,000/wk</div><div class="sub">Where do you want to be?</div></div>
+      <div class="card step gap"><div class="lbl">The Gap</div><div class="big">+$1,500/wk</div><div class="sub">This is what you sell to</div></div>
+    </div>
+    <p class="lead" style="margin-top:18px;">You can't sell a destination they haven't named. Get current, goal, and the gap on the table <em>before</em> you pitch anything.</p>
+    <a class="proof" href="clip.html?p=2"><div class="pmark">&#9654;</div><div class="ptxt"><b>Watch Phase 2 run in a real call</b><span>Current, goal and gap, then the trial close on the volume</span></div></a>
+  </section>
+
+  <!-- 6 PAIN QUESTIONS -->
+  <section class="slide">
+    <div class="kicker">Discovery · The Questions</div>
+    <h2 class="title">5 questions that uncover the pain</h2>
+    <div class="rows">
+      <div class="row"><div class="num">1</div><div><div class="qtext">"Walk me through a typical week, how many jobs, what's the mix?"</div><span class="tag">Baseline</span></div></div>
+      <div class="row"><div class="num">2</div><div><div class="qtext">"Where are your jobs coming from right now? Google, Facebook, word of mouth?"</div><span class="tag">The channel</span></div></div>
+      <div class="row"><div class="num">3</div><div><div class="qtext">"How many is that bringing you a week, and what are you spending on advertising?"</div><span class="tag">Volume + what it costs</span></div></div>
+      <div class="row"><div class="num">4</div><div><div class="qtext">"What's stopping that from happening today?"</div><span class="tag">The wall = your angle</span></div></div>
+      <div class="row"><div class="num">5</div><div><div class="qtext">"How long have you been looking to bring this work in? What makes you want to change it now?"</div><span class="tag">Why now</span></div></div>
+    </div>
+  </section>
+
+  <!-- 7 PHASE 3 -->
+  <section class="slide">
+    <div class="kicker">Phase 3 · Budget</div>
+    <h2 class="title">Get their number before you quote yours</h2>
+    <div class="twocol">
+      <div class="card"><div class="saythis" style="font-style:normal">Ask, then go silent</div>
+        <div class="quote" style="border:none;background:none;padding:0;margin-bottom:14px;">"What have other companies quoted you for this? Or what would you put toward the right partner?"</div>
+        <div style="color:var(--red);font-weight:700;">Then shut up. First one to talk loses.</div>
+      </div>
+      <div class="card" style="background:linear-gradient(180deg,#0e1830,#0a1326);">
+        <div class="ch" style="margin-top:0">Anchor to their wallet, not your price sheet.</div>
+        <div class="cd" style="margin-bottom:12px;">A client told us he'd been paying $1k/mo + ad spend. We anchored against <b style="color:#fff">that</b>.</div>
+        <div style="color:var(--gold);font-weight:700;font-size:15px;">If a buyer hands you a budget, your offer should fill it. Don't sell $30 to a $5,000 buyer.</div>
+      </div>
+    </div>
+    <a class="proof" href="clip.html?p=3"><div class="pmark">&#9654;</div><div class="ptxt"><b>Watch Phase 3 run in a real call</b><span>Ask then go silent, how to hold it, and anchoring to their wallet</span></div></a>
+  </section>
+
+  <!-- 8 PHASE 4 -->
+  <section class="slide">
+    <div class="kicker">Phase 4 · The Pitch</div>
+    <h2 class="title">Sell the dream, not the dashboard</h2>
+    <div class="rows">
+      <div class="row"><div class="num" style="border-radius:10px">S</div><div><div class="ch" style="margin:0 0 2px">Story</div><div class="cd">"A detailer just like you went from X to Y in six weeks. Here's what we did…"</div></div></div>
+      <div class="row"><div class="num" style="border-radius:10px">M</div><div><div class="ch" style="margin:0 0 2px">Math</div><div class="cd">"5 extra jobs a week × your ticket = $X/mo. The math works whether they believe you or not."</div></div></div>
+      <div class="row"><div class="num" style="border-radius:10px">V</div><div><div class="ch" style="margin:0 0 2px">Vision</div><div class="cd">"Phone's booked by 8am, you're home by 5, and winter's handled. That's what I sell."</div></div></div>
+    </div>
+    <p class="lead" style="margin-top:16px;">Features tell. Outcomes close. Nobody buys "CRM tracking", they buy their Sunday back.</p>
+    <a class="proof" href="clip.html?p=4"><div class="pmark">&#9654;</div><div class="ptxt"><b>Watch Phase 4 run in a real call</b><span>Story, Math and Vision, one clip each, nothing else</span></div></a>
+  </section>
+
+  <!-- 9 PHASE 5 -->
+  <section class="slide">
+    <div class="kicker">Phase 5 · The Ask</div>
+    <h2 class="title">Ask for the deal, 3 times</h2>
+    <div class="grid g3">
+      <div class="card"><div class="ch" style="margin-top:0">Assumptive</div><div class="cd">"Only two things left, send your COI and we go live Friday. Best email?"</div></div>
+      <div class="card"><div class="ch" style="margin-top:0">Hard assumptive</div><div class="cd">"I've got the agreement open on my screen, spell your LLC name for me."</div></div>
+      <div class="card"><div class="ch" style="margin-top:0">Two-option</div><div class="cd">"Start Monday with data before your contract ends, or wait 8 weeks and start cold. Which one?"</div></div>
+    </div>
+    <p class="lead" style="margin-top:18px;color:var(--red);font-weight:600;">"Think about it" is not on the menu. You haven't sold until you've asked them to buy.</p>
+    <a class="proof" href="clip.html?p=5"><div class="pmark">&#9654;</div><div class="ptxt"><b>Watch Phase 5 run in a real call</b><span>Agree on the plan, say the price, ask for the start, send the paperwork</span></div></a>
+  </section>
+
+  <!-- 10 PHASE 6 -->
+  <section class="slide">
+    <div class="kicker">Phase 6 · Objections</div>
+    <h2 class="title">Isolate before you answer</h2>
+    <div class="rows">
+      <div class="row"><div class="num">1</div><div><div class="ch" style="margin:0 0 2px">Isolate</div><div class="cd">"Other than [their objection], is there anything else stopping us today?"</div></div></div>
+      <div class="row"><div class="num">2</div><div><div class="ch" style="margin:0 0 2px">Confirm</div><div class="cd">"So if I solve [that], we move forward today, yes?"</div></div></div>
+      <div class="row"><div class="num">3</div><div><div class="ch" style="margin:0 0 2px">Now swing</div><div class="cd">Answer the ONE real objection, once, with precision.</div></div></div>
+    </div>
+    <p class="lead" style="margin-top:16px;">The first objection is rarely the real one. Isolate it so you swing once, not five times.</p>
+    <a class="proof" href="clip.html?p=6"><div class="pmark">&#9654;</div><div class="ptxt"><b>Watch Phase 6 run in a real call</b><span>Five real objections, including the live AI demo that flipped a flat no</span></div></a>
+  </section>
+
+  <!-- 11 OBJECTION PLAYBOOK -->
+  <section class="slide">
+    <div class="kicker">Objection Playbook</div>
+    <h2 class="title">The 6 you'll hear most</h2>
+    <div class="obj">
+      <div class="objrow"><div class="o">"I need to think about it"</div><div class="m">"What specifically, money, trust, or timing?"</div></div>
+      <div class="objrow"><div class="o">"I have to talk to my partner"</div><div class="m">"Smart. Let's get them on right now, 5 minutes."</div></div>
+      <div class="objrow"><div class="o">"I already paid another company"</div><div class="m">"Sunk cost. The only question now is dead leads vs. closed leads."</div></div>
+      <div class="objrow"><div class="o">"Just send me info"</div><div class="m">"I will, but you won't read it. One question, what do you need to see to say yes?"</div></div>
+      <div class="objrow"><div class="o">"It's too expensive"</div><div class="m">"Compared to what? Doing nothing costs you $X a month in missed jobs."</div></div>
+      <div class="objrow"><div class="o">"I don't trust AI / agencies"</div><div class="m">Don't argue, DEMO it. Let them hear it work. (Next slide.)</div></div>
+    </div>
+  </section>
+
+  <!-- 12 DEMO -->
+  <section class="slide">
+    <div class="kicker">The Masterclass Move</div>
+    <h2 class="title">Demo, don't <span class="gold">debate</span></h2>
+    <p class="lead">When a buyer holds a belief, "AI is garbage," "agencies are scams", you don't out-argue it. You replace it with an experience.</p>
+    <div class="card" style="border-left:4px solid var(--gold);">
+      <div class="cd" style="color:#e2e8f0;font-size:16px;"><b style="color:var(--gold)">From a recent close:</b> He said "I refuse AI, it's garbage." We didn't argue, we called the live AI and let him <b style="color:#fff">hear</b> it handle a price objection and upsell a ceramic coating. He flipped to "I need to set it up."</div>
+    </div>
+    <div class="big-takeaway gold">A 30-second demo beats a 30-minute argument.</div>
+      <a class="proof" href="clip.html?p=6"><div class="pmark">&#9654;</div><div class="ptxt"><b>Watch the live AI demo</b><span>Summit 39:55 &middot; he refused AI flat at 15:26, and by 40:00 he is the one asking to hear it</span></div></a>
+  </section>
+
+  <!-- 13 WATCH REAL CALL -->
+  <section class="slide">
+    <div class="kicker">Watch · Real Call</div>
+    <h2 class="title">See the frame in a <span class="gold">real close</span></h2>
+    <p class="lead">The exact call this playbook is built on, an agency-burned, numbers-driven, "I refuse AI" buyer who signed all three offers. Watch how the moves actually sound out loud.</p>
+    <div class="grid g2">
+      <a class="card vid" href="https://fathom.video/share/By3AsHiUvZJtQ41Ur1FkrsA5VXKFFaV2" target="_blank" rel="noopener">
+        <div class="play">▶</div>
+        <div><div class="ch" style="margin:0 0 3px">Part 1, Discovery &amp; the live demo</div><div class="cd">57 min · pain dig, "anchor to their wallet," and the AI demo that flipped the no</div></div>
+      </a>
+      <a class="card vid" href="https://fathom.video/share/L7EW8G-suX8bpLoGm4AD3TBJSF2BSU5e" target="_blank" rel="noopener">
+        <div class="play">▶</div>
+        <div><div class="ch" style="margin:0 0 3px">Part 2, Close &amp; paperwork</div><div class="cd">26 min · objection isolation, the bundle + discount, and the signatures</div></div>
+      </a>
+    </div>
+    <a class="card vid" href="calls.html" style="margin-top:14px;border-color:rgba(245,158,11,.45);background:rgba(245,158,11,.07);">
+      <div class="play">&#9654;</div>
+      <div><div class="ch" style="margin:0 0 3px">The Film Room &middot; full breakdowns</div><div class="cd">Timestamped teardowns, the 14-point call scorecard, and the phase library</div></div>
+    </a>
+  </section>
+
+  <!-- 14 PHASE 7 -->
+  <section class="slide">
+    <div class="kicker">Phase 7 · Commitment</div>
+    <h2 class="title">Never end with "I'll reach out"</h2>
+    <div class="twocol">
+      <div class="card">
+        <div class="saythis" style="font-style:normal">Every call ends one of 3 ways</div>
+        <div class="rows" style="margin-top:12px;">
+          <div class="row"><div class="num" style="background:linear-gradient(135deg,#34d399,#10b981);color:#04231a;width:34px;height:34px;font-size:15px;">1</div><div class="qtext" style="font-size:16px;">Closed today</div></div>
+          <div class="row"><div class="num" style="background:linear-gradient(135deg,#34d399,#10b981);color:#04231a;width:34px;height:34px;font-size:15px;">2</div><div class="qtext" style="font-size:16px;">Booked next step, date + time on the calendar now</div></div>
+          <div class="row"><div class="num" style="background:linear-gradient(135deg,#34d399,#10b981);color:#04231a;width:34px;height:34px;font-size:15px;">3</div><div class="qtext" style="font-size:16px;">Future-dated firm follow-up they agree to</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="saythis" style="font-style:normal">Buying signals, pounce, don't keep pitching</div>
+        <ul class="bullets" style="margin-top:12px;">
+          <li>"You're a smart guy / good deal"</li>
+          <li>Asking about price, timing, or start date</li>
+          <li>"How soon can you start?"</li>
+          <li>Repeating your terms back to you</li>
+          <li>Asking how billing or onboarding works</li>
+        </ul>
+      </div>
+    </div>
+    <p class="lead" style="margin-top:16px;">The call isn't over until a date exists.</p>
+    <a class="proof" href="clip.html?p=7"><div class="pmark">&#9654;</div><div class="ptxt"><b>Watch Phase 7 run in a real call</b><span>All three endings, including the brush-off turned into a calendar slot</span></div></a>
+  </section>
+
+  <!-- 14 DO/DONT -->
+  <section class="slide">
+    <div class="kicker">Closer vs. Order-Taker</div>
+    <h2 class="title">Habits that close vs. habits that stall</h2>
+    <div class="twocol">
+      <div class="card do"><h3>Closers do</h3>
+        <ul class="lst">
+          <li>Ask for the close 3 times</li>
+          <li>Quantify the pain in dollars</li>
+          <li>Isolate the one real objection</li>
+          <li>Demo a belief instead of debating it</li>
+          <li>Take the slice, then upsell later</li>
+          <li>Lock a date before hanging up</li>
+        </ul>
+      </div>
+      <div class="card dont"><h3>Order-takers do</h3>
+        <ul class="lst">
+          <li>Feature-dump the whole offer</li>
+          <li>Accept "just send me info"</li>
+          <li>Defend the bundle and lose the slice</li>
+          <li>Argue about AI instead of showing it</li>
+          <li>Talk features, never outcomes</li>
+          <li>End on "let me know"</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 15 CLOSE -->
+  <section class="slide">
+    <div class="mark"><span></span><span></span><span></span></div>
+    <div class="kicker">The One-Line Lesson</div>
+    <h1 class="title" style="font-size:clamp(26px,5.4vw,44px);">Diagnose. Sell the outcome.<br><span class="gold">Ask 3 times. End with a date.</span></h1>
+    <p class="lead" style="margin-top:20px;">Drill before every call: write the prospect's #1 pain on a sticky note. Your only job is to make them say it twice.</p>
+    <div class="foot"><div class="big-takeaway gold" style="font-size:clamp(20px,4vw,28px);">Now go close.</div></div>
+  </section>
+
+</div>
+
+<script>
+  const scroller=document.getElementById('scroller');
+  const slides=[...document.querySelectorAll('.slide')];
+  const tot=slides.length;
+  document.getElementById('tot').textContent=String(tot).padStart(2,'0');
+  const curEl=document.getElementById('cur'), prog=document.getElementById('prog');
+  let idx=0;
+  const io=new IntersectionObserver((es)=>{
+    es.forEach(e=>{ if(e.isIntersecting){ idx=slides.indexOf(e.target);
+      curEl.textContent=String(idx+1).padStart(2,'0');
+      prog.style.width=((idx+1)/tot*100)+'%'; }});
+  },{root:scroller,threshold:.55});
+  slides.forEach(s=>io.observe(s));
+  function go(n){ n=Math.max(0,Math.min(tot-1,n)); slides[n].scrollIntoView({behavior:'smooth'});}
+  document.getElementById('down').onclick=()=>go(idx+1);
+  document.getElementById('up').onclick=()=>go(idx-1);
+  // return from a clip page straight to the slide they left
+  (function(){
+    const want=parseInt(new URLSearchParams(location.search).get('slide'),10);
+    if(!Number.isInteger(want)||want<0||want>=tot) return;
+    const jump=()=>{
+      const prev=scroller.style.scrollBehavior;
+      scroller.style.scrollBehavior='auto';
+      slides[want].scrollIntoView({behavior:'auto',block:'start'});
+      requestAnimationFrame(()=>{scroller.style.scrollBehavior=prev||'';});
+    };
+    jump(); requestAnimationFrame(jump);
+  })();
+
+  addEventListener('keydown',(e)=>{
+    if(['ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();go(idx+1);}
+    if(['ArrowUp','PageUp'].includes(e.key)){e.preventDefault();go(idx-1);}
+    if(e.key==='Home'){go(0);} if(e.key==='End'){go(tot-1);}
+  });
+</script>
+<style>
+  .hubback{position:fixed;right:14px;top:14px;z-index:9999;display:inline-flex;align-items:center;gap:7px;
+    font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:12.5px;font-weight:800;
+    letter-spacing:.04em;text-decoration:none;color:#cbd5e1;background:rgba(15,22,41,.92);
+    border:1px solid rgba(148,163,184,.38);border-radius:999px;padding:9px 15px;
+    white-space:nowrap;max-width:calc(100vw - 28px);
+    backdrop-filter:blur(6px);box-shadow:0 4px 18px rgba(0,0,0,.35);}
+  @media(max-width:620px){ .hubback{font-size:11px;padding:7px 12px;right:10px;top:10px;} }
+  .hubback:hover{color:#fff;border-color:#8a8f9c;}
+  @media print{.hubback{display:none;}}
+</style>
+<a class="hubback" href="../">&larr; Back to the training hub</a>
+</body>
+</html>

@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Watch The Phase &middot; Rapid Reach Closer Training</title>
+<meta name="theme-color" content="#020817" />
+<link rel="icon" href="favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#020817; --bg2:#01030a; --card:#0b1322; --card2:#101c33;
+    --border:#1e293b; --border2:#27364b; --text:#f8fafc; --muted:#94a3b8; --muted2:#64748b;
+    --gold:#f59e0b; --gold2:#eab308; --green:#34d399; --red:#f87171;
+    --grad:linear-gradient(135deg,#f59e0b,#eab308);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.55;}
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:radial-gradient(900px 500px at 85% -10%,rgba(245,158,11,.10),transparent 60%),
+               radial-gradient(700px 500px at 0% 110%,rgba(234,179,8,.06),transparent 60%),
+               linear-gradient(180deg,var(--bg),var(--bg2));}
+
+  /* sticky done bar */
+  .bar{position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);
+    background:rgba(2,8,23,.86);border-bottom:1px solid var(--border);}
+  .bar-in{max-width:900px;margin:0 auto;padding:11px 18px;display:flex;align-items:center;gap:12px;}
+  .done{display:inline-flex;align-items:center;gap:8px;flex:0 0 auto;
+    background:var(--grad);color:#0f172a;font-weight:800;font-size:13.5px;letter-spacing:.01em;
+    border:0;border-radius:999px;padding:9px 17px;text-decoration:none;cursor:pointer;
+    transition:transform .15s ease,filter .15s ease;}
+  .done:hover{transform:translateY(-1px);filter:brightness(1.08);}
+  .bar-ph{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2);margin-left:auto;text-align:right;}
+
+  .wrap{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:34px 18px 110px;}
+  .kicker{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:9px;}
+  h1{font-size:clamp(27px,5.4vw,44px);font-weight:900;letter-spacing:-.02em;line-height:1.06;}
+  .gold{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .lead{color:var(--muted);font-size:clamp(14.5px,2.1vw,17px);margin-top:13px;max-width:720px;}
+
+  .look{background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.20);border-radius:12px;padding:14px 17px;margin:24px 0 6px;}
+  .look .lbl{font-size:10.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
+  .look p{color:#e2e8f0;font-size:14.5px;}
+
+  .cnt{font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted2);margin:34px 0 12px;}
+
+  /* clip card */
+  .clip{display:block;text-decoration:none;color:inherit;
+    background:linear-gradient(180deg,var(--card),var(--card2));
+    border:1px solid var(--border);border-left:3px solid var(--gold);
+    border-radius:13px;padding:15px 17px 16px;margin-bottom:13px;
+    transition:border-color .15s ease,transform .15s ease,background .15s ease;}
+  .clip:hover{border-color:var(--border2);border-left-color:var(--gold2);transform:translateY(-2px);
+    background:linear-gradient(180deg,#0e1830,#13203a);}
+  .clip.ce{border-left-color:var(--red);}
+  .clip.ce:hover{border-left-color:#fca5a5;}
+
+  .ctop{display:flex;align-items:center;gap:12px;}
+  .pmark{width:38px;height:38px;border-radius:50%;flex:0 0 auto;background:var(--grad);color:#0f172a;
+    display:flex;align-items:center;justify-content:center;font-size:14px;padding-left:3px;
+    box-shadow:0 2px 14px rgba(245,158,11,.30);}
+  .clip.ce .pmark{background:linear-gradient(135deg,#f87171,#ef4444);color:#fff;box-shadow:0 2px 14px rgba(248,113,113,.26);}
+  .ctitle{font-size:15.5px;font-weight:800;letter-spacing:-.01em;line-height:1.3;}
+  .crange{flex:0 0 auto;margin-left:auto;text-align:right;font-variant-numeric:tabular-nums;}
+  .crange b{display:block;font-size:14px;font-weight:800;color:var(--gold);}
+  .clip.ce .crange b{color:var(--red);}
+  .crange span{font-size:11px;font-weight:600;color:var(--muted2);letter-spacing:.04em;}
+
+  .cwatch{font-size:14.5px;color:#cbd5e1;margin-top:11px;}
+  .cwatch b{color:#fff;font-weight:700;}
+
+  .cmeta{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px;}
+  .tag{font-size:11px;font-weight:700;letter-spacing:.05em;color:var(--muted);
+    border:1px solid var(--border2);border-radius:999px;padding:3.5px 10px;}
+  .tag.won{color:var(--green);border-color:rgba(52,211,153,.35);background:rgba(52,211,153,.07);}
+  .tag.lost{color:var(--red);border-color:rgba(248,113,113,.35);background:rgba(248,113,113,.07);}
+  .tag.open{color:var(--gold);border-color:rgba(245,158,11,.35);background:rgba(245,158,11,.07);}
+  .tag.ce{color:var(--red);border-color:rgba(248,113,113,.35);background:rgba(248,113,113,.07);}
+
+  .howto{color:var(--muted2);font-size:13px;margin-top:20px;padding-left:2px;}
+
+  .taught{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--border2);
+    border-left:3px solid var(--gold);border-radius:12px;padding:14px 17px;margin:16px 0 6px;}
+  .taught .lbl{font-size:10.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:7px;}
+  .taught q{display:block;color:#fff;font-size:15px;font-style:italic;font-weight:500;line-height:1.5;}
+  .taught q:before,.taught q:after{content:'"';}
+
+  .gap{background:rgba(248,113,113,.07);border:1px solid rgba(248,113,113,.28);border-radius:12px;padding:14px 17px;margin:16px 0;}
+  .gap .lbl{font-size:10.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:6px;}
+  .gap p{color:#e2e8f0;font-size:14.5px;}
+
+  .step{display:flex;gap:13px;align-items:flex-start;margin:36px 0 14px;}
+  .snum{flex:0 0 auto;width:28px;height:28px;border-radius:9px;background:var(--grad);color:#0f172a;
+    font-weight:900;font-size:14px;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+  .sbody{flex:1 1 auto;}
+  .slabel{font-size:16.5px;font-weight:800;letter-spacing:-.01em;color:#fff;line-height:1.3;}
+  .ssay{display:block;margin-top:8px;color:#fde68a;font-size:14.5px;font-style:italic;line-height:1.55;
+    border-left:2px solid rgba(245,158,11,.4);padding-left:12px;}
+  .ssay:before,.ssay:after{content:'"';}
+  .ssay.plain:before,.ssay.plain:after{content:'';}
+  .saynote{color:var(--muted2);font-size:13.5px;margin-top:9px;}
+  .ohead{display:flex;align-items:center;gap:10px;margin:40px 0 13px;padding-top:20px;border-top:1px solid var(--border);}
+  .ohead b{font-size:15px;font-weight:800;color:var(--red);}
+  .ohead span{font-size:12.5px;color:var(--muted2);}
+  details.more{margin-top:34px;border-top:1px solid var(--border);padding-top:20px;}
+  details.more>summary{cursor:pointer;font-size:14px;font-weight:800;color:var(--muted);list-style:none;}
+  details.more>summary::-webkit-details-marker{display:none;}
+  details.more>summary:before{content:'+ ';color:var(--gold);}
+  details.more[open]>summary:before{content:'\2212 ';}
+  details.more>summary:hover{color:var(--gold);}
+  details.more .inner{margin-top:15px;}
+  .move{font-size:11px;font-weight:800;letter-spacing:.06em;color:#0f172a;background:var(--grad);
+    border-radius:999px;padding:3.5px 10px;}
+  .clip.ce .move{background:linear-gradient(135deg,#f87171,#ef4444);color:#fff;}
+  .clip.pt .move{background:none;color:var(--muted);border:1px dashed var(--border2);}
+  .clip.pt{border-left-color:var(--muted2);}
+
+  /* footer nav */
+  .fnav{margin-top:46px;padding-top:24px;border-top:1px solid var(--border);
+    display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .pn{flex:1 1 180px;min-width:150px;display:block;text-decoration:none;
+    border:1px solid var(--border);border-radius:12px;padding:12px 15px;transition:border-color .15s ease,background .15s ease;}
+  .pn:hover{border-color:var(--gold);background:rgba(245,158,11,.06);}
+  .pn s{display:block;text-decoration:none;font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2);margin-bottom:3px;}
+  .pn b{font-size:14.5px;font-weight:800;color:var(--text);}
+  .pn.dim{opacity:.35;pointer-events:none;}
+  .fdone{text-align:center;margin-top:26px;}
+  .fdone .done{font-size:15px;padding:13px 28px;}
+  .fdone p{color:var(--muted2);font-size:12.5px;margin-top:11px;}
+
+  .all{margin-top:30px;text-align:center;}
+  .all a{color:var(--muted);font-size:13px;font-weight:700;text-decoration:none;border-bottom:1px dashed var(--border2);}
+  .all a:hover{color:var(--gold);border-color:var(--gold);}
+
+  @media(max-width:560px){
+    .ctop{flex-wrap:wrap;}
+    .crange{margin-left:50px;text-align:left;width:100%;margin-top:4px;}
+    .bar-ph{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="bar"><div class="bar-in">
+  <a class="done" id="doneTop" href="index.html">&larr; Done, back to training</a>
+  <div class="bar-ph" id="barPh"></div>
+</div></div>
+
+<div class="wrap">
+  <div class="kicker" id="kick">Rapid Reach &middot; Closer Training</div>
+  <h1 id="h1"></h1>
+  <p class="lead" id="lead"></p>
+
+  <div class="look"><div class="lbl">What you're listening for</div><p id="look"></p></div>
+  <p class="howto">Run the steps in order. Each clip opens the real recording in a new tab at the exact second, so watch the window shown, then close that tab and you are right back here.</p>
+
+  <div id="steps"></div>
+  <div id="counter"></div>
+  <div id="extras"></div>
+
+  <div class="fnav" id="fnav"></div>
+
+  <div class="fdone">
+    <a class="done" id="doneBot" href="index.html">&larr; Done, back to training</a>
+    <p id="donesub"></p>
+  </div>
+
+  <div class="all"><a href="calls.html">Or read the full written teardowns in the Film Room</a></div>
+</div>
+
+<script>
+const C={
+  summit :{n:'Summit Auto Detail',        w:'Michael Strickland', id:'By3AsHiUvZJtQ41Ur1FkrsA5VXKFFaV2', r:'won',  res:'Closed all three'},
+  summit2:{n:'Summit Auto Detail',        w:'Part 2',             id:'L7EW8G-suX8bpLoGm4AD3TBJSF2BSU5e', r:'won',  res:'Closed all three'},
+  divine :{n:'Divine Detailing',          w:'Logan Lamb',         id:'d5oEYu9rzr6w6j5m37jLpK7a3yNZFp7_', r:'won',  res:'Closed lead gen'},
+  lives  :{n:'Nine Lives Mobile Detailing',w:'Jonatan Benavides', id:'yMayMK3AtszidUrrpRpxZGzxkvMTy4SX', r:'won',  res:'Closed lead gen'},
+  beastly:{n:'Beastly Mobile Car Detailing',w:'Davis',            id:'uyph7tLrjeMu2DJHzsUysK377B11Z-Ws', r:'won',  res:'Closed $750 PPC'},
+  jayce  :{n:'Jayce Owens',               w:'Existing LSA client', id:'WijEy-y44yzQynhg5X1kZDg6UizQXp4q', r:'won', res:'Upsold to $750 PPC'},
+  ziebart:{n:'Ziebart',                   w:'Rodney Souder',      id:'h-XwEZyRZj77XJ9NAA27FCbmiWKYNcXv', r:'won',  res:'Closed 10% LSA'}
+};
+
+// Each phase is the steps in order. Each step carries the line to say and
+// one or two clips of that exact step. Anything else lives under "more".
+const P={
+ 1:{name:'Control', h:'Own the first 60 seconds', slide:3,
+    look:'Two moves, back to back. You tell them how the call runs so the questions never feel like an interrogation, then you hand them the floor so <b>they</b> say why they are here. A prospect who states his own reason has already started selling himself.',
+    steps:[
+     {l:'Set the frame', say:'Hey [name], before we dive in, here’s how I run these calls: I’ll ask you a handful of questions so I actually understand your business, then I’ll tell you straight whether we’re a fit. Sound fair?',
+      clips:[]},
+     {l:'Then hand them the floor, so they qualify themselves', say:'Perfect. So tell me a little more about you guys. What made you want to hop on this call today?',
+      clips:[
+       {c:'ziebart',t:'0:16',e:'1:30',m:'The opener',ti:'Sixteen seconds in, and he is explaining himself',
+        w:'"Let’s jump right into it. Tell me what kind of made you guys interested in hopping on this call today." Rodney gives the whole story: Andrea called, he had not heard of us, he went and looked us up. <b>He states his own reason before anything is pitched.</b> This is the opener on a deal that closed.'},
+       {c:'divine',t:'0:14',e:'1:10',m:'The opener',ti:'Same move, aimed at the offer',
+        w:'"What about our offer stood out to you?" Use this when they booked off a specific pitch. Use the Ziebart wording when they booked cold.'}]}
+    ]},
+
+ 2:{name:'Discovery', h:'Make them say the number out loud', slide:4,
+    look:'Discovery is <b>you asking</b>. Every clip below starts on the question leaving your mouth, not on the answer, so you can hear the wording, the pause after it, and how he narrows when the first answer is vague. Watch how often he follows one question with a smaller one.',
+    steps:[
+     {l:'How many jobs are you doing a week, and what’s the mix?', say:'Walk me through a typical week. How many jobs, and what’s the mix?',
+      clips:[
+       {c:'divine',t:'0:36',e:'1:22',m:'Asked, then narrowed twice',ti:'Three questions to pin one number down',
+        w:'"How many details are you currently doing? And what’s your goal, how many are you looking to get per week?" He gets a soft answer, so he narrows: <b>"How many are you looking to take on per week comfortably?"</b> Still soft, so he narrows again: <b>"So about 12 per week?"</b> One number, three questions. <b>Do not accept the first vague answer.</b>'},
+       {c:'summit',t:'2:15',e:'3:14',m:'The ask, then silence',ti:'One question, a minute of answer',
+        w:'"So tell me about your company, where you guys are currently at. How many details are you currently doing? And what’s your goal, what are you trying to get to per week?" Then he stops. Out comes the bottleneck, two vans, two employees, 30 maintenance clients and $5,000 in recurring revenue. <b>He asked once and got the whole business.</b>'}]},
+
+     {l:'What have you tried before, and what did it cost you?', say:'Have you done marketing before? What kind? And what were they charging you?',
+      clips:[
+       {c:'beastly',t:'0:53',e:'1:40',m:'Asked open',ti:'Opening the whole history with one question',
+        w:'"What type of marketing have you currently done?" Out comes Google ads, Instagram ads, flyers, and car shows. <b>Ask it open and they inventory themselves for you.</b>'},
+       {c:'beastly',t:'1:42',e:'2:40',m:'Then the numbers',ti:'The follow-up that turns a story into money',
+        w:'"How long did you experiment with that for, and what was your budget on those ads?" <b>$150 on Google until it ran out. $3,000 into Instagram over a year.</b> Never stop at "it didn’t work." The amount and the timeline are the discovery.'}]},
+
+     {l:'When the number comes back bad, react to it, then say it back', say:'No kidding. Two bookings? In the whole past month? Yeah, two bookings is incredibly not okay.',
+      clips:[{c:'divine',t:'20:38',e:'21:25',m:'Make them feel it',ti:'The best forty seconds of pain work in the library',
+        w:'He asks it plainly: <b>"How many clients do you think you did in the past month?"</b> Answer: "I got two bookings." He does not move on and he does not soften it. First the reaction, <b>"no kidding,"</b> then he says the number back to him: <b>"two bookings is incredibly not okay."</b> And Logan agrees out loud, <i>"no, it is not right at all."</i><br><br>Three moves in forty seconds. <b>Ask, react so they hear how bad it sounds, then repeat their pain back until they agree to it.</b> A prospect who has just agreed his own number is not okay has given you the reason to buy. <b>This is as good as it gets.</b>'}]},
+
+     {l:'Where are you now, and where do you want to be?', say:'What revenue are you sitting at per month? And what are you trying to get to?',
+      clips:[
+       {c:'divine',t:'2:37',e:'3:20',m:'Current → Goal → Gap',ti:'All three numbers in under a minute',
+        w:'"What’s the revenue you’re sitting at per month, and what’s the goal you’re trying to get to?" $4K, wants $6K, then he says it back: <b>"So about $2,000?"</b> Saying the gap out loud is what makes it real.'},
+       {c:'summit',t:'4:09',e:'4:50',m:'Current',ti:'Asking it the short way',
+        w:'"What are you guys currently sitting at?" He wanted $800 plus a day, admits he is really at $700 to $750 and that it is a struggle. <b>The admission only happens because the question was that short.</b>'}]},
+
+     {l:'What’s making you not be there today?', say:'So what’s the wall? Is it the work coming in, or your ability to do the work?',
+      clips:[
+       {c:'ziebart',t:'2:54',e:'4:20',m:'Split the bottleneck',ti:'One question that splits a vague complaint in two',
+        w:'"Are you saying your bottleneck is more workers, or the work coming in for those workers?" <b>Two completely different problems, and only one of them is ours to solve.</b> Ask before you assume.'},
+       {c:'summit',t:'3:15',e:'3:50',m:'Confirm it back',ti:'Saying the wall out loud so he agrees to it',
+        w:'"So you would say the biggest bottleneck right now is not workers, it is more jobs coming in?" He answers "yeah, and ceramic coatings," <b>which hands over the second product without being asked.</b>'}]},
+
+     {l:'What happens to the leads you already get?', say:'Do you have a CRM where you track leads? What happens to the ones that do not book?',
+      clips:[{c:'divine',t:'4:00',e:'5:10',m:'Find the leak',ti:'Four questions that build the case for the growth system',
+        w:'"Do you have a CRM where you track all your leads?" then "what software?" then <b>"say someone calls from Google and does not show up, is that number tracked?"</b> then "can you send mass SMS to everyone booked in the past month?" <b>He never pitched. He asked until the hole was obvious.</b>'}]},
+
+
+    ],
+    more:[
+     {c:'ziebart',t:'2:28',e:'3:10',m:'Capacity',ti:'"How much workload can you guys take on?"',
+      w:'The shop version of the volume question, and it produces the crew bottleneck straight away.'},
+     {c:'ziebart',t:'4:25',e:'5:45',m:'What the asking produced',ti:'Volume, ceiling and mix, three minutes later',
+      w:'10 to 15 cars last week, could do 25, and unprompted: <b>"a large part of that is window tint, which is not our highest margin, we’d rather do details, rust protection, ceramic coatings."</b> This is what patience in discovery pays out.'},
+     {c:'beastly',t:'2:42',e:'3:15',m:'Baseline',ti:'The shortest version of the volume question',
+      w:'"How many jobs are you currently doing per week?" One to two, and "got a little too much free time on my hands."'},
+     {c:'divine',t:'1:24',e:'2:10',m:'Which channel',ti:'Narrowing from marketing to the exact platform',
+      w:'"What were you running your ads on, Meta, Google, strictly Google?" then "how many results from the Meta side?" Answer: "it’s been terrible."'}]},
+
+ 3:{name:'Budget', h:'Get their number before you quote yours', slide:6,
+    look:'Whether you asked and then actually went quiet, and whether the number you got became the anchor. <b>Silence means silence.</b> If they go digging for the number, let them dig. Filling that gap with small talk pulls them out of the headspace you just put them in, and you want them sitting in it until they say a number. Finding their budget and not using it is the same as never asking.',
+    steps:[
+     {l:'Ask, then go silent', say:'What have other companies quoted you for this? Or what would you put toward the right partner?',
+      clips:[
+       {c:'ziebart',t:'7:41',e:'13:00',m:'Ask, then go silent',ti:'He builds the case against his own agency',
+        w:'He asks, then stops. Rodney digs through his email and reads his own August numbers out loud: <b>$1,563 on Google, $499.77 on Facebook, 13 leads, $120 a lead, $14 a click.</b> Then answers himself: "that sounds very weak to me." <b>Nobody had to tell him it was failing.</b>'},
+       {c:'summit',t:'1:15',e:'2:10',m:'Ask, then go silent',ti:'The question asked inside the first two minutes',
+        w:'"How much were they charging you?" Out it comes: a $1,000 a month package plus ad spend, with a guarantee of 10 coatings. <b>He had the competitor\u2019s number before minute three</b> and anchored to it for the rest of the call.'}]},
+     {l:'Anchor everything to their wallet', say:'So you are already putting $X a month at this. Let’s talk about what that same money should be doing.',
+      clips:[
+       {c:'beastly',t:'8:16',e:'9:10',m:'Anchor',ti:'Their ticket before our price',
+        w:'$100, $200, $280 to $350. Every number for the rest of the call gets built out of his own menu.'},
+       {c:'jayce',t:'10:26',e:'11:20',m:'Anchor the discount',ti:'Holding a price by naming the one you are not charging',
+        w:'Jayce checks: "when we talked last time you said it was 750?" Answer: <b>"Still 750. Typically it is a thousand for new clients, but we have worked with you guys, we want to keep your business, so we will keep that at 750."</b> The number never moves, and it now reads as something he is being given rather than something he is paying.'}]}
+    ]},
+
+ 4:{name:'The Pitch', h:'Sell the dream, not the dashboard', slide:7,
+    look:'Three legs. Story gives them someone to be, Math makes it undeniable, Vision makes it theirs. A pitch missing a leg is a feature list.',
+    steps:[
+     {l:'S · Story', say:'A detailer just like you went from X to Y in six weeks. Here’s what we did.',
+      clips:[{c:'beastly',t:'0:00',e:'1:40',m:'S · Story',ti:'"A detailer just like you," told properly',
+        w:'High school, door to door, $700 a month, scaled to $10K off Google ads, then two vans and four employees. Davis is a one man team still in school. <b>The story contained the prospect’s own starting point,</b> which is the only reason it worked instead of sounding like a brag.'}]},
+     {l:'M · Math', say:'5 extra jobs a week times your ticket is $X a month. The math works whether they believe you or not.',
+      clips:[
+       {c:'beastly',t:'14:38',e:'15:30',m:'M · Math',ti:'Price quoted in their own product',
+        w:'"<b>Three details covers your entire month.</b>" Nobody argues with a cost stated in a unit they already sell every week.'},
+       {c:'beastly',t:'13:10',e:'14:30',m:'M · Math',ti:'Priced as a subtraction, not an addition',
+        w:'The growth system replaces software he already pays $60 to $80 a month for, so adding it reads as <b>saving</b> money.'}]},
+     {l:'V · Vision', say:'You go to bed, spend time with your family, and wake up with four more details already booked in your calendar.',
+      clips:[
+       {c:'jayce',t:'7:28',e:'8:10',m:'V · Vision',ti:'The version for a man with a family',
+        w:'"You guys can be hanging out, or doing details, <b>go to bed, spend time with your family, go to bed, and wake up with four more bookings in your calendar.</b>" Nothing about software, nothing about keywords. He sold the evening back.'},
+       {c:'beastly',t:'11:01',e:'11:40',m:'V · Vision',ti:'The same move, aimed at a kid still in school',
+        w:'"You can go to sleep and wake up the next day and be like, <b>oh wow, I have three details scheduled.</b> Or you can be in class, see your phone, <b>get out of school for the day and see you have three details for the next two days.</b>"<br><br>Put these two side by side. Same product, same promise, and <b>the picture is built out of the life the prospect actually has.</b> That is the whole leg. A vision aimed at the wrong life is just a feature.'}]}
+    ]},
+
+ 5:{name:'The Ask', h:'Ask for the deal, 3 times', slide:8,
+    look:'Four beats in order: get them to agree to the plan, say the number and stop, ask for the start date, then send the paperwork before the call ends. If the assumptive does not land, the harder forms are <i>"I have the agreement open on my screen, spell your LLC name for me"</i> and <i>"start Monday, or wait 8 weeks and start cold, which one?"</i>',
+    steps:[
+     {l:'Get them to agree to the plan before you name the number', say:'How do you feel about this being the route? You think it is the best way to go?',
+      clips:[{c:'jayce',t:'6:10',e:'7:05',m:'Agreement first',ti:'Asking for the yes on the plan, not the price',
+        w:'"How do you guys feel still about the pay per click campaign? You think it is the best route to go down?" <b>He asks for agreement on the direction four minutes before the number comes up.</b> Once a prospect has said out loud that this is the right plan, price is a detail to solve, not a decision to make.'}]},
+
+     {l:'Say the number, then stop talking', say:'We typically charge a thousand for that. But if you are taking all three, I will do 50% off on it.',
+      clips:[{c:'summit',t:'45:18',e:'46:50',m:'Price, then silence',ti:'The prospect asks what it costs, and never objects to the answer',
+        w:'He teases the bundle, and Michael asks for it: <b>"I mean, what are you thinking?"</b> So he names the full price first, <b>"our receptionist, we typically charge like a thousand,"</b> then ties the cut to taking everything: <b>"but if you are getting both ad campaigns, I will give you 50% off on the receptionist to implement all three."</b> Then he stops.<br><br>Listen to what Michael says next. Not "that is a lot," not "let me think." He asks <b>"so there is no initial startup cost?"</b> <b>A logistics question means the price was accepted.</b><br><br><b style="color:#fca5a5">Old products.</b> This call predates the Meta partnership ending. Run the structure, not the lineup.'}]},
+
+     {l:'Then ask for the start, and make it today', say:'If you want those jobs coming in by Monday, let us get started today.',
+      clips:[{c:'ziebart',t:'45:41',e:'46:40',m:'Going for the close',ti:'Asking for the business, twice, with a reason attached',
+        w:'<b>"If you guys have questions or concerns about it I would love to hear them, but we can get you set up today."</b> He invites the objection and asks for the business in the same breath. Then he closes the gap on waiting: "if we get you onboarded within a week, we are bringing in the same amount of jobs they were bringing you before we are even optimized." Then he asks again, with a deadline that belongs to the prospect, not to us: <b>"I recommend, if you want to get these jobs in by Monday, let us get started today."</b><br><br><b>The urgency is his calendar, not our discount.</b> This one closed.'}]},
+
+     {l:'Then send it while you are still on the call', say:'Only two things left, send your COI and we go live Friday. Best email?',
+      clips:[
+       {c:'jayce',t:'20:56',e:'21:50',m:'Assumptive',ti:'No question about whether, only where to send it',
+        w:'<b>"I\u2019ll send it over real quick. Tell me the email you want me to send this over to?"</b> There is no "does that sound good," no "do you want to think about it." The only thing left on the table is an email address. <b>Current pricing, real upsell, closed.</b>'},
+       {c:'summit',t:'52:09',e:'53:40',m:'Assumptive',ti:'The price, then the ask, then the link, with nothing in between',
+        w:'He lays the whole number out flat, no hedging and no apology: <b>"We\u2019re looking at $1,500 up front, that\u2019s it, to get it all up and running. Then after that you\u2019re just paying based on performance, and then you\u2019re paying for the receptionist to automate out and book you in."</b><br><br>Twenty seven seconds later: <b>"All right, I mean, I can send it. You ready?"</b> "Yes sir." Then the Square link goes out while they are still talking.<br><br><b>Watch what is not in between those two lines.</b> No "does that work for you," no re-selling the value, no waiting to see how he reacts to the number. He states the price, lets it sit, and moves straight to sending the paperwork.'}]}
+    ]},
+
+ 6:{name:'Objections', h:'Isolate before you answer', slide:9,
+    look:'Every clip here is a real objection a buyer actually said out loud, and the exact words that came back. Isolate it, confirm it is the only one, then swing once. Answering the first thing they say is how you end up swinging five times.',
+    steps:[
+     {l:'"What\u2019s the guarantee? What if we don\u2019t see results?"', say:'That is a theoretical, and I like to go off averages. That has quite literally never happened. And if it ever did: after your first month, if you have not made back more than you put in, we work for free until you do.',
+      clips:[{c:'ziebart',t:'46:45',e:'48:00',m:'Refuse the hypothetical',ti:'The cleanest objection overcome on this page',
+        w:'Rodney asks it straight: <b>"What is the guarantee that we are going to see the results you are saying? What if we don\u2019t?"</b><br><br>He does not promise anything and he does not get defensive. He names the question for what it is: <b>"That is a theoretical. We have quite literally never had a company. That has never happened. I like to go off averages. We have 45 companies, they are all making profit, they have all stayed with us."</b> Then he swaps the hypothetical for the real comparison: <b>"that is a negative theoretical that is not realistic. What is realistic is you are bringing in 13 leads a month, and we have 45 companies bringing in 10 to 15 jobs a week."</b><br><br>Then, immediately, back to the close: "if you want these jobs in by Monday, let us get started today." <b>Answer it once, then ask again in the same breath.</b><br><br><b style="color:#fff;">Since October 2026 there is a second beat available here.</b> If the theoretical answer is not enough, you can now add: <i>after your first month, if you have not made back more than you put in, we work for free until you do.</i><br><br><b>Run it in that order and never the other way round.</b> The answer above is what makes the guarantee land, because you have already told him it has never happened. Lead with the guarantee instead and you have told him it is a real risk, then offered to cover it.'}]},
+
+     {l:'"I don\u2019t want AI. I refuse to do that."', say:'Really? What is it about AI that you don\u2019t like?',
+      clips:[
+       {c:'summit',t:'15:26',e:'16:40',m:'Answer with a question',ti:'A flat refusal, met with curiosity instead of a rebuttal',
+        w:'<b>"But I don\u2019t want AI. I do not want AI. I refuse to do that."</b> About as hard a no as you will hear. He does not argue and he does not drop it. He asks why, and lets the real reason come out. <b>You cannot handle an objection you have not heard the reason for.</b>'},
+       {c:'summit',t:'20:14',e:'22:10',m:'Then reframe it',ti:'The same product, sold as something else entirely',
+        w:'Five minutes later Michael softens on his own: <b>"I think I\u2019d be okay with a mix, 50-50. I don\u2019t want the salesperson overwhelmed with basic stuff, that can go to the AI receptionist."</b> That is the opening, and he takes it with a different job for the product: <b>"We could flip it, where it is almost like a gatekeeper. The AI answers the phone and qualifies them first."</b> Same product he already refused, now doing a job he wants done. <b>He did not overcome the objection, he made it irrelevant.</b>'}]},
+
+     {l:'"Let me hear it." So he dials it, live, on the call', say:'Yeah, let us hope it is active right now.',
+      clips:[{c:'summit',t:'39:55',e:'43:00',m:'Demo, do not debate',ti:'He stress-tests his own product in front of the buyer',
+        w:'Track the arc. At <b>15:26</b> this same man said <i>"I do not want AI, I refuse to do that."</i> Twenty five minutes later <b>he</b> asks: <i>"let me hear the AI receptionist."</i><br><br>So Grant calls it. <b>"You have Matrix Mobile Details, how can I help you today?"</b> He plays the customer, books an Audi, mentions his friend threw up in the back seat. Then he does the thing most closers would never risk: <b>he throws a price objection at his own product on purpose.</b> <i>"I think that pricing is a little too much for me there."</i><br><br>The AI holds: it explains the extra time and products the mess needs, offers to text the breakdown, and asks if that helps or if he wants to hold off. Grant lets it finish, then narrates what the buyer just heard: <b>"even if I give it a price objection it knows how to answer that. It does not back down."</b> And it upsells ceramics at the end of the call.<br><br>Michael\u2019s entire response: <b>"Dang."</b><br><br><b>He did not describe the product. He ran it, and he picked the hardest test he had.</b> This is the single highest leverage three minutes in the library.'}]},
+
+     {l:'"This sounds too good to be true."', say:'I can make it more expensive if you want me to.',
+      clips:[{c:'beastly',t:'29:30',e:'30:30',m:'Agree and joke',ti:'Skepticism defused without a single defensive word',
+        w:'Davis says it twice, and adds <i>"I feel like I should be questioning it."</i> Reply: <b>"I can make it more expensive if you want me to."</b> The suspicion is treated as a compliment instead of a threat, and it dies there. <b>Timing is everything on this line. It only works once they have already seen the numbers.</b>'}]},
+
+     {l:'"It won\u2019t work in my area."', say:'I do not sign anyone up if we cannot bring them results, because I do research before our calls.',
+      clips:[{c:'ziebart',t:'15:30',e:'17:10',m:'Agree, then use it',ti:'"Demographics mean everything" answered without backing down',
+        w:'You hear Rodney raise it first: <b>"So what area was that? Where demographics mean everything."</b> He agrees completely, then turns it into proof of standards: <b>"I completely agree, it does vary place to place. That is also why I don\u2019t sign anyone up if we can\u2019t bring them results. I do research before our calls."</b> Clients in Minnesota, clients in Hawaii, and we called you because you can compete here. <b>Concede the point, keep the sale.</b>'}]}
+    ],
+    counter:{c:'beastly',t:'22:56',e:'24:30',m:'Skipped Isolate entirely',ti:'A money objection financed instead of isolated',
+      w:'Davis says it plainly first: <b>"$750 is still... I just can\u2019t spend that right now, I have to pay $500 in a couple of days and I have to pay for gas."</b> He was on a payment plan within one turn. <b>Two minutes earlier Davis had already said part of it was trust, not money.</b> One "other than the money, is there anything else?" would have found it. Financing answered the wrong objection.'},
+    more:[
+     {c:'ziebart',t:'13:50',e:'15:40',m:'The walkthrough',ti:'Running the actual presentation, screen shared',
+      w:'Not objection handling, this is the demo itself. He pulls up a real client report, 24,809 impressions and 135 leads against Rodney\u2019s 3,781 and 13. <b>Use this as the example of how to run the presentation.</b>'},
+     {c:'jayce',t:'22:34',e:'25:30',m:'Hold the position',ti:'Talking a client out of what he just asked for',
+      w:'Jayce wants a booking gap so nobody can book same day. Grant does the math instead: <b>"$333 a day is 10K months."</b> Then: <b>"I am always going to tell you what is going to best fit your company, not what is going to best make you comfortable."</b> Then he sets it up anyway, on Jayce\u2019s rules.'},
+     {c:'beastly',t:'30:32',e:'31:50',m:'Pre-empt',ti:'The ad budget objection, answered before it was raised',
+      w:'Their Google account, their card, their app, our flat fee either way. Say it before they think to ask.'},
+     {c:'summit2',t:'3:34',e:'4:40',m:'Hold the number',ti:'Asked to cut the rate a second time',
+      w:'He restated the undiscounted number instead of negotiating against himself, and the prospect talked himself back to the original deal.'},
+     {c:'summit2',t:'5:11',e:'6:50',m:'Refuse honestly',ti:'Saying no to a guarantee he could not back',
+      w:'Michael asks twice: <b>"Can you guarantee three to four? I know it is not giving money back, but can you guarantee three to four?"</b> Answer: <b>"We don\u2019t do guarantees, because it is going to fluctuate from place to place. But based on our averages you will be seeing three to four ceramics a week."</b> He said no to a promise he could not keep, gave the real number instead, and kept the deal.<br><br><b style="color:#fca5a5">Policy has changed.</b> As of October 2026 we do have one: if they have not made back more than they put in after month one, we work for free until they do. <b>Study the refusal technique here, not the words.</b> Never promise a specific job count, which is what Michael was fishing for and what still cannot be promised.'}]},
+
+ 7:{name:'Commitment', h:'Never end with "I’ll reach out"', slide:13,
+    look:'Every call ends one of three ways. Closed today, a booked next step with a date and time on the calendar <i>now</i>, or a future-dated firm follow-up they agreed to. If you cannot name which one it was, the call ended the fourth way, which is no way at all.',
+    steps:[
+     {l:'1 · Closed today', say:'You sign, then I send the payment plan, then I send the invoice.',
+      clips:[{c:'summit2',t:'24:52',e:'26:10',m:'Closed today',ti:'The commitment as a numbered chain',
+        w:'"So I sent you over the agreement forms, look through those, get those signed, and then once you do that..." He knows the order, the timing, and who owns each step. <b>Nothing is left to "I’ll be in touch."</b>'}]},
+
+     {l:'2 · They did not close, so you do not hang up without a time', say:'So let’s get that call. What’s the latest you can do tomorrow?',
+      clips:[
+       {c:'ziebart',t:'58:18',e:'60:18',m:'Booked next step',ti:'The save. A brush-off turned into a calendar slot in ninety seconds',
+        w:'Rodney gives the softest no in sales: <b>"It is definitely intriguing, I said I was about a seven, I am probably about seven, eight. So we will be getting back in touch with you."</b> Then <b>"let us double back and talk to our team."</b> That is where most calls die, and it does not sound like dying.<br><br>Grant does not accept it. <b>"So let’s get that call. I can give you guys a call tomorrow. What is the latest you can do a call?"</b> Then he removes every reason to say no: <b>"I hopped on a call at 4am out here. I’ll hop on a call when you need me on a call."</b> Rodney offers 5:15 Central around their closing time, and Grant takes it and moves it earlier to make it easier on them.<br><br><b>They did not buy on this call. He still left with a time.</b> That deal closed.'},
+       {c:'beastly',t:'44:02',e:'45:20',m:'Booked next step',ti:'Same move when the payment rail fails',
+        w:'The financing would not go through, so the money could not land that day. Same time tomorrow, personal cell number, and the intake form sent so the build starts before the payment clears. <b>When something blocks the close, book the next time before you deal with the block.</b>'}]},
+
+     {l:'3 · Future-dated, and give them a reason to want it', say:'Let’s circle back in two weeks. Here is what you spent, here is what you made.',
+      clips:[{c:'lives',t:'55:21',e:'56:30',m:'Future-dated follow-up',ti:'The model to copy once they have bought',
+        w:'A date, a stated purpose, and a reason the prospect <b>wants</b> the meeting instead of tolerating it. Not "I’ll check in," but "here is your ROI, here is what you spent, here is what you made, let us break it down."'}]}
+    ]}
+};
+
+const sec=s=>s.split(':').reduce((a,b)=>a*60+(+b),0);
+const q=new URLSearchParams(location.search);
+let n=parseInt(q.get('p'),10); if(!(n>=1&&n<=7)) n=1;
+const ph=P[n];
+
+const back='index.html?slide='+ph.slide;
+document.getElementById('doneTop').href=back;
+document.getElementById('doneBot').href=back;
+document.getElementById('kick').textContent='Watch · Phase '+n+' · '+ph.name;
+document.getElementById('h1').innerHTML='Phase '+n+' <span class="gold">'+ph.name+'</span>';
+document.getElementById('lead').textContent=ph.h;
+document.getElementById('look').innerHTML=ph.look;
+document.getElementById('barPh').textContent='Phase '+n+' · '+ph.name;
+document.getElementById('donesub').textContent='Takes you straight back to Phase '+n+' in the playbook.';
+document.title='Watch Phase '+n+' · '+ph.name+' · Rapid Reach';
+
+function card(c){
+  const r=C[c.c];
+  return '<a class="clip'+(c.ce?' ce':'')+'" target="_blank" rel="noopener" '+
+   'href="https://fathom.video/share/'+r.id+'?timestamp='+sec(c.t)+'">'+
+   '<div class="ctop"><div class="pmark">▶</div>'+
+     '<div class="ctitle">'+c.ti+'</div>'+
+     '<div class="crange"><b>'+c.t+' – '+c.e+'</b><span>'+Math.round(sec(c.e)-sec(c.t))+' sec</span></div>'+
+   '</div><div class="cwatch">'+c.w+'</div>'+
+   '<div class="cmeta"><span class="move">'+c.m+'</span>'+
+     '<span class="tag">'+r.n+'</span><span class="tag">'+r.w+'</span>'+
+     '<span class="tag '+r.r+'">'+r.res+'</span></div></a>';
+}
+
+document.getElementById('steps').innerHTML=ph.steps.map((s,i)=>
+  '<div class="step"><div class="snum">'+(i+1)+'</div><div class="sbody">'+
+  '<div class="slabel">'+s.l+'</div>'+
+  (s.say?'<q class="ssay'+(s.plain?' plain':'')+'">'+s.say+'</q>':'')+
+  (s.clips.length?'':'<p class="saynote">Say it, get the "sound fair", move straight into step 2.</p>')+
+  '</div></div>'+s.clips.map(card).join('')
+).join('');
+
+document.getElementById('counter').innerHTML = ph.counter
+ ? '<div class="ohead"><b>One way this goes wrong</b><span>so you can hear the difference</span></div>'+
+   card(Object.assign({ce:1},ph.counter))
+ : '';
+
+document.getElementById('extras').innerHTML = ph.more
+ ? '<details class="more"><summary>'+ph.more.length+' more clips from this phase</summary>'+
+   '<div class="inner">'+ph.more.map(card).join('')+'</div></details>'
+ : '';
+
+document.getElementById('fnav').innerHTML=
+  (n>1 ?'<a class="pn" href="clip.html?p='+(n-1)+'"><s>&larr; Previous</s><b>Phase '+(n-1)+' · '+P[n-1].name+'</b></a>'
+       :'<span class="pn dim"><s>&larr; Previous</s><b>Start of the call</b></span>')+
+  (n<7 ?'<a class="pn" href="clip.html?p='+(n+1)+'" style="text-align:right;"><s>Next &rarr;</s><b>Phase '+(n+1)+' · '+P[n+1].name+'</b></a>'
+       :'<span class="pn dim" style="text-align:right;"><s>Next &rarr;</s><b>End of the call</b></span>');
+</script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Closers &middot; Killing No-Shows &middot; Rapid Reach</title>
+<meta name="theme-color" content="#020817" />
+<meta name="description" content="The five moves a closer makes to turn a booked call into a call that shows." />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Rapid Reach Sales Training" />
+<meta property="og:url" content="closer-slides.html" />
+<meta property="og:title" content="Killing No-Shows: Closers" />
+<meta property="og:description" content="The five moves a closer makes to turn a booked call into a call that shows." />
+<meta property="og:image" content="og.png" />
+<meta property="og:image:width" content="2400" />
+<meta property="og:image:height" content="1260" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Killing No-Shows: Closers" />
+<meta name="twitter:description" content="The five moves a closer makes to turn a booked call into a call that shows." />
+<meta name="twitter:image" content="og.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#020817; --bg2:#01030a; --card:#0b1322; --card2:#101c33;
+    --border:#1e293b; --border2:#27364b; --text:#f8fafc; --muted:#94a3b8; --muted2:#64748b;
+    --gold:#f59e0b; --gold2:#eab308; --green:#34d399; --red:#f87171;
+    --grad:linear-gradient(135deg,#f59e0b,#eab308);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{height:100%;}
+  body{font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);
+    -webkit-font-smoothing:antialiased;line-height:1.5;overflow:hidden;}
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:radial-gradient(1000px 600px at 85% -10%,rgba(245,158,11,.11),transparent 60%),
+               radial-gradient(800px 600px at 0% 110%,rgba(234,179,8,.07),transparent 60%),
+               linear-gradient(180deg,var(--bg),var(--bg2));}
+
+  .scroller{position:relative;z-index:1;height:100%;overflow-y:auto;scroll-snap-type:y mandatory;scroll-behavior:smooth;}
+  .slide{min-height:100%;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:center;
+    max-width:1000px;margin:0 auto;padding:68px 30px 92px;}
+
+  .kicker{font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:13px;}
+  h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(38px,7.5vw,82px);font-weight:900;letter-spacing:-.02em;line-height:1;}
+  h2{font-size:clamp(26px,4.4vw,46px);font-weight:900;letter-spacing:-.02em;line-height:1.08;}
+  .gold{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .lead{color:var(--muted);font-size:clamp(15px,2.1vw,19px);margin-top:16px;max-width:780px;}
+  p{color:#cbd5e1;font-size:16px;}
+  .note{color:var(--muted2);font-size:13.5px;margin-top:16px;}
+
+  .rows{display:flex;flex-direction:column;gap:11px;margin-top:26px;}
+  .row{display:flex;gap:15px;align-items:flex-start;background:linear-gradient(180deg,var(--card),var(--card2));
+    border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:13px;padding:16px 19px;}
+  .num{flex:0 0 auto;width:29px;height:29px;border-radius:9px;background:var(--grad);color:#0f172a;
+    font-weight:900;font-size:14px;display:flex;align-items:center;justify-content:center;}
+  .qt{font-size:17px;font-weight:800;color:#fff;line-height:1.35;}
+  .qs{color:var(--muted);font-size:14.5px;margin-top:5px;}
+
+  .say{background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.26);border-radius:13px;padding:18px 21px;margin-top:22px;}
+  .say .lbl{font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+  .say q{display:block;color:#fff;font-size:clamp(17px,2.5vw,23px);font-style:italic;font-weight:600;line-height:1.45;}
+  .say q:before,.say q:after{content:'"';}
+
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:13px;margin-top:24px;}
+  .stat{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--border);border-radius:13px;padding:18px 19px;}
+  .stat b{display:block;font-family:'Playfair Display',serif;font-size:clamp(28px,4.4vw,44px);font-weight:900;line-height:1;
+    background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .stat span{display:block;color:var(--muted);font-size:13.5px;margin-top:8px;}
+  .stat.bad b{background:linear-gradient(135deg,#f87171,#ef4444);-webkit-background-clip:text;background-clip:text;}
+  .stat.good b{background:linear-gradient(135deg,#34d399,#10b981);-webkit-background-clip:text;background-clip:text;}
+
+  table{width:100%;border-collapse:collapse;margin-top:24px;font-size:16px;}
+  th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--border);}
+  th{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);}
+  td.n{text-align:right;font-variant-numeric:tabular-nums;font-weight:800;}
+  .dn{color:var(--red);} .up{color:var(--green);}
+
+  .why{background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.22);border-radius:13px;padding:17px 20px;margin-top:22px;}
+  .why .lbl{font-size:10.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:7px;}
+  .why p{color:#e2e8f0;font-size:15.5px;}
+
+  .seq{display:flex;flex-direction:column;gap:10px;margin-top:24px;}
+  .step{display:flex;gap:14px;align-items:center;background:linear-gradient(180deg,var(--card),var(--card2));
+    border:1px solid var(--border);border-radius:12px;padding:14px 18px;}
+  .when{flex:0 0 auto;min-width:118px;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);}
+  .what{font-size:15.5px;color:#e2e8f0;}
+  .what b{color:#fff;}
+
+  .check{list-style:none;margin-top:22px;}
+  .check li{font-size:16px;color:#e2e8f0;padding:9px 0 9px 32px;position:relative;border-bottom:1px solid var(--border);}
+  .check li:before{content:"\2713";position:absolute;left:4px;top:9px;color:var(--gold);font-weight:900;}
+  .check li b{color:#fff;}
+
+  .big{font-family:'Playfair Display',serif;font-size:clamp(28px,5.2vw,56px);font-weight:900;line-height:1.08;margin-top:8px;}
+
+  .bar{position:fixed;left:0;right:0;bottom:0;z-index:30;backdrop-filter:blur(14px);
+    background:rgba(2,8,23,.9);border-top:1px solid var(--border);}
+  .bar-in{max-width:1000px;margin:0 auto;padding:11px 30px;display:flex;align-items:center;gap:10px;}
+  .nb{background:transparent;border:1px solid var(--border2);color:var(--muted);border-radius:10px;width:38px;height:36px;font-size:15px;cursor:pointer;}
+  .nb:hover{border-color:var(--gold);color:var(--gold);}
+  .count{margin-left:auto;font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--muted2);font-variant-numeric:tabular-nums;}
+  .prog{position:fixed;top:0;left:0;height:3px;background:var(--grad);z-index:40;width:0;transition:width .25s ease;}
+  .brand{position:fixed;top:19px;left:30px;z-index:30;font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--muted2);}
+  @media(max-width:620px){ .slide{padding:62px 18px 92px;} .bar-in{padding:10px 18px;} .brand{left:18px;} .when{min-width:92px;font-size:11px;} }
+</style>
+</head>
+<body>
+
+<div class="prog" id="prog"></div>
+<div class="brand"><a href="./" style="color:inherit;text-decoration:none;">&larr; Rapid Reach &middot; Closer Training</a></div>
+
+<div class="scroller" id="scroller">
+
+  <section class="slide">
+    <div class="kicker">Rapid Reach &middot; Closer Training</div>
+    <h1>Killing No-Shows<br><span class="gold">On Your Side</span></h1>
+    <p class="lead">The setter earned you the call. From the second it hits your calendar it is yours, and it stays yours even after they do not turn up.</p>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Start here</div>
+    <h2>A no-show is not a dead lead.<br>It is a lead you <span class="gold">have not reached yet.</span></h2>
+    <p class="lead">Most closers treat 2:05 as the end of the call. They sit on the Zoom for ten minutes, close the tab and mark it no-show. That booking cost a setter days of dialing, and it just got written off in ten minutes of silence.</p>
+    <div class="why"><div class="lbl">The job</div><p>Your job is not to attend the call. <b>It is to make the call happen.</b> Everything here is either making them want to be there before the time, or going and getting them after it.</p></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">The process</div>
+    <h2>Five moves, every booking</h2>
+    <div class="rows">
+      <div class="row"><div class="num">1</div><div><div class="qt">The second it books, send a selfie and a text</div><div class="qs">Before the day of. The moment it lands on your calendar.</div></div></div>
+      <div class="row"><div class="num">2</div><div><div class="qt">Five minutes past, call them</div><div class="qs">Do not sit on the Zoom waiting. Pick up the phone.</div></div></div>
+      <div class="row"><div class="num">3</div><div><div class="qt">No answer, call again</div><div class="qs">Always twice. Never once.</div></div></div>
+      <div class="row"><div class="num">4</div><div><div class="qt">Still no answer, leave a voicemail</div><div class="qs">Every time, no exceptions.</div></div></div>
+      <div class="row"><div class="num">5</div><div><div class="qt">Then the text that re-books it</div><div class="qs">The audit is built. That is your reason to be in their phone.</div></div></div>
+    </div>
+    <p class="note">One happens before. Two through five all happen inside about four minutes of each other.</p>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Move 1 &middot; The second it books</div>
+    <h2>Send a selfie, then the text</h2>
+    <p class="lead">Not on the day. The moment the booking hits your calendar. Take a normal photo of yourself, nothing staged, and send it with this.</p>
+    <div class="say"><div class="lbl">Word for word</div><q>Hey John, see that we have a scheduled call. Doing some research on your company and your competition now. Looking forward to our call. Speak here soon</q></div>
+    <div class="why"><div class="lbl">Why the selfie, and not just a text</div><p>They booked a call with a company. Now they have a face. <b>It is a lot harder to blow off a person than a calendar invite</b>, and a photo gets opened when a block of text gets ignored.<br><br>Then the words do the second job. <b>"Doing some research on your company and your competition now"</b> tells them work has already started on their behalf. Not showing up now costs somebody effort, and people do not like that.</p></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Move 2 &middot; Five minutes past</div>
+    <h2>Do not sit on the Zoom. <span class="gold">Call them.</span></h2>
+    <p class="lead">Five minutes past the start time, pick up the phone. Not at ten past, not at fifteen. Five.</p>
+    <div class="say"><div class="lbl">Word for word</div><q>Hey John, I'm hopping on our call now to go over your free audit. Is now still a good time for you?</q></div>
+    <div class="why"><div class="lbl">Read what that line is doing</div><p>It assumes the call is happening. You are not asking whether they forgot or whether they still want to, you are telling them you are on it right now and checking the timing.<br><br>And <b>"your free audit"</b> is in there on purpose. It is already built, it is theirs, and it is sitting there. That is a very different call to receive than "hey, you missed our meeting."</p></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Move 3 &middot; No answer</div>
+    <h2>Always call <span class="gold">twice</span></h2>
+    <p class="lead">One missed call is a stranger. Two in a row is somebody who actually needs to reach you, and that is when people pick up.</p>
+    <div class="why"><div class="lbl">Think about your own phone</div><p>You ignore one unknown number without a thought. When the same number rings straight back, you look at it. <b>Nothing else about you changed. Only that you called twice.</b><br><br>Most closers call once, get nothing, and decide the person is dodging them. They were in a driveway with wet hands.</p></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Move 4 &middot; Still nothing</div>
+    <h2>Leave the voicemail. <span class="gold">Every time.</span></h2>
+    <p class="lead">Short, warm, and about the audit, not about them missing it.</p>
+    <div class="say"><div class="lbl">Roughly this</div><q>Hey John, Grant with Rapid Reach. Just hopping on our call and I have got your audit built out here. Give me a ring back when you get a sec and we will get through it.</q></div>
+    <div class="why"><div class="lbl">Why it is not optional</div><p>If you will not leave a message, you are telling them the call was not worth one. <b>A missed ring is nothing. A voice they recognise is a reason to pick up next time.</b><br><br>Never make them feel caught out. No "you missed our call." Nobody books a second meeting with someone who made them feel bad about the first.</p></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Move 5 &middot; Then re-book it</div>
+    <h2>The text that gets it back</h2>
+    <div class="say"><div class="lbl">Word for word</div><q>Hey John, was looking forward to our call. I have your free audit built out. When are you available for 15 minutes to go over this?</q></div>
+    <div class="why"><div class="lbl">Three things that line does</div><p><b>"Was looking forward to our call."</b> Disappointed, not annoyed. They owe you nothing and you are not making them feel like they do.<br><br><b>"I have your free audit built out."</b> The work exists. It is finished, it is theirs, and right now it is going to waste.<br><br><b>"When are you available for 15 minutes?"</b> Not thirty. Fifteen is easy to say yes to, and the call runs as long as it runs once you are on it.</p></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">After that</div>
+    <h2>Then you keep going</h2>
+    <p class="lead">Move five is not the end of it. It is the first attempt at getting it back.</p>
+    <div class="why"><div class="lbl">The standard</div><p>Same as it is for the setters. <b>You chase it until they show or until they tell you no.</b> Not until it feels awkward. Not until the fourth attempt.<br><br>A booked call that no-showed is still the warmest lead you have all week. They raised their hand, they gave a setter their problem, and they agreed to a time. <b>None of that stopped being true because they were busy at two o'clock.</b></p></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">The whole thing</div>
+    <h2>Every booking, every time</h2>
+    <ul class="check">
+      <li>Selfie and text sent <b>the moment it booked</b>, not on the day</li>
+      <li>That text said I am <b>already researching their company and their competition</b></li>
+      <li>At <b>five minutes past</b> I called, I did not sit on the Zoom</li>
+      <li>I asked <b>"is now still a good time"</b>, not "did you forget"</li>
+      <li>I called a <b>second time</b></li>
+      <li>I left a <b>voicemail</b>, and it was about the audit, not about them missing it</li>
+      <li>I sent the re-book text with <b>"I have your free audit built out"</b></li>
+      <li>I will keep going <b>until they show or until they tell me no</b></li>
+    </ul>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">The one line</div>
+    <h1 style="font-size:clamp(30px,6vw,62px);">Two o'clock is not<br>the <span class="gold">deadline.</span></h1>
+    <p class="lead" style="margin-top:22px;">It is just the time you agreed on. The lead is still warm at 2:05, at 2:30, and tomorrow morning. The only closers who lose those calls are the ones who decided they were lost.</p>
+    <div class="big gold" style="margin-top:28px;">Go get them.</div>
+  </section>
+
+</div>
+
+<div class="bar"><div class="bar-in">
+  <button class="nb" onclick="go(idx-1)" title="Back">&uarr;</button>
+  <button class="nb" onclick="go(idx+1)" title="Next">&darr;</button>
+  <div class="count" id="count"></div>
+</div></div>
+
+<script>
+  const scroller=document.getElementById('scroller');
+  const slides=[...document.querySelectorAll('.slide')];
+  const tot=slides.length; let idx=0;
+  const count=document.getElementById('count'), prog=document.getElementById('prog');
+  const io=new IntersectionObserver(es=>{
+    es.forEach(e=>{ if(e.isIntersecting){ idx=slides.indexOf(e.target);
+      count.textContent=String(idx+1).padStart(2,'0')+' / '+String(tot).padStart(2,'0');
+      prog.style.width=((idx+1)/tot*100)+'%'; }});
+  },{root:scroller,threshold:.55});
+  slides.forEach(s=>io.observe(s));
+  function go(n){ n=Math.max(0,Math.min(tot-1,n)); slides[n].scrollIntoView({behavior:'smooth'}); }
+  addEventListener('keydown',e=>{
+    if(['ArrowDown','PageDown',' ','ArrowRight'].includes(e.key)){e.preventDefault();go(idx+1);}
+    if(['ArrowUp','PageUp','ArrowLeft'].includes(e.key)){e.preventDefault();go(idx-1);}
+    if(e.key==='Home')go(0); if(e.key==='End')go(tot-1);
+  });
+</script>
+<style>
+  .hubback{position:fixed;right:14px;top:14px;z-index:9999;display:inline-flex;align-items:center;gap:7px;
+    font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:12.5px;font-weight:800;
+    letter-spacing:.04em;text-decoration:none;color:#cbd5e1;background:rgba(15,22,41,.92);
+    border:1px solid rgba(148,163,184,.38);border-radius:999px;padding:9px 15px;
+    white-space:nowrap;max-width:calc(100vw - 28px);
+    backdrop-filter:blur(6px);box-shadow:0 4px 18px rgba(0,0,0,.35);}
+  @media(max-width:620px){ .hubback{font-size:11px;padding:7px 12px;right:10px;top:10px;} }
+  .hubback:hover{color:#fff;border-color:#8a8f9c;}
+  @media print{.hubback{display:none;}}
+</style>
+<a class="hubback" href="../">&larr; Back to the training hub</a>
+</body>
+</html>
