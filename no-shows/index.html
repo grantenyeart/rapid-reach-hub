@@ -43,6 +43,12 @@
   .vid{position:relative;width:100%;padding-top:56.25%;margin:30px 0 8px;border-radius:16px;overflow:hidden;
     border:1px solid var(--border2);background:#000;box-shadow:0 22px 70px rgba(0,0,0,.5);}
   .vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .vid.file{padding-top:0;}
+  .vid.file video{display:block;width:100%;height:auto;}
+  .covers a.ts{display:inline-block;font-variant-numeric:tabular-nums;font-weight:800;font-size:12.5px;
+    color:var(--gold);text-decoration:none;cursor:pointer;border:1px solid rgba(245,158,11,.32);
+    border-radius:6px;padding:1px 7px;margin-right:8px;vertical-align:1px;}
+  .covers a.ts:hover{background:rgba(245,158,11,.15);}
   .vcap{color:var(--muted2);font-size:13px;}
 
   .secn{display:flex;align-items:center;gap:13px;margin:44px 0 16px;padding-top:24px;border-top:1px solid var(--border);}
@@ -162,6 +168,31 @@
     </div>
   </div>
 
+  <div class="track">
+    <div class="th"><h2>After they do not show</h2><span class="who">Everyone</span></div>
+    <p>The call that gets it back, start to finish, real and unedited. This one had gone fourteen days cold and he still re-booked it inside three minutes.</p>
+    <div class="vid file">
+      <video id="fuvid" controls playsinline preload="metadata" poster="followup-poster.jpg">
+        <source src="followup.mp4" type="video/mp4">
+        Your browser cannot play this video. <a href="followup.mp4">Download it instead.</a>
+      </video>
+    </div>
+    <p class="vcap" style="margin-bottom:16px;">Grant's own warning in the first ten seconds: it should never get two weeks out. The five moves above are how you stop it getting here. This is what it looks like when it does anyway.</p>
+    <div class="covers">
+      <div class="lbl">What he does, in order &middot; tap a time to jump there</div>
+      <ol>
+        <li><a class="ts" data-t="45">0:45</a><b>No apology, no guilt.</b> <i>&quot;Does that ring a bell at all?&quot;</i> He never mentions that they missed it, never says sorry, never asks what happened. Two weeks of silence gets treated like it never happened, because making them explain themselves is how you lose the call a second time.</li>
+        <li><a class="ts" data-t="56">0:56</a><b>Re-confirm the need before you re-pitch anything.</b> <i>&quot;You can take on about 10 more details a week, correct?&quot;</i> He makes Dennis say the number out loud again. The reason to meet has to be alive before you go asking for a time.</li>
+        <li><a class="ts" data-t="65">1:05</a><b>The reason to show up, and it is already built.</b> <i>&quot;I actually built you out a free audit on your company.&quot;</i> The work is done whether he turns up or not. That turns the call from a pitch into a handover, and it is the strongest line in here.</li>
+        <li><a class="ts" data-t="91">1:31</a><b>Day first, then you narrow it.</b> Dennis says Wednesday, so he asks morning or evening rather than reading out slots. They pick the day, you pick the window, and the time ends up exact instead of vague.</li>
+        <li><a class="ts" data-t="112">1:52</a><b>Light scarcity, then check the clock.</b> <i>&quot;I got a lot of calls scheduled here, I want to make sure we get you in the calendar.&quot;</i> Then <i>&quot;what time is it currently for you?&quot;</i> Never book across a timezone you have not actually checked.</li>
+        <li><a class="ts" data-t="141">2:21</a><b>The reply YES, same as the setter track.</b> <i>&quot;I'm about to send you a confirmation text. Could you just respond yes so that you can get booked into the calendar?&quot;</i> This is not optional on a re-book. Somebody who already no-showed once needs the thumb print on it.</li>
+        <li><a class="ts" data-t="155">2:35</a><b>The zombie apocalypse question, word for word.</b> <i>&quot;Is there going to be anything that you could possibly see getting in the way so that you wouldn't be able to do this call here?&quot;</i> Asked after the time is locked, never before.</li>
+        <li><a class="ts" data-t="170">2:50</a><b>Personal number, and permission to move it.</b> <i>&quot;If anything does come up, just be like hey Grant, could we push it back an hour.&quot;</i> He hands over an easy out that is not a no-show. People ghost because rescheduling feels rude to them. Take that away and they text you instead of vanishing.</li>
+      </ol>
+    </div>
+  </div>
+
   <div class="why"><p><b>Why this one matters more than the rest of your training.</b> Every other skill you have only pays off if the prospect is actually on the call. A booked call that no-shows is not half a win, it is zero, and it cost everything it took to get it.</p></div>
 
   <div class="foot">Rapid Reach Advertising &middot; Sales Training. Questions on any of this, ask Grant.</div>
@@ -178,5 +209,19 @@
   @media print{.hubback{display:none;}}
 </style>
 <a class="hubback" href="../">&larr; Back to the training hub</a>
+<script>
+(function(){
+  var v=document.getElementById('fuvid');
+  if(!v) return;
+  document.querySelectorAll('.covers a.ts').forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      v.currentTime=parseFloat(a.dataset.t);
+      v.scrollIntoView({behavior:'smooth',block:'center'});
+      v.play().catch(function(){});
+    });
+  });
+})();
+</script>
 </body>
 </html>
