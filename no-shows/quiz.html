@@ -5,18 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>No-Show Training Quiz &middot; Rapid Reach</title>
 <meta name="theme-color" content="#020817" />
-<meta name="description" content="Fifteen questions. You need 12 to pass. Watch the training first." />
+<meta name="description" content="Seventeen questions. You need 14 to pass. Watch the training first." />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Rapid Reach Sales Training" />
 <meta property="og:url" content="quiz.html" />
 <meta property="og:title" content="No-Show Training Quiz: Setters" />
-<meta property="og:description" content="Fifteen questions. You need 12 to pass. Watch the training first." />
+<meta property="og:description" content="Seventeen questions. You need 14 to pass. Watch the training first." />
 <meta property="og:image" content="og.png" />
 <meta property="og:image:width" content="2400" />
 <meta property="og:image:height" content="1260" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="No-Show Training Quiz: Setters" />
-<meta name="twitter:description" content="Fifteen questions. You need 12 to pass. Watch the training first." />
+<meta name="twitter:description" content="Seventeen questions. You need 14 to pass. Watch the training first." />
 <meta name="twitter:image" content="og.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -100,7 +100,7 @@
 
   <!-- START -->
   <div class="stage on" id="st-start">
-    <p class="lead">Fifteen questions, one at a time. You need <b style="color:#fde68a">12 out of 15</b> to pass. Watch the training first. You get the answer and the reason after each one, so read them as you go.</p>
+    <p class="lead">Seventeen questions, one at a time. You need <b style="color:#fde68a">14 out of 17</b> to pass. Watch the training first. You get the answer and the reason after each one, so read them as you go.</p>
     <div class="who">
       <label>Your name</label>
       <input type="text" id="name" placeholder="First and last name" autocomplete="name" />
@@ -197,7 +197,21 @@ const Q = [
 
  {q:"What is the follow-up standard when someone does not show?",
   a:["Three attempts, then move on","Fifteen calls in three days if that is what it takes","One call and one text, then mark it dead","Leave it to the closer"],
-  c:1, e:"Be unreasonable. You dialed for days to get this person, got them talking about what keeps them up at night, and got it on a calendar. <b>Chase it until they show or until they tell you no.</b>"}
+  c:1, e:"Be unreasonable. You dialed for days to get this person, got them talking about what keeps them up at night, and got it on a calendar. <b>Chase it until they show or until they tell you no.</b>"},
+
+ {q:"On the follow-up call, what is the reason you give a no-show to get back on the calendar?",
+  a:["You apologise for the mix up and ask for another time",
+     "The free audit is already built, so the call is just you handing it over",
+     "You tell them you only have one slot left this week",
+     "You ask what went wrong, then reschedule from there"],
+  c:1, e:"<b>&quot;I actually built you out a free audit on your company.&quot;</b> The work exists whether they showed or not, which turns the call from a pitch into a handover. Nobody feels sold to for collecting something that is already sitting there with their name on it. Watch it at <b>1:05</b> in the follow-up demo."},
+
+ {q:"At the end of the re-book he hands over his personal number. What is that actually for?",
+  a:["So they can ask questions before the call",
+     "So they can text to move the time instead of just not showing up",
+     "So they have a way to reach support",
+     "So they feel like a priority client"],
+  c:1, e:"<b>&quot;If anything does come up, just be like hey Grant, could we push it back an hour.&quot;</b> People ghost because rescheduling feels rude to them, so they say nothing and disappear instead. Hand them an easy out that is not a no-show and they text you rather than vanish. <b>2:50</b> in the follow-up demo."}
 ];
 
 let i=0, score=0, picked=null, log=[];
@@ -256,14 +270,14 @@ document.getElementById('next').onclick=function(){
 function finish(){
   const name=document.getElementById('name').value.trim();
   const missed=log.filter(x=>!x.ok).map(x=>x.n);
-  const pass=score>=12;
+  const pass=score>=14;
   const r=document.getElementById('result');
   r.classList.add(pass?'pass':'fail');
   document.getElementById('score').textContent=score+' / '+Q.length;
   document.getElementById('verdict').textContent = pass ? 'Passed' : 'Not a pass yet';
   document.getElementById('rsub').textContent = pass
     ? (missed.length ? 'Read the ones you missed again below: '+missed.join(', ')+'.' : 'Perfect score. Go book some calls.')
-    : 'You need 12 to pass. Read the missed ones below, watch the training again, then retake it.';
+    : 'You need 14 to pass. Read the missed ones below, watch the training again, then retake it.';
 
   document.getElementById('review').innerHTML = missed.length
     ? '<h3 style="font-size:18px;font-weight:800;margin:26px 0 12px;">What you missed</h3>' +
