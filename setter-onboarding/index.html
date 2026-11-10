@@ -65,6 +65,8 @@
   .objrow .o{font-weight:700;color:#fff;font-size:15px;}
   .objrow .m{color:var(--muted);font-size:14.5px;line-height:1.4;}
   .objrow .m::before{content:"\2192  ";color:var(--gold);font-weight:800;}
+  .vid{ margin-top:10px; width:100%; max-width:min(780px, 80svh); aspect-ratio:16/9; border-radius:16px; overflow:hidden; border:1px solid var(--border); background:#000; box-shadow:0 14px 40px rgba(0,0,0,.45); }
+  .vid iframe{ display:block; width:100%; height:100%; border:0; }
   .talk{ margin-top:20px; background:rgba(245,158,11,.07); border:1px solid rgba(245,158,11,.22); border-radius:14px; padding:15px 18px; }
   .talk .lh{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:7px;}
   .talk p{color:#e2e8f0;font-size:14.5px;line-height:1.5;}
@@ -83,7 +85,7 @@
 </head>
 <body>
 <div class="progress" id="prog"></div>
-<div class="counter"><b id="cur">01</b> / <span id="tot">18</span></div>
+<div class="counter"><b id="cur">01</b> / <span id="tot">20</span></div>
 <div class="nav"><button id="up" aria-label="Previous">&uarr;</button><button id="down" aria-label="Next">&darr;</button></div>
 <div class="hint">swipe / scroll &middot; or use &uarr; &darr;</div>
 
@@ -119,6 +121,20 @@
       <div class="pill"><span class="dot">4</span> 100 fresh numbers are loaded in your power dialer every day, no scraping</div>
     </div>
     <div class="talk"><div class="lh">Talk track</div><p>You want more money? Set your own higher KPI. Your averages tell you exactly how many dials equal a paycheck. More dials, more money. Simple.</p></div>
+  </section>
+
+  <!-- 3b DAY IN THE LIFE -->
+  <section class="slide">
+    <div class="kicker">Watch This</div>
+    <h2 class="title">A day in the life here</h2>
+    <p class="lead" style="margin-bottom:4px;">Five minutes. The rhythm above, actually happening: where you log in, what the dialer looks like, and what you do with a booking once you get one.</p>
+    <div class="vid">
+      <iframe src="https://www.loom.com/embed/3bbeed53f3e3471da99824593e3a7045?hideEmbedTopBar=true"
+              title="Day in the Life at Rapid Reach"
+              allowfullscreen allow="fullscreen; picture-in-picture"
+              loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+    <div class="talk"><div class="lh">Why this matters</div><p>Watch it once tonight so tomorrow is not the first time you are seeing any of these screens. Nobody books a call while they are still hunting for the dialer.</p></div>
   </section>
 
   <!-- 4 CALL MAP -->
@@ -274,17 +290,6 @@
     <div class="talk"><div class="lh">A valid show</div><p>The call happened, the decision maker was on it, and the business fits who we serve. The closer marks it valid the same day in the Sales Closer CRM. A show marked invalid earns no show pay and does not count toward your minimum.</p></div>
   </section>
 
-  <!-- 16b WHAT IT ADDS UP TO -->
-  <section class="slide">
-    <div class="kicker">The Money</div>
-    <h2 class="title">What it actually adds up to</h2>
-    <p class="lead" style="margin-bottom:14px;">On PPC deals at $1,000 a month with a 43% close rate.</p>
-    <div class="obj">
-      <div class="objrow"><div class="o">At the minimum, 2 shows a week</div><div class="m">$650 base + $346 show pay + $745 commission = about <b style="color:#fde68a">$1,740 a month</b></div></div>
-      <div class="objrow"><div class="o">Strong, 4 shows a week</div><div class="m">$650 base + $693 show pay + $1,490 commission = about <b style="color:#fde68a">$2,830 a month</b></div></div>
-    </div>
-    <div class="talk"><div class="lh">Read that again</div><p>Most of it is base and show pay, not commission. That is the point: <b>you get paid for the work, not only for the close.</b> Book the calls, get them to show, and the money is there before anybody signs anything.</p></div>
-  </section>
 
   <!-- 16c YOUR CUT PER PRODUCT -->
   <section class="slide">
